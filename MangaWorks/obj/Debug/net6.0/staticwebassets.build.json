@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5kmiRt/OzoIJSyeBow6zxCPF515Qa7I7z0jYYlyjrMc=",
+  "Hash": "rVt89AO+RkrvO3U1L6e/QaNyq5GJhXg0in6217Xh3CQ=",
   "Source": "MangaWorks",
   "BasePath": "_content/MangaWorks",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\MangaWorks.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\wwwroot\\css\\bootswatchTheme.css",
+      "SourceId": "MangaWorks",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\wwwroot\\",
+      "BasePath": "_content/MangaWorks",
+      "RelativePath": "css/bootswatchTheme.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\bootswatchTheme.css"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\wwwroot\\css\\site.css",
