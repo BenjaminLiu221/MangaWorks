@@ -37,6 +37,7 @@ namespace MangaWorks.Controllers
             {
                 _dbContext.Genres.Add(genreObj);
                 _dbContext.SaveChanges();
+                TempData["success"] = "Genre created successfully";
                 return RedirectToAction("Index");
             }
             return View(genreObj);
@@ -70,6 +71,7 @@ namespace MangaWorks.Controllers
             {
                 _dbContext.Genres.Update(genreObj);
                 _dbContext.SaveChanges();
+                TempData["success"] = "Genre updated successfully";
                 return RedirectToAction("Index");
             }
             return View(genreObj);
@@ -102,6 +104,7 @@ namespace MangaWorks.Controllers
             }
             _dbContext.Genres.Remove(genreObj);
             _dbContext.SaveChanges();
+            TempData["success"] = "Genre deleted successfully";
             return RedirectToAction("Index");
         }
     }
