@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XjakjNFiyfg1w6zh98lMyBndPH7qxwgdg41EplKvv+zBAb/jzR62LURDMR3895Oszt0ol7AMR085FoeH5YlwQA==",
+  "dgSpecHash": "8mMYYCqLJHR1JNZF9MOID2h6UCEF/0wdMVZHphIQB9QZ/1CTmr2aZUXtOD8H+jBK3u5GIiis4IvsVo1I/KSXVw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\MangaWorks.csproj",
+  "projectFilePath": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\MangaWorksWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\benja\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\benja\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

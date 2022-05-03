@@ -9658,11 +9658,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\MangaWorks.csproj",
-      "projectName": "MangaWorks",
-      "projectPath": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\MangaWorks.csproj",
+      "projectUniqueName": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\MangaWorksWeb.csproj",
+      "projectName": "MangaWorksWeb",
+      "projectPath": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\MangaWorksWeb.csproj",
       "packagesPath": "C:\\Users\\benja\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorks\\obj\\",
+      "outputPath": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\benja\\AppData\\Roaming\\NuGet\\NuGet.Config",
