@@ -1,7 +1,7 @@
 ﻿using MangaWorks.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MangaWorks.Data
+namespace MangaWorks.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {

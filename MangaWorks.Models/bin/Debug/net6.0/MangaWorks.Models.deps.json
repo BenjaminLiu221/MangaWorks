@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MangaWorks.Models/1.0.0": {
+        "runtime": {
+          "MangaWorks.Models.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MangaWorks.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

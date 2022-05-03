@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace MangaWorks.Controllers
+namespace MangaWorksWeb.Controllers
 {
     public class HomeController : Controller
     {

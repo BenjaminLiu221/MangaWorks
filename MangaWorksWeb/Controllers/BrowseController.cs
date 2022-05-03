@@ -1,8 +1,8 @@
-﻿using MangaWorks.Data;
+﻿using MangaWorks.DataAccess;
 using MangaWorks.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace MangaWorks.Controllers
+namespace MangaWorksWeb.Controllers
 {
     public class BrowseController : Controller
     {

@@ -1,0 +1,12 @@
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\bin\Debug\net6.0\MangaWorks.Utility.deps.json
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\bin\Debug\net6.0\MangaWorks.Utility.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\bin\Debug\net6.0\MangaWorks.Utility.pdb
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.csproj.AssemblyReference.cache
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.AssemblyInfoInputs.cache
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.AssemblyInfo.cs
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.csproj.CoreCompileInputs.cache
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\refint\MangaWorks.Utility.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\MangaWorks.Utility.pdb
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Utility\obj\Debug\net6.0\ref\MangaWorks.Utility.dll
