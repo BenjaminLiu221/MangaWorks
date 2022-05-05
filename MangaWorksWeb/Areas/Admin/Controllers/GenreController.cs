@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace MangaWorksWeb.Controllers
 {
     [Area("Admin")]
-    public class BrowseController : Controller
+    public class GenreController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public BrowseController(IUnitOfWork unitOfWork)
+        public GenreController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

@@ -31,20 +31,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQXV0aG9yXFJlbW92ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXENyZWF0ZS5jc2h0bWw=
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Genre/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VucmVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXEVkaXQuY3NodG1s
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Genre/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VucmVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXEluZGV4LmNzaHRtbA==
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Genre/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VucmVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Remove.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXFJlbW92ZS5jc2h0bWw=
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Genre/Remove.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcR2VucmVcUmVtb3ZlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/_ViewImports.cshtml]
