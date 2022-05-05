@@ -15,8 +15,10 @@ namespace MangaWorks.DataAccess.Repository
         {
             _dbContext = dbContext;
             Genre = new GenreRepository(_dbContext);
+            Author = new AuthorRepository(_dbContext);
         }
         public IGenreRepository Genre { get; private set; }
+        public IAuthorRepository Author { get; set; }
         public void Save()
         {
             _dbContext.SaveChanges();
