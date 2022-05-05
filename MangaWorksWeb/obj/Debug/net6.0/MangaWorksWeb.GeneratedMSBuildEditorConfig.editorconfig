@@ -15,28 +15,44 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Browse/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXENyZWF0ZS5jc2h0bWw=
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Browse/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEVkaXQuY3NodG1s
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Browse/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXEluZGV4LmNzaHRtbA==
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Browse/Remove.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJvd3NlXFJlbW92ZS5jc2h0bWw=
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/Browse/Remove.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJvd3NlXFJlbW92ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/User/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/User/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXFByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/User/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/User/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Views/Shared/Error.cshtml]

@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 namespace MangaWorksWeb.Controllers
 {
+    [Area("User")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

@@ -3117,7 +3117,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.0"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.3"
         },
         "compile": {
           "bin/placeholder/MangaWorks.DataAccess.dll": {}

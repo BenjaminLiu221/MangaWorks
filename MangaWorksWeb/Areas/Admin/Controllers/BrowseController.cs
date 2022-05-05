@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MangaWorksWeb.Controllers
 {
+    [Area("Admin")]
     public class BrowseController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

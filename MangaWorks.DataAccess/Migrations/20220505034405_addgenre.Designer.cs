@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MangaWorks.Migrations
+namespace MangaWorks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220501232023_AddCategorytoDatabase")]
-    partial class AddCategorytoDatabase
+    [Migration("20220505034405_addgenre")]
+    partial class addgenre
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace MangaWorks.Migrations
+namespace MangaWorks.DataAccess.Migrations
 {
-    public partial class AddCategorytoDatabase : Migration
+    public partial class addgenre : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
