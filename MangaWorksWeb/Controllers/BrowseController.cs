@@ -7,15 +7,15 @@ namespace MangaWorksWeb.Controllers
 {
     public class BrowseController : Controller
     {
-        private readonly IGenreRepository _dbContext;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public BrowseController(IGenreRepository dbContext)
+        public BrowseController(IUnitOfWork unitOfWork)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
-            IEnumerable<Genre> objGenreList = _dbContext.GetAll();
+            IEnumerable<Genre> objGenreList = _unitOfWork.Genre.GetAll();
             return View(objGenreList);
         }
 
@@ -36,8 +36,8 @@ namespace MangaWorksWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _dbContext.Add(genreObj);
-                _dbContext.Save();
+                _unitOfWork.Genre.Add(genreObj);
+                _unitOfWork.Save();
                 TempData["success"] = "Genre created successfully";
                 return RedirectToAction("Index");
             }
@@ -52,11 +52,11 @@ namespace MangaWorksWeb.Controllers
                 return NotFound();
             }
             //var genreFromDb = _dbContext.Genres.Find(id);
-            var genreFromDbFirst = _dbContext.GetFirstOrDefault(a => a.Id == id);
+            var genreFromDbFirst = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
             if (genreFromDbFirst == null)
             {
                 return NotFound();
-            }
+            } 
             return View(genreFromDbFirst);
         }
 
@@ -71,8 +71,8 @@ namespace MangaWorksWeb.Controllers
             }
             if (ModelState.IsValid)
             {
-                _dbContext.Update(genreObj);
-                _dbContext.Save();
+                _unitOfWork.Genre.Update(genreObj);
+                _unitOfWork.Save();
                 TempData["success"] = "Genre updated successfully";
                 return RedirectToAction("Index");
             }
@@ -87,7 +87,7 @@ namespace MangaWorksWeb.Controllers
                 return NotFound();
             }
             //var genreFromDb = _dbContext.Genres.Find(id);
-            var genreFromDbFirst = _dbContext.GetFirstOrDefault(a => a.Id == id);
+            var genreFromDbFirst = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
             if (genreFromDbFirst == null)
             {
                 return NotFound();
@@ -101,13 +101,13 @@ namespace MangaWorksWeb.Controllers
         public IActionResult RemovePOST(int? id)
         {
             //var genreObj = _dbContext.Genres.Find(id);
-            var genreFromDbFirst = _dbContext.GetFirstOrDefault(a => a.Id == id);
+            var genreFromDbFirst = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
             if (genreFromDbFirst == null)
             {
                 return NotFound();
             }
-            _dbContext.Remove(genreFromDbFirst);
-            _dbContext.Save();
+            _unitOfWork.Genre.Remove(genreFromDbFirst);
+            _unitOfWork.Save();
             TempData["success"] = "Genre deleted successfully";
             return RedirectToAction("Index");
         }
