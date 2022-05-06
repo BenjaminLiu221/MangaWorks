@@ -1,6 +1,7 @@
 ﻿using MangaWorks.DataAccess;
 using MangaWorks.DataAccess.Repository.IRepository;
 using MangaWorks.Models;
+using MangaWorks.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -24,31 +25,33 @@ namespace MangaWorksWeb.Controllers
         //GET
         public IActionResult Upsert(int? id)
         {
-            Manga manga = new();
-            IEnumerable<SelectListItem> GenreList = _unitOfWork.Genre.GetAll().Select(
-                a => new SelectListItem
+            MangaVM mangaVM = new()
+            {
+                Manga = new(),
+                GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
                 {
                     Text = a.Name,
-                    Value = a.Id.ToString(),
-                });
-            IEnumerable<SelectListItem> AuthorList = _unitOfWork.Author.GetAll().Select(
-                a => new SelectListItem
+                    Value = a.Id.ToString()
+                }),
+                AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
                 {
                     Text = a.Name,
-                    Value = a.Id.ToString(),
-                });
+                    Value = a.Id.ToString()
+                })
+            };
+
             if (id == null || id == 0)
             {
                 //create manga
-                ViewBag.GenreList = GenreList;
-                return View(manga);
+                //ViewBag.GenreList = GenreList;
+                return View(mangaVM);
             }
             else
             {
                 //update manga
             }
 
-            return View(manga);
+            return View(mangaVM);
         }
 
         //POST

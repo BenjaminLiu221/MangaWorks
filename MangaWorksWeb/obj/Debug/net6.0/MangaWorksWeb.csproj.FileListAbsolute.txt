@@ -269,3 +269,7 @@ C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\refi
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\MangaWorksWeb.pdb
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\MangaWorksWeb.genruntimeconfig.cache
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\ref\MangaWorksWeb.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
