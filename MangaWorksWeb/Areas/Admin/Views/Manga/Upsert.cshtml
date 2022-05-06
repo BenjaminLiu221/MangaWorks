@@ -24,11 +24,6 @@
             <span asp-validation-for="Author" class="text-danger"></span>
         </div>
         <div class="mb-3">
-            <label asp-for="Genre"></label>
-            <input asp-for="Genre" class="form-control" />
-            <span asp-validation-for="Genre" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
             <label asp-for="Updated"></label>
             <input asp-for="Updated" class="form-control" />
             <span asp-validation-for="Updated" class="text-danger"></span>
@@ -42,11 +37,19 @@
             <label asp-for="Views"></label>
             <input asp-for="Views" class="form-control" />
             <span asp-validation-for="Views" class="text-danger"></span>
-            <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
-            <a asp-controller="Genre" asp-action="Index" class="btn btn-secondary" style="width:150px">
-                Back to List
-            </a>
         </div>
+        <div class="mb-3">
+            <label asp-for="GenreId"></label>
+            <select asp-for="GenreId" asp-items="ViewBag.GenreList" class="form-select">
+            <option disabled selected>--Select Genre--</option>
+            </select>
+            <span asp-validation-for="GenreId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="Genre" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back to List
+        </a>
+
 </form>
 
 @section Scripts{
