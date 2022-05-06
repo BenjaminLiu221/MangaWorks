@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,12 +21,15 @@ namespace MangaWorks.Models
 
         public double Rating { get; set; }
         public int Views { get; set; }
+        [ValidateNever]
         public string ImageUrl { get; set; }
         [Required]
         public int GenreId { get; set; }
+        [ValidateNever]
         public Genre Genre { get; set; }
         [Required]
         public int AuthorId { get; set; }
+        [ValidateNever]
         public Author Author { get; set; }
     }
 }

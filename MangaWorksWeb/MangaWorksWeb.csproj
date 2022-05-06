@@ -23,4 +23,8 @@
     <ProjectReference Include="..\MangaWorks.DataAccess\MangaWorks.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\mangas\" />
+  </ItemGroup>
+
 </Project>

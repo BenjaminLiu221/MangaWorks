@@ -9,6 +9,7 @@ C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Mang
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Humanizer.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\MessagePack.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\MessagePack.Annotations.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Build.Locator.dll
@@ -28,12 +29,14 @@ C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Micr
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.DiaSymReader.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.DotNet.Scaffolding.Shared.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Identity.Client.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
@@ -51,6 +54,7 @@ C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Micr
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\NuGet.Common.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\NuGet.Configuration.dll
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\NuGet.DependencyResolver.Core.dll
@@ -269,7 +273,3 @@ C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\refi
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\MangaWorksWeb.pdb
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\MangaWorksWeb.genruntimeconfig.cache
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\obj\Debug\net6.0\ref\MangaWorksWeb.dll
-C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
-C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
-C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\benja\Documents\Projects\MangaWorks\MangaWorksWeb\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

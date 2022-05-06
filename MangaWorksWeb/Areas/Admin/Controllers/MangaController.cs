@@ -11,10 +11,12 @@ namespace MangaWorksWeb.Controllers
     public class MangaController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
-        public MangaController(IUnitOfWork unitOfWork)
+        public MangaController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _hostEnvironment = hostEnvironment;
         }
         public IActionResult Index()
         {
@@ -57,20 +59,30 @@ namespace MangaWorksWeb.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(Genre genreObj)
+        public IActionResult Upsert(MangaVM mangaObj, IFormFile? file)
         {
-            if (genreObj.Name == genreObj.ToString())
-            {
-                ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name");
-            }
             if (ModelState.IsValid)
             {
-                _unitOfWork.Genre.Update(genreObj);
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if(file!=null)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"images\mangas");
+                    var extension = Path.GetExtension(file.FileName);
+
+                    using (var fileStreams = new FileStream(Path.Combine(uploads, fileName+extension), FileMode.Create))
+                    {
+                        file.CopyTo(fileStreams);
+                    }
+                    mangaObj.Manga.ImageUrl = @"\images\mangas\" + fileName + extension;
+                }
+
+                _unitOfWork.Manga.Add(mangaObj.Manga);
                 _unitOfWork.Save();
-                TempData["success"] = "Genre updated successfully";
+                TempData["success"] = "Manga created successfully";
                 return RedirectToAction("Index");
             }
-            return View(genreObj);
+            return View(mangaObj);
         }
 
         ////GET

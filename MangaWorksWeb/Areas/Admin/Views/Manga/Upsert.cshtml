@@ -1,11 +1,11 @@
 ﻿@model MangaWorks.Models.ViewModels.MangaVM
 
-<form method="post" asp-action="Upsert">
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
     @*class border of 3 and margin top of 4*@
-    <div class="border p-3 mt-4">
+    <div class="border p-3 mt-4 row">
         @*class row and padding bottom of 2*@
         <div class="row pb-2">
-            <h2 class="text-primary">Edit Manga</h2>
+            <h2 class="text-primary">@(Model.Manga.Id!=0?"Update": "Create") Manga</h2>
             <hr />
         </div>
         <div class="mb-3">
@@ -18,50 +18,80 @@
             <textarea asp-for="Manga.Description" rows="5" class="form-control"></textarea>
             <span asp-validation-for="Manga.Description" class="text-danger"></span>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-6">
+            <label asp-for="Manga.Status"></label>
+            <input asp-for="Manga.Status" class="form-control" />
+            <span asp-validation-for="Manga.Status" class="text-danger"></span>
+        </div>
+        @*        <div class="mb-3 col-6">
             <label asp-for="Manga.Author"></label>
             <input asp-for="Manga.Author" class="form-control" />
             <span asp-validation-for="Manga.Author" class="text-danger"></span>
-        </div>
-        <div class="mb-3">
+            </div>*@
+        <div class="mb-3 col-6">
             <label asp-for="Manga.Updated"></label>
             <input asp-for="Manga.Updated" class="form-control" />
             <span asp-validation-for="Manga.Updated" class="text-danger"></span>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-6">
             <label asp-for="Manga.Rating"></label>
             <input asp-for="Manga.Rating" class="form-control" />
             <span asp-validation-for="Manga.Rating" class="text-danger"></span>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-6">
             <label asp-for="Manga.Views"></label>
             <input asp-for="Manga.Views" class="form-control" />
             <span asp-validation-for="Manga.Views" class="text-danger"></span>
         </div>
         <div class="mb-3">
+            <label asp-for="Manga.ImageUrl"></label>
+            <input type="file" id="uploadBox" name="file" class="form-control" />
+        </div>
+        <div class="mb-3 col-6">
             <label asp-for="Manga.GenreId"></label>
             <select asp-for="Manga.GenreId" asp-items="@Model.GenreList" class="form-select">
                 <option disabled selected>--Select Genre--</option>
             </select>
             <span asp-validation-for="Manga.GenreId" class="text-danger"></span>
         </div>
-        <div class="mb-3">
+        <div class="mb-3 col-6">
             <label asp-for="Manga.AuthorId"></label>
             <select asp-for="Manga.AuthorId" asp-items="@Model.AuthorList" class="form-select">
                 <option disabled selected>--Select Author--</option>
             </select>
             <span asp-validation-for="Manga.AuthorId" class="text-danger"></span>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
-        <a asp-controller="Genre" asp-action="Index" class="btn btn-secondary" style="width:150px">
-            Back to List
-        </a>
+        <div class="col-12">
+            @if (Model.Manga.Id != 0)
+            {
+                <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+            }
+            else
+            {
+                <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
+            }
+            <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                Back to List
+            </a>
+        </div>
     </div>
 
 </form>
 
 @section Scripts{
-@{
+    @{
     <partial name="_ValidationScriptsPartial" />
-}
+    }
+<script>
+    function ValidateInput(){
+        if(document.getElementById("uploadBox").value==""){
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Please upload an Image!',
+            });
+            return false;
+        }
+    }
+</script>
 }
