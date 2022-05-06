@@ -1,0 +1,56 @@
+﻿@model Manga
+
+<form method="post" asp-action="Upsert">
+    @*class border of 3 and margin top of 4*@
+    <div class="border p-3 mt-4">
+        @*class row and padding bottom of 2*@
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Manga</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description"></label>
+            <textarea asp-for="Description" rows="5" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Author"></label>
+            <input asp-for="Author" class="form-control" />
+            <span asp-validation-for="Author" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Genre"></label>
+            <input asp-for="Genre" class="form-control" />
+            <span asp-validation-for="Genre" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Updated"></label>
+            <input asp-for="Updated" class="form-control" />
+            <span asp-validation-for="Updated" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Rating"></label>
+            <input asp-for="Rating" class="form-control" />
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Views"></label>
+            <input asp-for="Views" class="form-control" />
+            <span asp-validation-for="Views" class="text-danger"></span>
+            <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+            <a asp-controller="Genre" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                Back to List
+            </a>
+        </div>
+</form>
+
+@section Scripts{
+@{
+    <partial name="_ValidationScriptsPartial" />
+}
+}

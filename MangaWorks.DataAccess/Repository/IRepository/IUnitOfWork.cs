@@ -10,6 +10,7 @@ namespace MangaWorks.DataAccess.Repository.IRepository
     {
         IGenreRepository Genre { get; }
         IAuthorRepository Author { get; }
+        IMangaRepository Manga { get; }
         void Save();
     }
 }
