@@ -20,8 +20,7 @@ namespace MangaWorksWeb.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Manga> objMangaList = _unitOfWork.Manga.GetAll();
-            return View(objMangaList);
+            return View();
         }
 
         //GET
@@ -64,13 +63,13 @@ namespace MangaWorksWeb.Controllers
             if (ModelState.IsValid)
             {
                 string wwwRootPath = _hostEnvironment.WebRootPath;
-                if(file!=null)
+                if (file != null)
                 {
                     string fileName = Guid.NewGuid().ToString();
                     var uploads = Path.Combine(wwwRootPath, @"images\mangas");
                     var extension = Path.GetExtension(file.FileName);
 
-                    using (var fileStreams = new FileStream(Path.Combine(uploads, fileName+extension), FileMode.Create))
+                    using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
                         file.CopyTo(fileStreams);
                     }
@@ -85,37 +84,46 @@ namespace MangaWorksWeb.Controllers
             return View(mangaObj);
         }
 
-        ////GET
-        //public IActionResult Remove(int? id)
-        //{
-        //    if (id == null || id == 0)
-        //    {
-        //        return NotFound();
-        //    }
-        //    //var genreFromDb = _dbContext.Genres.Find(id);
-        //    var genreFromDbFirst = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
-        //    if (genreFromDbFirst == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(genreFromDbFirst);
-        //}
+        public IActionResult Remove(int? id)
+        {
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            //var genreFromDb = _dbContext.Genres.Find(id);
+            var mangaFromDbFirst = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
+            if (mangaFromDbFirst == null)
+            {
+                return NotFound();
+            }
+            return View(mangaFromDbFirst);
+        }
 
-        ////POST
-        //[HttpPost, ActionName("Remove")]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult RemovePOST(int? id)
-        //{
-        //    //var genreObj = _dbContext.Genres.Find(id);
-        //    var genreFromDbFirst = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
-        //    if (genreFromDbFirst == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    _unitOfWork.Genre.Remove(genreFromDbFirst);
-        //    _unitOfWork.Save();
-        //    TempData["success"] = "Genre deleted successfully";
-        //    return RedirectToAction("Index");
-        //}
+        //POST
+        [HttpPost, ActionName("Remove")]
+        [ValidateAntiForgeryToken]
+        public IActionResult RemovePOST(int? id)
+        {
+            var mangaFromDbFirst = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
+            if (mangaFromDbFirst == null)
+            {
+                return NotFound();
+            }
+            _unitOfWork.Manga.Remove(mangaFromDbFirst);
+            _unitOfWork.Save();
+            TempData["success"] = "Manga deleted successfully";
+            return RedirectToAction("Index");
+
+        }
+
+        #region API CALLS
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var mangaList = _unitOfWork.Manga.GetAll();
+            return Json(new { data = mangaList });
+        }
+        #endregion
+
     }
 }
