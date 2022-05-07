@@ -120,7 +120,7 @@ namespace MangaWorksWeb.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var mangaList = _unitOfWork.Manga.GetAll();
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties:"Genre,Author");
             return Json(new { data = mangaList });
         }
         #endregion

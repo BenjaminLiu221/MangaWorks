@@ -16,23 +16,38 @@ namespace MangaWorks.DataAccess.Repository
         public Repository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
+            //_dbContext.Mangas.Include(a => a.Genre).Include(a=>a.Author);
             this.dbSet = _dbContext.Set<T>();
         }
         public void Add(T entity)
         {
             dbSet.Add(entity);
         }
-
-        public IEnumerable<T> GetAll()
+        //includeProp - "Genre, Author"
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if(includeProperties != null)
+            {
+                foreach(var includeProp in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.ToList();
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter)
+        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             query = query.Where(filter);
+            if (includeProperties != null)
+            {
+                foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
             return query.FirstOrDefault();
         }
 

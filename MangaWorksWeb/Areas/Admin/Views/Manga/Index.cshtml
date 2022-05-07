@@ -15,21 +15,26 @@
             </a>
         </div>
     </div>
-</div>
-@*<br /><br />*@
+    <br /><br />
 
-<table class="table table-secondary table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Author</th>
-            <th>Genre</th>
-            <th>Updated</th>
-            <th>View</th>
-            <th>Rating</th>
-            <th></th>
-        </tr>
-    </thead>
-</table>
+    <table id="tblData" class="table table-secondary table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Genres</th>
+                <th>Author</th>
+                <th>Status</th>
+                <th>Chapters</th>
+                @*<th>Updated</th>*@
+                @*<th>Rating</th>*@
+                @*<th>Views</th>*@
+                @*<th></th>*@
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+<script src="~/js/manga.js"></script>
+}
