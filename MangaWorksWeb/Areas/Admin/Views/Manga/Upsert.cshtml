@@ -2,10 +2,15 @@
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
     <input asp-for="Manga.Id" hidden />
-    @*class border of 3 and margin top of 4*@
+    <input asp-for="Manga.ImageUrl" hidden />
+
+    <div class="row">
+        <div class="col-10">
+                @*class border of 3 and margin top of 4*@
     <div class="border p-3 mt-4 row">
+
         @*class row and padding bottom of 2*@
-        <div class="row pb-2">
+        <div class="col-12 pb-2">
             <h2 class="text-primary">@(Model.Manga.Id!=0?"Update": "Create") Manga</h2>
             <hr />
         </div>
@@ -19,16 +24,30 @@
             <textarea asp-for="Manga.Description" rows="5" class="form-control"></textarea>
             <span asp-validation-for="Manga.Description" class="text-danger"></span>
         </div>
+                <div class="mb-3 col-6">
+            <label asp-for="Manga.GenreId"></label>
+            <select asp-for="Manga.GenreId" asp-items="@Model.GenreList" class="form-select">
+                <option disabled selected>--Select Genre--</option>
+            </select>
+            <span asp-validation-for="Manga.GenreId" class="text-danger"></span>
+        </div>
+        <div class="mb-3 col-6">
+            <label asp-for="Manga.AuthorId"></label>
+            <select asp-for="Manga.AuthorId" asp-items="@Model.AuthorList" class="form-select">
+                <option disabled selected>--Select Author--</option>
+            </select>
+            <span asp-validation-for="Manga.AuthorId" class="text-danger"></span>
+        </div>
+                <div class="mb-3 col-6">
+            <label asp-for="Manga.Chapters"></label>
+            <input asp-for="Manga.Chapters" class="form-control" />
+            <span asp-validation-for="Manga.Chapters" class="text-danger"></span>
+        </div>
         <div class="mb-3 col-6">
             <label asp-for="Manga.Status"></label>
             <input asp-for="Manga.Status" class="form-control" />
             <span asp-validation-for="Manga.Status" class="text-danger"></span>
         </div>
-        @*        <div class="mb-3 col-6">
-            <label asp-for="Manga.Author"></label>
-            <input asp-for="Manga.Author" class="form-control" />
-            <span asp-validation-for="Manga.Author" class="text-danger"></span>
-            </div>*@
         <div class="mb-3 col-6">
             <label asp-for="Manga.Updated"></label>
             <input asp-for="Manga.Updated" class="form-control" />
@@ -44,24 +63,16 @@
             <input asp-for="Manga.Views" class="form-control" />
             <span asp-validation-for="Manga.Views" class="text-danger"></span>
         </div>
+        <div class="mb-3 col-6">
+            <label asp-for="Manga.Updated"></label>
+            <input asp-for="Manga.Updated" class="form-control" />
+            <span asp-validation-for="Manga.Updated" class="text-danger"></span>
+        </div>
         <div class="mb-3">
             <label asp-for="Manga.ImageUrl"></label>
             <input type="file" id="uploadBox" name="file" class="form-control" />
         </div>
-        <div class="mb-3 col-6">
-            <label asp-for="Manga.GenreId"></label>
-            <select asp-for="Manga.GenreId" asp-items="@Model.GenreList" class="form-select">
-                <option disabled selected>--Select Genre--</option>
-            </select>
-            <span asp-validation-for="Manga.GenreId" class="text-danger"></span>
-        </div>
-        <div class="mb-3 col-6">
-            <label asp-for="Manga.AuthorId"></label>
-            <select asp-for="Manga.AuthorId" asp-items="@Model.AuthorList" class="form-select">
-                <option disabled selected>--Select Author--</option>
-            </select>
-            <span asp-validation-for="Manga.AuthorId" class="text-danger"></span>
-        </div>
+
         <div class="col-12">
             @if (Model.Manga.Id != 0)
             {
@@ -76,6 +87,14 @@
             </a>
         </div>
     </div>
+        </div>
+        <div class="col-2 pt-4">
+            <img src="@Model.Manga.ImageUrl"
+            width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+        </div>
+    </div>
+
+
 
 </form>
 

@@ -16,8 +16,11 @@ function loadDataTable() {
             { "data": "description", "width": "15%" },
             { "data": "genre.name", "width": "15%" },
             { "data": "author.name", "width": "15%" },
-            { "data": "status", "width": "15%" },
             { "data": "chapters", "width": "15%" },
+            { "data": "status", "width": "15%" },
+            { "data": "rating", "width": "15%" },
+            { "data": "views", "width": "15%" },
+            { "data": "updated", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {
