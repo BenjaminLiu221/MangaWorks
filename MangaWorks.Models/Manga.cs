@@ -24,10 +24,12 @@ namespace MangaWorks.Models
         [ValidateNever]
         public string ImageUrl { get; set; }
         [Required]
+        [Display(Name = "Genres")]
         public int GenreId { get; set; }
         [ValidateNever]
         public Genre Genre { get; set; }
         [Required]
+        [Display(Name = "Author")]
         public int AuthorId { get; set; }
         [ValidateNever]
         public Author Author { get; set; }

@@ -1,6 +1,7 @@
 ﻿@model MangaWorks.Models.ViewModels.MangaVM
 
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="Manga.Id" hidden />
     @*class border of 3 and margin top of 4*@
     <div class="border p-3 mt-4 row">
         @*class row and padding bottom of 2*@

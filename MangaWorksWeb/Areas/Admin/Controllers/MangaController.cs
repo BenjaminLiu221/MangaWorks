@@ -49,10 +49,12 @@ namespace MangaWorksWeb.Controllers
             }
             else
             {
+                mangaVM.Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
+                return View(mangaVM);
                 //update manga
             }
 
-            return View(mangaVM);
+            
         }
 
         //POST
@@ -69,14 +71,29 @@ namespace MangaWorksWeb.Controllers
                     var uploads = Path.Combine(wwwRootPath, @"images\mangas");
                     var extension = Path.GetExtension(file.FileName);
 
+                    if(mangaObj.Manga.ImageUrl != null)
+                    {
+                        var oldImagePath = Path.Combine(wwwRootPath, mangaObj.Manga.ImageUrl.TrimStart('\\'));
+                        if(System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
                     using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
                     {
                         file.CopyTo(fileStreams);
                     }
                     mangaObj.Manga.ImageUrl = @"\images\mangas\" + fileName + extension;
                 }
-
-                _unitOfWork.Manga.Add(mangaObj.Manga);
+                if (mangaObj.Manga.Id == 0)
+                {
+                    _unitOfWork.Manga.Add(mangaObj.Manga);
+                }
+                else
+                {
+                    _unitOfWork.Manga.Update(mangaObj.Manga);
+                }
                 _unitOfWork.Save();
                 TempData["success"] = "Manga created successfully";
                 return RedirectToAction("Index");
@@ -120,7 +137,7 @@ namespace MangaWorksWeb.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var mangaList = _unitOfWork.Manga.GetAll(includeProperties:"Genre,Author");
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Genre,Author");
             return Json(new { data = mangaList });
         }
         #endregion
