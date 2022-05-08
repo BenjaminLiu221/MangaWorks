@@ -54,7 +54,7 @@ namespace MangaWorksWeb.Controllers
                 //update manga
             }
 
-            
+
         }
 
         //POST
@@ -71,10 +71,10 @@ namespace MangaWorksWeb.Controllers
                     var uploads = Path.Combine(wwwRootPath, @"images\mangas");
                     var extension = Path.GetExtension(file.FileName);
 
-                    if(mangaObj.Manga.ImageUrl != null)
+                    if (mangaObj.Manga.ImageUrl != null)
                     {
                         var oldImagePath = Path.Combine(wwwRootPath, mangaObj.Manga.ImageUrl.TrimStart('\\'));
-                        if(System.IO.File.Exists(oldImagePath))
+                        if (System.IO.File.Exists(oldImagePath))
                         {
                             System.IO.File.Delete(oldImagePath);
                         }
@@ -101,44 +101,34 @@ namespace MangaWorksWeb.Controllers
             return View(mangaObj);
         }
 
-        public IActionResult Remove(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            //var genreFromDb = _dbContext.Genres.Find(id);
-            var mangaFromDbFirst = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
-            if (mangaFromDbFirst == null)
-            {
-                return NotFound();
-            }
-            return View(mangaFromDbFirst);
-        }
-
-        //POST
-        [HttpPost, ActionName("Remove")]
-        [ValidateAntiForgeryToken]
-        public IActionResult RemovePOST(int? id)
-        {
-            var mangaFromDbFirst = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
-            if (mangaFromDbFirst == null)
-            {
-                return NotFound();
-            }
-            _unitOfWork.Manga.Remove(mangaFromDbFirst);
-            _unitOfWork.Save();
-            TempData["success"] = "Manga deleted successfully";
-            return RedirectToAction("Index");
-
-        }
-
         #region API CALLS
         [HttpGet]
         public IActionResult GetAll()
         {
             var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Genre,Author");
             return Json(new { data = mangaList });
+        }
+
+        //POST
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var mangaFromDbFirst = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
+            if (mangaFromDbFirst == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+
+            var oldImagePath = Path.Combine(_hostEnvironment.WebRootPath, mangaFromDbFirst.ImageUrl.TrimStart('\\'));
+            if (System.IO.File.Exists(oldImagePath))
+            {
+                System.IO.File.Delete(oldImagePath);
+            }
+
+            _unitOfWork.Manga.Remove(mangaFromDbFirst);
+            _unitOfWork.Save();
+            return Json(new { success = true, message = "Delete successful" });
+
         }
         #endregion
 

@@ -23,7 +23,7 @@ namespace MangaWorks.DataAccess.Repository
         {
             dbSet.Add(entity);
         }
-        //includeProp - "Genre, Author"
+        //includeProp - "Genre,Author"
         public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
