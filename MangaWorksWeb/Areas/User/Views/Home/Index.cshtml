@@ -1,17 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<MangaWorks.Models.Manga>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
-    <figure>
-  <blockquote class="blockquote">
-    <p class="mb-0">The work pays.</p>
-  
-  </blockquote>
-  <figcaption class="blockquote-footer">
-    <cite title="Source Title">Eder Canada</cite>
-  </figcaption>
-</figure>
+<div class="row pb-3">
+    @foreach (var manga in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="row p-2">
+                <div class="col-12 p-2" style="border:1px solid #008cba; border-radius: 5px;">
+                    <div class="card">
+                        <img src="@manga.ImageUrl" class="card-img-top rounded" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
