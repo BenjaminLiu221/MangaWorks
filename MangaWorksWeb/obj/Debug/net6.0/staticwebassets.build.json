@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qM46XhtktPx/DSYs2E2nYbjY8T5qPShVCNROK1LOTjI=",
+  "Hash": "W2BNccNiu0xm1vrU64Lku1AdVw/V7SPZ7Gvvz0mDIQY=",
   "Source": "MangaWorksWeb",
   "BasePath": "_content/MangaWorksWeb",
   "Mode": "Default",
@@ -119,12 +119,12 @@
       "OriginalItemSpec": "wwwroot\\images\\mangas\\3bfc809e-b898-4594-a4fb-18a64bebba69.jpg"
     },
     {
-      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\a027f90a-4e27-42a1-89d1-a21f0f4a8f74.jpg",
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\a6584ecf-8158-424e-89ee-8ef3d75eb6e8.jpg",
       "SourceId": "MangaWorksWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
       "BasePath": "_content/MangaWorksWeb",
-      "RelativePath": "images/mangas/a027f90a-4e27-42a1-89d1-a21f0f4a8f74.jpg",
+      "RelativePath": "images/mangas/a6584ecf-8158-424e-89ee-8ef3d75eb6e8.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,7 +133,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\mangas\\a027f90a-4e27-42a1-89d1-a21f0f4a8f74.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\mangas\\a6584ecf-8158-424e-89ee-8ef3d75eb6e8.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\c1c9dd1b-3731-45bf-a040-30686995d63a.jpg",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/mangas/c1c9dd1b-3731-45bf-a040-30686995d63a.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mangas\\c1c9dd1b-3731-45bf-a040-30686995d63a.jpg"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\dc4ccb12-f1f5-4af4-9a68-171e9ed4ae40.jpg",

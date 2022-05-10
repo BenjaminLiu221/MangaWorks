@@ -25,15 +25,15 @@
                         </div>
                         <div class="mb-3 col-12">
                             <label asp-for="Manga.Description"></label>
-                            <textarea asp-for="Manga.Description" rows="8" class="form-control"></textarea>
+                            <textarea asp-for="Manga.Description" rows="4" class="form-control"></textarea>
                             <span asp-validation-for="Manga.Description" class="text-danger"></span>
                         </div>
                     </div>
 
-                    <div class="pt-4 mb-3 col-4 " style="display: flex; justify-content:flex-end">
+                    <div class="pt-4 mb-3 col-4 " style="display: flex; justify-content:flex-end;height:100%">
                         @*<div class="pt-4 mb-3 col-4 " style="display: flex; justify-content:flex-end; padding-right:0">*@
                         <img src="@Model.Manga.ImageUrl"
-                             width="100%" style="border-radius:5px; border:1px solid #bbb9b9; max-height:300px; max-width: 250px" />
+                             style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
                     </div>
                 </div>
 
@@ -72,18 +72,13 @@
                     <span asp-validation-for="Manga.Rating" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-6">
+                    <label asp-for="Manga.ImageUrl"></label>
+                    <input type="file" id="uploadBox" name="file" class="form-control" />
+                </div>
+                <div class="mb-3 col-6">
                     <label asp-for="Manga.Views"></label>
                     <input asp-for="Manga.Views" class="form-control" />
                     <span asp-validation-for="Manga.Views" class="text-danger"></span>
-                </div>
-                <div class="mb-3 col-6">
-                    <label asp-for="Manga.Updated"></label>
-                    <input asp-for="Manga.Updated" class="form-control" />
-                    <span asp-validation-for="Manga.Updated" class="text-danger"></span>
-                </div>
-                <div class="mb-3">
-                    <label asp-for="Manga.ImageUrl"></label>
-                    <input type="file" id="uploadBox" name="file" class="form-control" />
                 </div>
 
                 <div class="col-12">
@@ -115,6 +110,7 @@
 <script>
     tinymce.init({
       selector: 'textarea',
+      height:250,
       plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
       toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
       toolbar_mode: 'floating',
