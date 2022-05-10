@@ -1,16 +1,23 @@
 ﻿@model IEnumerable<MangaWorks.Models.Manga>
 
-<div class="row pb-3">
+<div class="row pb-3 pt-3" style="width:950px">
     @foreach (var manga in Model)
     {
-        <div class="col-lg-3 col-md-6 pt-3" style="height:180px;width:138px">
-@*            <div class="row p-2">
-                <div class="col-12 p-2" style="border:1px solid #008cba; border-radius: 5px;">*@
-                    <div class="card" style="height:100%; border-style:single">
-                        <img src="@manga.ImageUrl" class="card-img-top" style="object-fit: cover; height: inherit" />
+        <div class="col-lg-3 col-md-6" style="/*border:1px solid #008cba*/; height:200px; width:475px">
+            <div class="row p-2">
+                @*images could be different sizes, hard coding px for now...*@
+                <div class="col-12 p-2" style="/*border:1px solid #008cba*/; border-radius:5px; height:180px; width:138px">
+                    <div class="card" style="height:100%; border-style:double">
+                        <img src="@manga.ImageUrl" class="card-img-top" style="object-fit:cover; height:inherit" />
                     </div>
                 </div>
-@*            </div>
-        </div>*@
+                <div class="col-12 p-2" style="border:1px solid #008cba; border-radius:5px; height:contain; width:69.8%">
+                    <div class="container pt-1" style="border:solid; height:100%; max-width: 20rem">
+                        <h4 class="card-title">@manga.Title</h4>
+                        <p class="card-text" style="font-style:italic">@manga.Author.Name</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     }
 </div>
