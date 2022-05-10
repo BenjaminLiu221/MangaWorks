@@ -1,5 +1,6 @@
 ﻿using MangaWorks.DataAccess.Repository.IRepository;
 using MangaWorks.Models;
+using MangaWorks.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -22,6 +23,16 @@ namespace MangaWorksWeb.Controllers
             IEnumerable<Manga> mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Genre,Author");
 
             return View(mangaList);
+        }
+
+        public IActionResult Details(int id)
+        {
+            MangaDetails mangaDetailsObj = new()
+            {
+                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Genre,Author")
+            };
+        
+            return View(mangaDetailsObj);
         }
 
         public IActionResult Privacy()
