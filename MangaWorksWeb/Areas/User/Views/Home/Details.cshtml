@@ -1,2 +1,24 @@
 ﻿@model MangaDetails
 
+<form method="post">
+    <div class="container container-main">
+        <div class="container-main-left pt-3">
+            <div class="panel-breadcrumb">
+                <a asp-action="Index" class="text-primary">
+                    <h4>Read Manga Online</h4>
+                </a>
+            </div>
+            <div class="panel-story-info pt-3">
+                <div class="story-info-left">
+                    <span class="info-image">
+                        <img src="@Model.Manga.ImageUrl"
+                             style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
+                    </span>
+                    <h2>@Model.Manga.Title</h2>
+                </div>
+                <div class="story-info-right">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
