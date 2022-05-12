@@ -1,24 +1,86 @@
 ﻿@model MangaDetails
 
 <form method="post">
-    <div class="container container-main">
-        <div class="container-main-left pt-3">
-            <div class="panel-breadcrumb">
-                <a asp-action="Index" class="text-primary">
-                    <h4>Read Manga Online</h4>
-                </a>
-            </div>
-            <div class="panel-story-info pt-3">
-                <div class="story-info-left">
-                    <span class="info-image">
-                        <img src="@Model.Manga.ImageUrl"
-                             style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
-                    </span>
-                    <h2>@Model.Manga.Title</h2>
-                </div>
-                <div class="story-info-right">
+    <body>
+        <div class="toast-body">
+            <div class="container container-main">
+                <div class="container-main-left pt-2">
+                    <div class="panel-breadcrumb">
+
+                        <a asp-action="Index" class="text-primary">
+                            <h4>Read Manga Online</h4>
+                        </a>
+                    </div>
+                    <div class="panel-story-info pt-3" style="float:left">
+                        <div class="story-info-left" style="float:inherit; width:225px; margin-right:20px">
+                            <span class="info-image">
+                                <img src="@Model.Manga.ImageUrl"
+                                     style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
+                            </span>
+
+                        </div>
+                        <div class="story-info-right" style="float:inherit; width:calc(100% -245px)">
+                            <h1 style="font-weight:bold">@Model.Manga.Title</h1>
+                            <table class="variations-tableInfo">
+                                <tr>
+                                    <td class="table-label">
+                                        <h4>Author(s) :</h4>
+                                    </td>
+                                    <td class="table-value">
+                                        <h4 style="font-weight:bold">@Model.Manga.Author.Name</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-label">
+                                        <h4>Status :</h4>
+                                    </td>
+                                    <td class="table-value">
+                                        <h4 style="font-weight:bold">@Model.Manga.Status</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-label">
+                                        <h4>Genres :</h4>
+                                    </td>
+                                    <td class="table-value">
+                                        <h4 style="font-weight:bold">@Model.Manga.Genre.Name</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-label">
+                                        <h4>Updated :</h4>
+                                    </td>
+                                    <td class="table-value">
+                                        <h4 style="font-weight:bold">@Model.Manga.Updated</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-label">
+                                        <h4>View :</h4>
+                                    </td>
+                                    <td class="table-value">
+                                        <h4 style="font-weight:bold">@Model.Manga.Views</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-label">
+                                        <h4>Rating :</h4>
+                                    </td>
+                                    <td class="table-value">
+                                        <h4 style="font-weight:bold">@Model.Manga.Rating</h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="panel-story-info-description" style="font-size:15px; float:inherit; width:100%; max-height:150px">
+                            <h3 style="font-weight:bold">Description :</h3>
+                            <p>@Model.Manga.Description</p>
+                            <br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </body>
+
 </form>
