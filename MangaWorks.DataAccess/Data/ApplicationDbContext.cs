@@ -12,5 +12,6 @@ namespace MangaWorks.DataAccess
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Manga> Mangas { get; set; }
+        public DbSet<MangaPage> MangaPages { get; set; }
     }
 }
