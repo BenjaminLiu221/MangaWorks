@@ -12,7 +12,7 @@ namespace MangaWorks.Models
         public int Id { get; set; }
 
         [Required]
-        [Range(1,100)]
+        //[Range(1,100)]
         public int PageNumber { get; set; }
 
         public string ImageUrl { get; set; }
