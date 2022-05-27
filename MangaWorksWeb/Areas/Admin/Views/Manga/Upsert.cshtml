@@ -84,12 +84,15 @@
                 <div class="col-12">
                     @if (Model.Manga.Id != 0)
                     {
-                        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+                        <button type="submit" class="btn btn-primary" style="width:150px">Update Manga</button>
                     }
                     else
                     {
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
                     }
+                    <a asp-controller="Chapter" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                        Edit Chapters
+                    </a>
                     <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">
                         Back to List
                     </a>
