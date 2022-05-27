@@ -4,25 +4,24 @@
 
 namespace MangaWorks.DataAccess.Migrations
 {
-    public partial class addMangaPgesToDb : Migration
+    public partial class addchaptertable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MangaPages",
+                name: "Chapters",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PageNumber = table.Column<int>(type: "int", nullable: false),
-                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ChapterNumber = table.Column<int>(type: "int", nullable: false),
                     MangaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MangaPages", x => x.Id);
+                    table.PrimaryKey("PK_Chapters", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_MangaPages_Mangas_MangaId",
+                        name: "FK_Chapters_Mangas_MangaId",
                         column: x => x.MangaId,
                         principalTable: "Mangas",
                         principalColumn: "Id",
@@ -30,15 +29,15 @@ namespace MangaWorks.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MangaPages_MangaId",
-                table: "MangaPages",
+                name: "IX_Chapters_MangaId",
+                table: "Chapters",
                 column: "MangaId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "MangaPages");
+                name: "Chapters");
         }
     }
 }

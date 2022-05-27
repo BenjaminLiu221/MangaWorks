@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,18 +8,16 @@ using System.Threading.Tasks;
 
 namespace MangaWorks.Models
 {
-    public class MangaPage
+    public class Chapter
     {
         public int Id { get; set; }
 
         [Required]
-        //[Range(1,100)]
-        public int PageNumber { get; set; }
-
-        public string ImageUrl { get; set; }
+        public int ChapterNumber { get; set; }
 
         [Required]
         public int MangaId { get; set; }
+        [ValidateNever]
         public Manga Manga { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using MangaWorks.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MangaWorks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220527030238_seedpagetable")]
+    partial class seedpagetable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,27 +40,6 @@ namespace MangaWorks.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
-                });
-
-            modelBuilder.Entity("MangaWorks.Models.Chapter", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ChapterNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MangaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MangaId");
-
-                    b.ToTable("Chapters");
                 });
 
             modelBuilder.Entity("MangaWorks.Models.Genre", b =>
@@ -143,9 +124,6 @@ namespace MangaWorks.DataAccess.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ChapterId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -155,20 +133,7 @@ namespace MangaWorks.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ChapterId");
-
                     b.ToTable("Pages");
-                });
-
-            modelBuilder.Entity("MangaWorks.Models.Chapter", b =>
-                {
-                    b.HasOne("MangaWorks.Models.Manga", "Manga")
-                        .WithMany()
-                        .HasForeignKey("MangaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Manga");
                 });
 
             modelBuilder.Entity("MangaWorks.Models.Manga", b =>
@@ -188,17 +153,6 @@ namespace MangaWorks.DataAccess.Migrations
                     b.Navigation("Author");
 
                     b.Navigation("Genre");
-                });
-
-            modelBuilder.Entity("MangaWorks.Models.Page", b =>
-                {
-                    b.HasOne("MangaWorks.Models.Chapter", "Chapter")
-                        .WithMany()
-                        .HasForeignKey("ChapterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chapter");
                 });
 #pragma warning restore 612, 618
         }

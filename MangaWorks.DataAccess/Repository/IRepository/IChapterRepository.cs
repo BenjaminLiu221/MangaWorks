@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MangaWorks.DataAccess.Repository.IRepository
 {
-    public interface IMangaPageRepository : IRepository<MangaPage>
+    public interface IChapterRepository : IRepository<Chapter>
     {
-        void Update(MangaPage obj);
+        void Update(Chapter obj);
     }
 }
