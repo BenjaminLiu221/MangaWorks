@@ -90,7 +90,7 @@
                     {
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
                     }
-                    <a asp-controller="Chapter" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                    <a asp-controller="Manga" asp-action="Chapter" class="btn btn-secondary" style="width:150px" asp-route-id="@Model.Manga.Id">
                         Edit Chapters
                     </a>
                     <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">

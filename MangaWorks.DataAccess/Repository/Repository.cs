@@ -37,13 +37,27 @@ namespace MangaWorks.DataAccess.Repository
             return query.ToList();
         }
 
-        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)
+        public IEnumerable<T> GetAllChaptersOfThisManga(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             query = query.Where(filter);
             if (includeProperties != null)
             {
                 foreach (var includeProp in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProp);
+                }
+            }
+            return query.ToList();
+        }
+
+        public T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null)
+        {
+            IQueryable<T> query = dbSet;
+            query = query.Where(filter);
+            if (includeProperties != null)
+            {
+                foreach(var includeProp in includeProperties.Split(new char[] {','}, StringSplitOptions.RemoveEmptyEntries))
                 {
                     query = query.Include(includeProp);
                 }

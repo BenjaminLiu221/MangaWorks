@@ -1,0 +1,38 @@
+﻿@model MangaWorks.Models.ViewModels.ChapterVM
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+    <input asp-for="Chapter.MangaId" hidden />
+
+    <div class="row">
+        <div class="col-10">
+            @*class border of 3 and margin top of 4*@
+            <div class="border p-3 mt-4 row">
+
+                @*class row and padding bottom of 2*@
+                <div class="col-12 pb-2">
+                    @*<h2 class="text-primary">@(Model.Chapter.Id!=0?"Update": "Create") Chapter</h2>*@
+                    <hr />
+                </div>
+
+                <div class="row" style="padding-right:0">
+                    <div class="col-8 ">
+
+                        <div class="mb-3 col-12">
+                            <label asp-for="Chapter.ChapterNumber"></label>
+                            <input asp-for="Chapter.ChapterNumber" class="form-control" />
+                            <span asp-validation-for="Chapter.ChapterNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <a asp-controller="Manga" asp-action="Upsert" asp-route-id="@Model.Chapter.MangaId" class="btn btn-secondary" style="width:150px">
+                                Back to Manga
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+</form>

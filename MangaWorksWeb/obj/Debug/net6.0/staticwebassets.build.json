@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Sj5oQebOagnhlcyuZuhx14vDAO9D5WtaRfRCV07fPfU=",
+  "Hash": "A2KwbMXppeJqjhbUO6ZiTr4HE8ZWjK2kWA2sNmPYaCc=",
   "Source": "MangaWorksWeb",
   "BasePath": "_content/MangaWorksWeb",
   "Mode": "Default",
@@ -406,23 +406,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mangas\\e4860187-c860-403c-b4dd-1802cf3470df.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\js\\chapter.js",
-      "SourceId": "MangaWorksWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
-      "BasePath": "_content/MangaWorksWeb",
-      "RelativePath": "js/chapter.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\chapter.js"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\js\\manga.js",

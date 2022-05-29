@@ -24,6 +24,34 @@ namespace MangaWorksWeb.Controllers
         }
 
         //GET
+
+        public IActionResult Chapter(int? id)
+        {
+            ChapterVM chapterVM = new()
+            {
+                GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
+                {
+                    Text = a.Name,
+                    Value = a.Id.ToString()
+                }),
+                AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
+                {
+                    Text = a.Name,
+                    Value = a.Id.ToString()
+                })
+            };
+
+            if (id == null || id == 0)
+            {
+                return View(chapterVM);
+            }
+            else
+            {
+                chapterVM.Chapter = _unitOfWork.Chapter.GetAllChaptersOfThisManga(a => a.MangaId == id);
+                Console.WriteLine("You Suck Dick");
+                return View(chapterVM);
+            }
+        }
         public IActionResult Upsert(int? id)
         {
             MangaVM mangaVM = new()
