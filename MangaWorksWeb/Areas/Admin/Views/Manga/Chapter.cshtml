@@ -1,38 +1,55 @@
-﻿@model MangaWorks.Models.ViewModels.ChapterVM
+﻿@model IEnumerable<Chapter>
+@{
+    ViewData["Title"] = "Chapter";
+}
 
-<form method="post" asp-action="Upsert" enctype="multipart/form-data">
-    <input asp-for="Chapter.MangaId" hidden />
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Chapter List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Chapter" asp-action="Create" class="btn btn-warning">
+                <i class="bi bi-plus-circle"></i> &nbsp; Create New Chapter
+            </a>
+        </div>
+    </div>
+</div>
+@*<br /><br />*@
 
-    <div class="row">
-        <div class="col-10">
-            @*class border of 3 and margin top of 4*@
-            <div class="border p-3 mt-4 row">
-
-                @*class row and padding bottom of 2*@
-                <div class="col-12 pb-2">
-                    @*<h2 class="text-primary">@(Model.Chapter.Id!=0?"Update": "Create") Chapter</h2>*@
-                    <hr />
-                </div>
-
-                <div class="row" style="padding-right:0">
-                    <div class="col-8 ">
-
-                        <div class="mb-3 col-12">
-                            <label asp-for="Chapter.ChapterNumber"></label>
-                            <input asp-for="Chapter.ChapterNumber" class="form-control" />
-                            <span asp-validation-for="Chapter.ChapterNumber" class="text-danger"></span>
-                        </div>
-
-                        <div class="col-12">
-                            <a asp-controller="Manga" asp-action="Upsert" asp-route-id="@Model.Chapter.MangaId" class="btn btn-secondary" style="width:150px">
-                                Back to Manga
-                            </a>
-                        </div>
+<table class="table table-secondary table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Chapter Number
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.ChapterNumber
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Chapter" asp-action="Edit" asp-route-id="@obj.Id"
+                       class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                        <a asp-controller="Chapter" asp-action="Remove" asp-route-id="@obj.Id"
+                       class="btn btn-danger mx-2"> <i class="bi bi-trash"></i> Remove</a>
+                       <a asp-controller="Manga" asp-action="Upsert" asp-route-id="@obj.MangaId"
+                       class="btn btnalert-primary mx-2"> <i class="bi bi-arrow-return-left"></i>Return</a>
                     </div>
-                </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-            </div>
-
-
-
-</form>
+<div class="col-12">
+    <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">
+        Back to Manga
+    </a>
+</div>
