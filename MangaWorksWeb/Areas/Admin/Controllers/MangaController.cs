@@ -23,35 +23,24 @@ namespace MangaWorksWeb.Controllers
             return View();
         }
 
-        //GET
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        //public IActionResult Chapter(int? id)
-        //{
-        //    ChapterVM chapterVM = new()
-        //    {
-        //        GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
-        //        {
-        //            Text = a.Name,
-        //            Value = a.Id.ToString()
-        //        }),
-        //        AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
-        //        {
-        //            Text = a.Name,
-        //            Value = a.Id.ToString()
-        //        })
-        //    };
-
-        //    if (id == null || id == 0)
-        //    {
-        //        return View(chapterVM);
-        //    }
-        //    else
-        //    {
-        //        chapterVM.Chapter = (Chapter)_unitOfWork.Chapter.GetAllChaptersOfThisManga(a => a.MangaId == id);
-        //        Console.WriteLine("You Suck Dick");
-        //        return View(chapterVM);
-        //    }
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Chapter chapterObj)
+        {
+            if(ModelState.IsValid)
+            {
+                _unitOfWork.Chapter.Add(chapterObj);
+                _unitOfWork.Save();
+                TempData["success"] = "Chapter created Successfully";
+                return RedirectToAction("Chapter");
+            }
+            return View(chapterObj);
+        }
 
         public IActionResult Chapter(int? id)
         {

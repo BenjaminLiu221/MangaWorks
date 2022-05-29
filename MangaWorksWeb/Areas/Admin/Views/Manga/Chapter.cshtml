@@ -3,19 +3,24 @@
     ViewData["Title"] = "Chapter";
 }
 
-<div class="container p-3">
-    <div class="row pt-4">
-        <div class="col-6">
-            <h2 class="text-primary">Chapter List</h2>
-        </div>
-        <div class="col-6 text-end">
-            <a asp-controller="Chapter" asp-action="Create" class="btn btn-warning">
-                <i class="bi bi-plus-circle"></i> &nbsp; Create New Chapter
-            </a>
+@{
+    var chapterObj = Model.FirstOrDefault();
+
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2 class="text-primary">Chapter List</h2>
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Manga" asp-action="Create" asp-route-id="@chapterObj.MangaId" class="btn btn-warning">
+                    <i class="bi bi-plus-circle"></i> &nbsp; Create New Chapter
+                </a>
+            </div>
         </div>
     </div>
-</div>
-@*<br /><br />*@
+    @*<br /><br />*@
+}
+
 
 <table class="table table-secondary table-bordered table-striped" style="width:100%">
     <thead>
@@ -39,8 +44,6 @@
                        class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
                         <a asp-controller="Chapter" asp-action="Remove" asp-route-id="@obj.Id"
                        class="btn btn-danger mx-2"> <i class="bi bi-trash"></i> Remove</a>
-                       <a asp-controller="Manga" asp-action="Upsert" asp-route-id="@obj.MangaId"
-                       class="btn btnalert-primary mx-2"> <i class="bi bi-arrow-return-left"></i>Return</a>
                     </div>
                 </td>
             </tr>
@@ -48,8 +51,11 @@
     </tbody>
 </table>
 
-<div class="col-12">
-    <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">
-        Back to Manga
-    </a>
-</div>
+@*Model is a list of chapter objs*@
+@{
+    <div class="col-12">
+        <a asp-controller="Manga" asp-action="Upsert" class="btn btn-secondary" style="width:150px" asp-route-id="@chapterObj.MangaId">
+            Back to Manga
+        </a>
+    </div>
+}
