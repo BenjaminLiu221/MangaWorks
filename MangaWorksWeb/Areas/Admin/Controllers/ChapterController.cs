@@ -80,6 +80,22 @@ namespace MangaWorksWeb.Controllers
             var chapterList = _unitOfWork.Chapter.GetAll(includeProperties: "Manga");
             return Json(new { data = chapterList });
         }
+
+        //POST
+        [HttpDelete]
+        public IActionResult Delete(int? id)
+        {
+            var chapterFromDbFirst = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == id);
+            if (chapterFromDbFirst == null)
+            {
+                return Json(new { success = false, message = "Error while deleting" });
+            }
+
+            _unitOfWork.Chapter.Remove(chapterFromDbFirst);
+            _unitOfWork.Save();
+            return Json(new { success = true, message = "Delete successful" });
+
+        }
         #endregion
 
     }

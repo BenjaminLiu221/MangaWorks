@@ -20,6 +20,12 @@ namespace MangaWorks.DataAccess.Repository
 
         public void Update(Chapter obj)
         {
+            var objFromDb = _dbContext.Chapters.FirstOrDefault(a => a.Id == obj.Id);
+            if (objFromDb != null)
+            {
+                objFromDb.ChapterNumber = obj.ChapterNumber;
+                objFromDb.MangaId = obj.MangaId;
+            }
         }
     }
 }
