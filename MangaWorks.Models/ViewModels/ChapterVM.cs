@@ -11,5 +11,7 @@ namespace MangaWorks.Models.ViewModels
     public class ChapterVM
     {
         public Chapter Chapter { get; set; }
+        [ValidateNever]
+        public IEnumerable<SelectListItem> MangaList { get; set; }
     }
 }

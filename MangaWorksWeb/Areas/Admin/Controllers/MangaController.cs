@@ -23,25 +23,6 @@ namespace MangaWorksWeb.Controllers
             return View();
         }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create(Chapter chapterObj)
-        {
-            if(ModelState.IsValid)
-            {
-                _unitOfWork.Chapter.Add(chapterObj);
-                _unitOfWork.Save();
-                TempData["success"] = "Chapter created Successfully";
-                return RedirectToAction("Chapter");
-            }
-            return View(chapterObj);
-        }
-
         public IActionResult Chapter(int? mangaId)
         {
             IEnumerable<Chapter> chapterList = _unitOfWork.Chapter.GetAllChaptersOfThisManga(a => a.MangaId == mangaId);
@@ -115,13 +96,15 @@ namespace MangaWorksWeb.Controllers
                 if (mangaObj.Manga.Id == 0)
                 {
                     _unitOfWork.Manga.Add(mangaObj.Manga);
+                    TempData["success"] = "Manga created successfully";
                 }
                 else
                 {
                     _unitOfWork.Manga.Update(mangaObj.Manga);
+                    TempData["success"] = "Manga updated successfully";
                 }
                 _unitOfWork.Save();
-                TempData["success"] = "Manga created successfully";
+                
                 return RedirectToAction("Index");
             }
             return View(mangaObj);

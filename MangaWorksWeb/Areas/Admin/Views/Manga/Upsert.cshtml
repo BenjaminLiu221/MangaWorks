@@ -1,5 +1,7 @@
 ﻿@model MangaWorks.Models.ViewModels.MangaVM
 
+<partial name="_Notification" />
+
 <form method="post" asp-action="Upsert" enctype="multipart/form-data">
     <input asp-for="Manga.Id" hidden />
     <input asp-for="Manga.ImageUrl" hidden />

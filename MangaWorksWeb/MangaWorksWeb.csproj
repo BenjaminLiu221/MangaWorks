@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Chapter\" />
     <Folder Include="wwwroot\images\mangas\" />
   </ItemGroup>
 

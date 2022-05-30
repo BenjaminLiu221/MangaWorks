@@ -16,6 +16,7 @@ namespace MangaWorks.Models
         public int ChapterNumber { get; set; }
 
         [Required]
+        [Display(Name = "Manga")]
         public int MangaId { get; set; }
         [ValidateNever]
         public Manga Manga { get; set; }
