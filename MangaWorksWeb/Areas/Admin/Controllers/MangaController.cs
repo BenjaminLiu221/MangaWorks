@@ -42,10 +42,15 @@ namespace MangaWorksWeb.Controllers
             return View(chapterObj);
         }
 
-        public IActionResult Chapter(int? id)
+        public IActionResult Chapter(int? mangaId)
         {
-            IEnumerable<Chapter> chapterList = _unitOfWork.Chapter.GetAllChaptersOfThisManga(a => a.MangaId == id);
-            return View(chapterList);
+            IEnumerable<Chapter> chapterList = _unitOfWork.Chapter.GetAllChaptersOfThisManga(a => a.MangaId == mangaId);
+            if (chapterList.Count() > 0)
+            {
+                return View(chapterList);
+            }
+            TempData["error"] = "Chapters Not Found";
+            return RedirectToAction("Upsert", new { id = mangaId});
         }
         public IActionResult Upsert(int? id)
         {

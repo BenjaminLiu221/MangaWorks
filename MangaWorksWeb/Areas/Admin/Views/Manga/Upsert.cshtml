@@ -90,8 +90,8 @@
                     {
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
                     }
-                    <a asp-controller="Manga" asp-action="Chapter" class="btn btn-secondary" style="width:150px" asp-route-id="@Model.Manga.Id">
-                        Edit Chapters
+                    <a asp-controller="Manga" asp-action="Chapter" class="btn btn-secondary" style="width:150px" asp-route-mangaId="@Model.Manga.Id">
+                        View Chapters
                     </a>
                     <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">
                         Back to List
@@ -133,4 +133,10 @@
         }
     }
 </script>
+@if (TempData["SuccessMessage"] != null)
+ {
+    <div class="alert alert-success alert-dismissable">
+         <strong>@TempData["SuccessMessage"]</strong>
+    </div>
+ }
 }

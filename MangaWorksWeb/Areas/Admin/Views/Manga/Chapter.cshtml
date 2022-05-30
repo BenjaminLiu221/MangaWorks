@@ -12,7 +12,7 @@
                 <h2 class="text-primary">Chapter List</h2>
             </div>
             <div class="col-6 text-end">
-                <a asp-controller="Manga" asp-action="Create" asp-route-id="@chapterObj.MangaId" class="btn btn-warning">
+                <a asp-controller="Manga" asp-action="Create" asp-route-id="@(chapterObj==null?0:@chapterObj.MangaId)" class="btn btn-warning">
                     <i class="bi bi-plus-circle"></i> &nbsp; Create New Chapter
                 </a>
             </div>
@@ -54,7 +54,7 @@
 @*Model is a list of chapter objs*@
 @{
     <div class="col-12">
-        <a asp-controller="Manga" asp-action="Upsert" class="btn btn-secondary" style="width:150px" asp-route-id="@chapterObj.MangaId">
+        <a asp-controller="Manga" asp-action="Upsert" class="btn btn-secondary" style="width:150px" asp-route-id="@(chapterObj==null?0:@chapterObj.MangaId)">
             Back to Manga
         </a>
     </div>
