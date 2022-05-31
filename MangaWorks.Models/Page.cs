@@ -15,7 +15,7 @@ namespace MangaWorks.Models
         [Required]
         //[Range(1,100)]
         public int PageNumber { get; set; }
-
+        [ValidateNever]
         public string ImageUrl { get; set; }
 
         [Required]

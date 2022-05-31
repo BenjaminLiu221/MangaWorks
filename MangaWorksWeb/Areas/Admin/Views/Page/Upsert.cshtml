@@ -6,7 +6,7 @@
     <input asp-for="Page.Id" hidden />
 
     <div class="row">
-        <div class="col-10">
+        <div class="col-12">
             @*class border of 3 and margin top of 4*@
             <div class="border p-3 mt-4 row">
 
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="row" style="padding-right:0">
-                    <div class="col-8 ">
+                    <div class="col-12 ">
 
                         <div class="mb-3 col-2">
                             <label asp-for="Page.PageNumber"></label>
@@ -32,6 +32,16 @@
                             </select>
                             <span asp-validation-for="Page.ChapterId" class="text-danger"></span>
                         </div>
+                        <div class="mb-3 col-12">
+                            <label asp-for="Page.ImageUrl"></label>
+                            <input type="file" id="uploadBox" name="file" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mb-3 col-11" style="display: flex; justify-content:flex-end;height:90%">
+                        @*<div class="pt-4 mb-3 col-4 " style="display: flex; justify-content:flex-end; padding-right:0">*@
+                        <img src="@Model.Page.ImageUrl"
+                             style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
                     </div>
                 </div>
 

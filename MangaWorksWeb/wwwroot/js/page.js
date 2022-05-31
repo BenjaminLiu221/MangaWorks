@@ -12,7 +12,7 @@ function loadDataTable() {
         },
         //pass columns after receiving ajax data
         "columns": [
-            { "data": "chapter.id", "width": "15%" },
+            { "data": "chapterId", "width": "15%" },
             { "data": "pageNumber", "width": "15%" },
             {
                 "data": "id",

@@ -53,10 +53,32 @@ namespace MangaWorksWeb.Controllers
         //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(PageVM pageObj)
+        public IActionResult Upsert(PageVM pageObj, IFormFile? file)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnvironment.WebRootPath;
+                if (file != null)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(wwwRootPath, @"images\pages");
+                    var extension = Path.GetExtension(file.FileName);
+
+                    if (pageObj.Page.ImageUrl != null)
+                    {
+                        var oldImagePath = Path.Combine(wwwRootPath, pageObj.Page.ImageUrl.TrimStart('\\'));
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                    }
+
+                    using (var fileStreams = new FileStream(Path.Combine(uploads, fileName + extension), FileMode.Create))
+                    {
+                        file.CopyTo(fileStreams);
+                    }
+                    pageObj.Page.ImageUrl = @"\images\pages\" + fileName + extension;
+                }
                 if (pageObj.Page.Id == 0)
                 {
                     _unitOfWork.Page.Add(pageObj.Page);
