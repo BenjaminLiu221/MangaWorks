@@ -23,6 +23,32 @@ namespace MangaWorksWeb.Controllers
             return View();
         }
 
+        public IActionResult ChapterDetails(int? chapterId)
+        {
+            ChapterDetailsVM chapterDetailsVM = new()
+            {
+                Chapter = new(),
+                MangaList = _unitOfWork.Manga.GetAll().Select(a => new SelectListItem
+                {
+                    Text = a.Title,
+                    Value = a.Id.ToString()
+                })
+            };
+
+            if (chapterId == null || chapterId == 0)
+            {
+                //create manga
+                //ViewBag.GenreList = GenreList;
+                return View(chapterDetailsVM);
+            }
+            else
+            {
+                chapterDetailsVM.Chapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == chapterId);
+                return View(chapterDetailsVM);
+                //update manga
+            }
+        }
+
         public IActionResult Chapter(int? mangaId)
         {
             IEnumerable<Chapter> chapterList = _unitOfWork.Chapter.GetDataFromDbSetUsingFk(a => a.MangaId == mangaId);
