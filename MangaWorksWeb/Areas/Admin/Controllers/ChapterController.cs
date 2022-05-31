@@ -23,6 +23,17 @@ namespace MangaWorksWeb.Controllers
             return View();
         }
 
+        public IActionResult Page(int? chapterId)
+        {
+            IEnumerable<Page> pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == chapterId);
+            if (pageList.Count() > 0)
+            {
+                return View(pageList);
+            }
+            TempData["error"] = "Pages Not Found";
+            return RedirectToAction("Upsert", new { id = chapterId });
+        }
+
         public IActionResult Upsert(int? id)
         {
             ChapterVM chapterVM = new()

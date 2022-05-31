@@ -20,16 +20,6 @@ namespace MangaWorks.DataAccess.Repository
 
         public void Update(Page obj)
         {
-            //var objFromDb = _dbContext.Pages.FirstOrDefault(a => a.Id == obj.Id);
-            //if (objFromDb != null)
-            //{
-            //    objFromDb.PageNumber = obj.PageNumber;
-            //    objFromDb.MangaId = obj.MangaId;
-            //    if (obj.ImageUrl != null)
-            //    {
-            //        objFromDb.ImageUrl = obj.ImageUrl;
-            //    }
-            //}
         }
     }
 }

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Page>
+@{
+    ViewData["Title"] = "Page";
+}
+
+@{
+    var pageObj = Model.FirstOrDefault();
+
+    <div class="container p-3">
+        <div class="row pt-4">
+            <div class="col-6">
+                <h2 class="text-primary">Page List</h2>
+            </div>
+        </div>
+    </div>
+    @*<br /><br />*@
+}
+
+<input asp-for="@pageObj.ChapterId" hidden />
+
+<table class="table table-secondary table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Page Number
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.PageNumber
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*Model is a list of page objs*@
+@{
+    <div class="col-12">
+        <a asp-controller="Chapter" asp-action="Upsert" class="btn btn-secondary" style="width:150px" asp-route-id="@(pageObj==null?0:@pageObj.ChapterId)">
+            Back to Chapter
+        </a>
+    </div>
+}

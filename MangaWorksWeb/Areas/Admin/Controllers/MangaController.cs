@@ -25,7 +25,7 @@ namespace MangaWorksWeb.Controllers
 
         public IActionResult Chapter(int? mangaId)
         {
-            IEnumerable<Chapter> chapterList = _unitOfWork.Chapter.GetAllChaptersOfThisManga(a => a.MangaId == mangaId);
+            IEnumerable<Chapter> chapterList = _unitOfWork.Chapter.GetDataFromDbSetUsingFk(a => a.MangaId == mangaId);
             if (chapterList.Count() > 0)
             {
                 return View(chapterList);

@@ -37,7 +37,7 @@ namespace MangaWorks.DataAccess.Repository
             return query.ToList();
         }
 
-        public IEnumerable<T> GetAllChaptersOfThisManga(Expression<Func<T, bool>> filter, string? includeProperties = null)
+        public IEnumerable<T> GetDataFromDbSetUsingFk(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             query = query.Where(filter);
