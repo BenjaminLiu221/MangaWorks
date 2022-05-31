@@ -22,7 +22,10 @@
     <thead>
         <tr>
             <th>
-                Page Number
+                Page
+            </th>
+            <th>
+                Image
             </th>
         </tr>
     </thead>
@@ -32,6 +35,10 @@
             <tr>
                 <td width="50%">
                     @obj.PageNumber
+                </td>
+                <td width="10%" height="10%">
+                    <img src="@obj.ImageUrl"
+                             style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:10%" />
                 </td>
             </tr>
         }
