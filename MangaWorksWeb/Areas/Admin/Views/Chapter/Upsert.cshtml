@@ -38,16 +38,16 @@
                 <div class="col-12">
                     @if (Model.Chapter.Id != 0)
                     {
-                        <button type="submit" class="btn btn-primary" style="width:150px">Update Chapter</button>
+                        <button type="submit" class="btn btn-warning" style="width:175px">Update Chapter</button>
                     }
                     else
                     {
-                        <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
+                        <button type="submit" onclick="return ValidateInput()" class="btn btn-warning" style="width:175px">Create</button>
                     }
-                    <a asp-controller="Chapter" asp-action="Page" class="btn btn-secondary" style="width:150px" asp-route-chapterId="@Model.Chapter.Id">
+                    <a asp-controller="Chapter" asp-action="Page" class="btn btn-primary" style="width:175px" asp-route-chapterId="@Model.Chapter.Id">
                         View Pages
                     </a>
-                    <a asp-controller="Chapter" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                    <a asp-controller="Chapter" asp-action="Index" class="btn btn-primary" style="width:175px">
                         Back to List
                     </a>
                 </div>

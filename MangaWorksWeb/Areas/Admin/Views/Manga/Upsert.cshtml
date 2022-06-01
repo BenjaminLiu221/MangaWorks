@@ -86,16 +86,16 @@
                 <div class="col-12">
                     @if (Model.Manga.Id != 0)
                     {
-                        <button type="submit" class="btn btn-primary" style="width:150px">Update Manga</button>
+                        <button type="submit" class="btn btn-warning" style="width:150px">Update Manga</button>
                     }
                     else
                     {
-                        <button type="submit" onclick="return ValidateInput()" class="btn btn-primary" style="width:150px">Create</button>
+                        <button type="submit" onclick="return ValidateInput()" class="btn btn-warning" style="width:150px">Create</button>
                     }
-                    <a asp-controller="Manga" asp-action="Chapter" class="btn btn-secondary" style="width:150px" asp-route-mangaId="@Model.Manga.Id">
+                    <a asp-controller="Manga" asp-action="Chapter" class="btn btn-primary" style="width:150px" asp-route-mangaId="@Model.Manga.Id">
                         View Chapters
                     </a>
-                    <a asp-controller="Manga" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                    <a asp-controller="Manga" asp-action="Index" class="btn btn-primary" style="width:150px">
                         Back to List
                     </a>
                 </div>
