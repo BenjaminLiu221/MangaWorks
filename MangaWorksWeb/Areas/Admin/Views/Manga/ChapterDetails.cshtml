@@ -39,7 +39,7 @@
                     <a asp-controller="Chapter" asp-action="Page" class="btn btn-secondary" style="width:150px" asp-route-chapterId="@Model.Chapter.Id">
                         View Pages
                     </a>
-                    <a asp-controller="Chapter" asp-action="Index" class="btn btn-secondary" style="width:150px">
+                    <a asp-controller="Manga" asp-action="Chapter" class="btn btn-secondary" style="width:150px" asp-route-mangaId="@Model.Chapter.MangaId">
                         Back to List
                     </a>
                 </div>
