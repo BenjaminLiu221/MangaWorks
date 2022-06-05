@@ -11,6 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
@@ -23,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MangaWorks.DataAccess\MangaWorks.DataAccess.csproj" />
+    <ProjectReference Include="..\MangaWorks.Utility\MangaWorks.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>
