@@ -39,14 +39,15 @@
                     @if (Model.Chapter.Id != 0)
                     {
                         <button type="submit" class="btn btn-warning" style="width:175px">Update Chapter</button>
+                        <a asp-controller="Chapter" asp-action="Page" class="btn btn-primary" style="width:175px" asp-route-chapterId="@Model.Chapter.Id">
+                        View Pages
+                    </a>
                     }
                     else
                     {
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-warning" style="width:175px">Create</button>
                     }
-                    <a asp-controller="Chapter" asp-action="Page" class="btn btn-primary" style="width:175px" asp-route-chapterId="@Model.Chapter.Id">
-                        View Pages
-                    </a>
+                    
                     <a asp-controller="Chapter" asp-action="Index" class="btn btn-primary" style="width:175px">
                         Back to List
                     </a>
