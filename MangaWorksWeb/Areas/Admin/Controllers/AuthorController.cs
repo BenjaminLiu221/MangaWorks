@@ -1,11 +1,14 @@
 ﻿using MangaWorks.DataAccess;
 using MangaWorks.DataAccess.Repository.IRepository;
 using MangaWorks.Models;
+using MangaWorks.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MangaWorksWeb.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class AuthorController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MangaWorks.Utility
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,19 +26,20 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Content Management</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Genre" asp-action="Index">Genre</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Author" asp-action="Index">Author</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Page" asp-action="Index">Page</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Chapter" asp-action="Index">Chapter</a>
-                                <a class="dropdown-item" asp-area="Admin" asp-controller="Manga" asp-action="Index">Manga</a>
-                                <div class="dropdown-divider"></div>
-                            </div>
-                        </li>
-
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Content Management</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Genre" asp-action="Index">Genre</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Author" asp-action="Index">Author</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Page" asp-action="Index">Page</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Chapter" asp-action="Index">Chapter</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Manga" asp-action="Index">Manga</a>
+                                    <div class="dropdown-divider"></div>
+                                </div>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                     @*<form class="d-flex">

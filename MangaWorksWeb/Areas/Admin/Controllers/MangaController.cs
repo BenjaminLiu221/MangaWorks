@@ -2,12 +2,15 @@
 using MangaWorks.DataAccess.Repository.IRepository;
 using MangaWorks.Models;
 using MangaWorks.Models.ViewModels;
+using MangaWorks.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MangaWorksWeb.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class MangaController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
