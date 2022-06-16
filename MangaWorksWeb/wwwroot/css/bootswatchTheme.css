@@ -2118,7 +2118,7 @@ progress {
     --bs-table-active-bg: rgba(0, 0, 0, 0.1);
     --bs-table-hover-color: #55595c;
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
-    width: 100%;
+    width: 50%;
     margin-bottom: 1rem;
     color: #55595c;
     vertical-align: top;
@@ -12327,4 +12327,15 @@ th {
 
 .card-title, .card-header {
     color: inherit;
+}
+
+.tableFixHead {
+    overflow: auto;
+    height: 500px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }

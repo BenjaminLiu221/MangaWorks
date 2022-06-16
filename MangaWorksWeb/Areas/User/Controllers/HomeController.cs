@@ -41,6 +41,8 @@ namespace MangaWorksWeb.Controllers
             return View(mangaDetailsObj);
         }
 
+        
+
         public IActionResult Privacy()
         {
             return View();

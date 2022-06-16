@@ -76,25 +76,34 @@
                             <h4 style="font-weight:bold">Description :</h4>
                             <p>@Html.Raw(Model.Manga.Description)</p>
 
-                            <table class="table table-secondary table-bordered table-striped" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Chapter Name
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var obj in Model.ChapterList)
-                                    {
+                            <div class="tableFixHead">
+                                <table class="table table-primary table-bordered" style="width:100%">
+                                    <thead>
                                         <tr>
-                                            <td width="50%">
-                                                @obj.Text
-                                            </td>
+                                            <th style="background:gray">
+                                                Chapter Name
+                                            </th>
                                         </tr>
-                                    }
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @{
+                                            var sortedChapterList = (from chapter in Model.ChapterList
+                                                                     orderby Int32.Parse(chapter.Text) descending
+                                                                     select chapter).ToList();
+                                        }
+                                        @foreach (var obj in sortedChapterList)
+                                        {
+                                            <tr>
+                                                <td width="50%">
+                                                    <a asp-controller="Home" asp-action="Page" style="width:195px" asp-route-id="@(obj.Value==null?0:@obj.Value)">
+                                                        Chapter @obj.Text
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                             <br>
                         </div>
                         <div class="panel-story-chapter-list">
