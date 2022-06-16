@@ -1,45 +1,25 @@
-﻿//var dataTable;
-
-//$(document).ready(function () {
-//    loadDataTable();
-//});
-
-//function loadDataTable() {
-//    dataTable = $('#tblData').DataTable({
-//        //make ajax request to get the data
-//        "ajax": {
-//            "url": "/Admin/Chapter/GetAll"
-//        },
-//        //pass columns after receiving ajax data
-//        "columns": [
-//            { "data": "manga.title", "width": "15%" },
-//            { "data": "chapterNumber", "width": "15%" },
-//            {
-//                "data": "id",
-//                "render": function (data) {
-//                    return `
-//                        <div class="w-75 btn-group" role="group">
-//                        <a href="/Admin/Chapter/Upsert?id=${data}"
-//                       class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
-//                       <a onClick=Delete('/Admin/Chapter/Delete/${data}')
-//                       class="btn btn-danger mx-2"> <i class="bi bi-trash"></i> Remove</a>
-//                    </div>
-//                        `
-//                },
-//                "width": "15%"
-//            }
-//        ]
-//    });
-//}
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     $('#tblData').DataTable({
         "ajax": {
             "url": "/Admin/Chapter/GetAll"
         },
         "columns": [
             { "data": "manga.title", "width": "15%" },
-            { "data": "chapterNumber", "width": "15%" }
+            { "data": "chapterNumber", "width": "15%" },
+            {
+                "data": "id",
+                "render": function (data) {
+                    return `
+                        <div class="w-75 btn-group" role="group">
+                        <a href="/Admin/Chapter/Upsert?id=${data}"
+                       class="btn btn-primary mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                       <a onClick=Delete('/Admin/Chapter/Delete/${data}')
+                       class="btn btn-danger mx-2"> <i class="bi bi-trash"></i> Remove</a>
+                    </div>
+                        `
+                },
+                "width": "15%"
+            }
         ],
         initComplete: function () {
             this.api()
@@ -58,7 +38,7 @@ $(document).ready(function () {
                         .data()
                         .unique()
                         .sort()
-                        .each(function (d, j) {
+                        .each(function (d) {
                             select.append('<option value="' + d + '">' + d + '</option>');
                         });
                 });
