@@ -31,7 +31,7 @@ namespace MangaWorksWeb.Controllers
             PageVM pageVM = new()
             {
                 Page = new(),
-                ChapterList = _unitOfWork.Chapter.GetAll().Select(a => new SelectListItem
+                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.Id == id).Select(a => new SelectListItem
                 {
                     Text = "Manga Id: " + a.MangaId.ToString() + ", Chapter Id: " + a.Id.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
                     //+ "" + a.ChapterNumber.ToString(),
