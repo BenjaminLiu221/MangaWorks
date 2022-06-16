@@ -2,6 +2,7 @@
 using MangaWorks.Models;
 using MangaWorks.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 namespace MangaWorksWeb.Controllers
@@ -29,7 +30,12 @@ namespace MangaWorksWeb.Controllers
         {
             MangaDetails mangaDetailsObj = new()
             {
-                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Genre,Author")
+                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Genre,Author"),
+                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
+                {
+                    Text = a.ChapterNumber.ToString(),
+                    Value = a.Id.ToString()
+                })
             };
         
             return View(mangaDetailsObj);

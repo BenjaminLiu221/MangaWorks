@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,7 @@ namespace MangaWorks.Models
     public class MangaDetails
     {
         public Manga Manga { get; set; }
-
+        [ValidateNever]
+        public IEnumerable<SelectListItem> ChapterList { get; set; }
     }
 }
