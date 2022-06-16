@@ -41,7 +41,11 @@ namespace MangaWorksWeb.Controllers
             return View(mangaDetailsObj);
         }
 
-        
+        public IActionResult Page(int id)
+        {
+            IEnumerable<Page> pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id);
+            return View(pageList);
+        }
 
         public IActionResult Privacy()
         {
