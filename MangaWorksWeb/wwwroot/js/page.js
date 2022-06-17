@@ -1,16 +1,8 @@
-﻿var dataTable;
-
-$(document).ready(function () {
-    loadDataTable();
-});
-
-function loadDataTable() {
-    dataTable = $('#tblData').DataTable({
-        //make ajax request to get the data
+﻿$(document).ready(function () {
+    $('#tblData').DataTable({
         "ajax": {
             "url": "/Admin/Page/GetAll"
         },
-        //pass columns after receiving ajax data
         "columns": [
             { "data": "chapterId", "width": "15%" },
             { "data": "pageNumber", "width": "15%" },
@@ -28,9 +20,31 @@ function loadDataTable() {
                 },
                 "width": "15%"
             }
-        ]
+        ],
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var column = this;
+                    var select = $('<select><option value="">Display All</option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                            column.search(val ? '^' + val + '$' : '', true, false).draw();
+                        });
+
+                    column
+                        .data()
+                        .unique()
+                        .sort(function (a, b) { return a - b })
+                        .each(function (d) {
+                            select.append('<option value="' + d + '">' + d + '</option>');
+                        });
+                });
+        },
     });
-}
+});
 
 function Delete(url) {
     Swal.fire({

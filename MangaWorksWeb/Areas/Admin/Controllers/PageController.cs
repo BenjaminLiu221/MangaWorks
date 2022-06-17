@@ -35,7 +35,7 @@ namespace MangaWorksWeb.Controllers
                     Page = new(),
                     ChapterList = _unitOfWork.Chapter.GetAll().Select(a => new SelectListItem
                     {
-                        Text = "Manga Id: " + a.MangaId.ToString() + ", Chapter Id: " + a.Id.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
+                        Text = "Manga Id: " + a.MangaId.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
                         //+ "" + a.ChapterNumber.ToString(),
                         Value = a.Id.ToString()
                     })
@@ -51,7 +51,7 @@ namespace MangaWorksWeb.Controllers
                     Page = new(),
                     ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.Id == id).Select(a => new SelectListItem
                     {
-                        Text = "Manga Id: " + a.MangaId.ToString() + ", Chapter Id: " + a.Id.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
+                        Text = "Manga Id: " + a.MangaId.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
                         //+ "" + a.ChapterNumber.ToString(),
                         Value = a.Id.ToString()
                     })
