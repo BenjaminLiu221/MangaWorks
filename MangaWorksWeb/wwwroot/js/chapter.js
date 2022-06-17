@@ -37,7 +37,7 @@
                     column
                         .data()
                         .unique()
-                        .sort()
+                        .sort(function (a, b) { return a - b })
                         .each(function (d) {
                             select.append('<option value="' + d + '">' + d + '</option>');
                         });
