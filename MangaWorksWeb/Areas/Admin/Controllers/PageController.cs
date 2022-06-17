@@ -28,25 +28,35 @@ namespace MangaWorksWeb.Controllers
 
         public IActionResult Upsert(int? id)
         {
-            PageVM pageVM = new()
-            {
-                Page = new(),
-                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.Id == id).Select(a => new SelectListItem
-                {
-                    Text = "Manga Id: " + a.MangaId.ToString() + ", Chapter Id: " + a.Id.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
-                    //+ "" + a.ChapterNumber.ToString(),
-                    Value = a.Id.ToString()
-                })
-            };
-
             if (id == null || id == 0)
             {
+                PageVM pageVM = new()
+                {
+                    Page = new(),
+                    ChapterList = _unitOfWork.Chapter.GetAll().Select(a => new SelectListItem
+                    {
+                        Text = "Manga Id: " + a.MangaId.ToString() + ", Chapter Id: " + a.Id.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
+                        //+ "" + a.ChapterNumber.ToString(),
+                        Value = a.Id.ToString()
+                    })
+                };
                 //create manga
                 //ViewBag.GenreList = GenreList;
                 return View(pageVM);
             }
             else
             {
+                PageVM pageVM = new()
+                {
+                    Page = new(),
+                    ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.Id == id).Select(a => new SelectListItem
+                    {
+                        Text = "Manga Id: " + a.MangaId.ToString() + ", Chapter Id: " + a.Id.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
+                        //+ "" + a.ChapterNumber.ToString(),
+                        Value = a.Id.ToString()
+                    })
+                };
+
                 pageVM.Page = _unitOfWork.Page.GetFirstOrDefault(a => a.Id == id);
                 return View(pageVM);
                 //update manga
