@@ -46,10 +46,14 @@ namespace MangaWorksWeb.Controllers
             }
             else
             {
+                var pageObj = _unitOfWork.Page.GetFirstOrDefault(a => a.Id == id);
+                var chapterId = pageObj.ChapterId;
+                var chapterObj = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == chapterId);
+                var mangaId = chapterObj.MangaId;
                 PageVM pageVM = new()
                 {
                     Page = new(),
-                    ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.Id == id).Select(a => new SelectListItem
+                    ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == mangaId).Select(a => new SelectListItem
                     {
                         Text = "Manga Id: " + a.MangaId.ToString() + ", ChapterNumber: " + a.ChapterNumber.ToString(),
                         //+ "" + a.ChapterNumber.ToString(),
