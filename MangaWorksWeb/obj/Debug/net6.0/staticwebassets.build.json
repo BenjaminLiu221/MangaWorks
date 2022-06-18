@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7LFBX7DqTySpanbK/ZmQG92x+AwZs4NDSCkQV8qiXeM=",
+  "Hash": "aHxH7r7VqOzeM3AJG7FIRPxmWmOJWKrW6IxJEFJTY/s=",
   "Source": "MangaWorksWeb",
   "BasePath": "_content/MangaWorksWeb",
   "Mode": "Default",
@@ -1462,6 +1462,23 @@
       "OriginalItemSpec": "wwwroot\\images\\mangas\\e4860187-c860-403c-b4dd-1802cf3470df.jpg"
     },
     {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\pages\\0c41643a-d6df-46f2-824f-4ae292bc5f39.jpg",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/pages/0c41643a-d6df-46f2-824f-4ae292bc5f39.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pages\\0c41643a-d6df-46f2-824f-4ae292bc5f39.jpg"
+    },
+    {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\pages\\18954a94-cb31-4eeb-aeb6-7fd4c311fa07.jpg",
       "SourceId": "MangaWorksWeb",
       "SourceType": "Discovered",
@@ -1477,6 +1494,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pages\\18954a94-cb31-4eeb-aeb6-7fd4c311fa07.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\pages\\43443791-b410-4d91-a7b6-091a9b4ab65b.jpg",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/pages/43443791-b410-4d91-a7b6-091a9b4ab65b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pages\\43443791-b410-4d91-a7b6-091a9b4ab65b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\pages\\b6ed4d49-a28e-447a-b8c6-4d5873e6b705.pdf",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/pages/b6ed4d49-a28e-447a-b8c6-4d5873e6b705.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pages\\b6ed4d49-a28e-447a-b8c6-4d5873e6b705.pdf"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\js\\chapter.js",

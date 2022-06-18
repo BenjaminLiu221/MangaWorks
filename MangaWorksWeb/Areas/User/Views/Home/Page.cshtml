@@ -8,8 +8,8 @@
 
     <div class="container p-3">
         <div class="row pt-4">
-            <div class="col-6">
-                <h2 class="text-primary">Page List</h2>
+            <div class="col-12" style="border:1px solid">
+                <h2 class="text-primary">Read Manga Online >></h2>
             </div>
         </div>
     </div>
@@ -22,10 +22,6 @@
     <thead>
         <tr>
             <th>
-                Page
-            </th>
-            <th>
-                Image
             </th>
         </tr>
     </thead>
@@ -33,10 +29,7 @@
         @foreach (var obj in Model)
         {
             <tr>
-                <td width="50%">
-                    @obj.PageNumber
-                </td>
-                <td width="10%" height="10%">
+                <td width="10%" height="10%" style="padding-top:inherit;padding-bottom:0;text-align:center">
                     <img src="@obj.ImageUrl"
                              style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:10%" />
                 </td>
