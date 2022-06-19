@@ -18,16 +18,12 @@ namespace MangaWorks.Models
         public string Status { get; set; }
         public int Chapters { get; set; }
         public DateTime Updated { get; set; }
-
+        [Range(1,5)]
         public double Rating { get; set; }
         public int Views { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
-        [Required]
-        [Display(Name = "Genres")]
-        public int GenreId { get; set; }
-        [ValidateNever]
-        public Genre Genre { get; set; }
+        public ICollection<Genre>? Genres { get; set; }
         [Required]
         [Display(Name = "Author")]
         public int AuthorId { get; set; }

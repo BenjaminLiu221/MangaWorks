@@ -12,7 +12,9 @@ namespace MangaWorks.Models.ViewModels
     {
         public Manga Manga { get; set; }
         [ValidateNever]
-        public IEnumerable<SelectListItem> GenreList { get; set; }
+        public List<Genre>? Genres { get; set; }
+        [ValidateNever]
+        public List<string> GenresList { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> AuthorList { get; set; }
     }

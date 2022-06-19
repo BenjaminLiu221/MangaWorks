@@ -40,8 +40,6 @@ namespace MangaWorksWeb.Controllers
 
             if (chapterId == null || chapterId == 0)
             {
-                //create manga
-                //ViewBag.GenreList = GenreList;
                 return View(chapterDetailsVM);
             }
             else
@@ -64,14 +62,15 @@ namespace MangaWorksWeb.Controllers
         }
         public IActionResult Upsert(int? id)
         {
+            var genres = new List<Genre>();
+            foreach (var item in _unitOfWork.Genre.GetAll())
+            {
+                genres.Add(item);
+            }
             MangaVM mangaVM = new()
             {
                 Manga = new(),
-                GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
-                {
-                    Text = a.Name,
-                    Value = a.Id.ToString()
-                }),
+                Genres = genres,
                 AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
                 {
                     Text = a.Name,
@@ -81,8 +80,6 @@ namespace MangaWorksWeb.Controllers
 
             if (id == null || id == 0)
             {
-                //create manga
-                //ViewBag.GenreList = GenreList;
                 return View(mangaVM);
             }
             else
@@ -124,6 +121,14 @@ namespace MangaWorksWeb.Controllers
                 }
                 if (mangaObj.Manga.Id == 0)
                 {
+                    var genres = new List<Genre>();
+                    {
+                        foreach (var item in mangaObj.GenresList)
+                        {
+                            genres.Add(_unitOfWork.Genre.GetAll().Where(a => a.Name == item).First());
+                        }
+                    }
+                    mangaObj.Manga.Genres = genres;
                     _unitOfWork.Manga.Add(mangaObj.Manga);
                     TempData["success"] = "Manga created successfully";
                 }
@@ -143,7 +148,7 @@ namespace MangaWorksWeb.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Genre,Author");
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
             return Json(new { data = mangaList });
         }
 

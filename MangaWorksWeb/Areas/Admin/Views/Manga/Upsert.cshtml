@@ -38,13 +38,15 @@
                              style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
                     </div>
                 </div>
-
-                <div class="mb-3 col-6">
-                    <label asp-for="Manga.GenreId"></label>
-                    <select asp-for="Manga.GenreId" asp-items="@Model.GenreList" class="form-select">
-                        <option disabled selected>--Select Genre--</option>
-                    </select>
-                    <span asp-validation-for="Manga.GenreId" class="text-danger"></span>
+                <div class="form-group mb-2">
+                    <label>Genre</label><br />
+                    <div>
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <label for=@genre.Id>@genre.Name</label>         @* add name here*@
+                            <input type="checkbox" id=@genre.Id value=@genre.Name name="GenresList" />
+                        }
+                    </div>
                 </div>
                 <div class="mb-3 col-6">
                     <label asp-for="Manga.AuthorId"></label>
@@ -88,14 +90,14 @@
                     {
                         <button type="submit" class="btn btn-warning" style="width:150px">Update Manga</button>
                         <a asp-controller="Manga" asp-action="Chapter" class="btn btn-primary" style="width:150px" asp-route-mangaId="@Model.Manga.Id">
-                        View Chapters
-                    </a>
+                            View Chapters
+                        </a>
                     }
                     else
                     {
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-warning" style="width:150px">Create</button>
                     }
-                    
+
                     <a asp-controller="Manga" asp-action="Index" class="btn btn-primary" style="width:150px">
                         Back to List
                     </a>
@@ -113,17 +115,7 @@
     @{
     <partial name="_ValidationScriptsPartial" />
     }
-<script>
-    tinymce.init({
-      selector: 'textarea',
-      height:250,
-      plugins: 'a11ychecker advcode casechange export formatpainter image editimage linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tableofcontents tinycomments tinymcespellchecker',
-      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter image editimage pageembed permanentpen table tableofcontents',
-      toolbar_mode: 'floating',
-      tinycomments_mode: 'embedded',
-      tinycomments_author: 'Author name',
-    });
-</script>
+
 <script>
     function ValidateInput(){
         if(document.getElementById("uploadBox").value==""){
@@ -138,8 +130,8 @@
 </script>
 @if (TempData["SuccessMessage"] != null)
  {
-    <div class="alert alert-success alert-dismissable">
-         <strong>@TempData["SuccessMessage"]</strong>
-    </div>
+<div class="alert alert-success alert-dismissable">
+    <strong>@TempData["SuccessMessage"]</strong>
+</div>
  }
 }

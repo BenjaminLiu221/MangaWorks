@@ -21,7 +21,7 @@ namespace MangaWorksWeb.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Manga> mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Genre,Author");
+            IEnumerable<Manga> mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
 
             return View(mangaList);
         }
@@ -30,7 +30,7 @@ namespace MangaWorksWeb.Controllers
         {
             MangaDetails mangaDetailsObj = new()
             {
-                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Genre,Author"),
+                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
                 ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
                 {
                     Text = a.ChapterNumber.ToString(),
