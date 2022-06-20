@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A953iwCTkAs3jvrvwQXZ3QalYKkCpAE7QgIYzpO/G8I=",
+  "Hash": "TAarumIwMuvz4x45B1D8/+MNtlbT/F8M0pLNVP4/DRE=",
   "Source": "MangaWorksWeb",
   "BasePath": "_content/MangaWorksWeb",
   "Mode": "Default",
@@ -1120,6 +1120,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\b55379ca-e032-4068-acf8-9c34d132614e.jpg",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/mangas/b55379ca-e032-4068-acf8-9c34d132614e.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mangas\\b55379ca-e032-4068-acf8-9c34d132614e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\ef83208e-3b04-4bbc-8f84-86d42cbd2d85.jpg",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/mangas/ef83208e-3b04-4bbc-8f84-86d42cbd2d85.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mangas\\ef83208e-3b04-4bbc-8f84-86d42cbd2d85.jpg"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\ff56003c-b751-41bd-b635-32f32a7a1d6a.jpg",

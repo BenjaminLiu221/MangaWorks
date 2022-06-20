@@ -62,28 +62,43 @@ namespace MangaWorksWeb.Controllers
         }
         public IActionResult Upsert(int? id)
         {
-            var genres = new List<Genre>();
-            foreach (var item in _unitOfWork.Genre.GetAll())
-            {
-                genres.Add(item);
-            }
-            MangaVM mangaVM = new()
-            {
-                Manga = new(),
-                Genres = genres,
-                AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
-                {
-                    Text = a.Name,
-                    Value = a.Id.ToString()
-                })
-            };
-
             if (id == null || id == 0)
             {
+                var genres = new List<Genre>();
+                foreach (var item in _unitOfWork.Genre.GetAll())
+                {
+                    genres.Add(item);
+                }
+                MangaVM mangaVM = new()
+                {
+                    Manga = new(),
+                    Genres = genres,
+                    AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
+                    {
+                        Text = a.Name,
+                        Value = a.Id.ToString()
+                    })
+                };
                 return View(mangaVM);
             }
             else
             {
+
+                var genres = new List<Genre>();
+                foreach (var item in _unitOfWork.Genre.GetAll())
+                {
+                    genres.Add(item);
+                }
+                MangaVM mangaVM = new()
+                {
+                    Manga = new(),
+                    Genres = genres,
+                    AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
+                    {
+                        Text = a.Name,
+                        Value = a.Id.ToString()
+                    })
+                };
                 mangaVM.Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
                 return View(mangaVM);
                 //update manga

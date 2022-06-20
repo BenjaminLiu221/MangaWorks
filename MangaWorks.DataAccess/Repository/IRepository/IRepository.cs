@@ -13,6 +13,7 @@ namespace MangaWorks.DataAccess.Repository.IRepository
         T GetFirstOrDefault(Expression<Func<T, bool>> filter, string? includeProperties = null);
         IEnumerable<T> GetDataFromDbSetUsingFk(Expression<Func<T, bool>> filter, string? includeProperties = null);
         IEnumerable<T> GetAll(string? includeProperties = null);
+        IEnumerable<T> Get();
         void Add(T entity);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entity);

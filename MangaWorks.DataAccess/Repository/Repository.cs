@@ -37,6 +37,12 @@ namespace MangaWorks.DataAccess.Repository
             return query.ToList();
         }
 
+        public IEnumerable<T> Get()
+        {
+            IQueryable<T> query = dbSet;
+            return query;
+        }
+
         public IEnumerable<T> GetDataFromDbSetUsingFk(Expression<Func<T, bool>> filter, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
