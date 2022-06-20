@@ -164,6 +164,7 @@ namespace MangaWorksWeb.Controllers
                 }
                 if (mangaObj.Manga.Id == 0)
                 {
+                    //post method needs var genres
                     var genres = new List<Genre>();
                     string mangaGenres = "";
                     foreach (var item in mangaObj.GenresList)
