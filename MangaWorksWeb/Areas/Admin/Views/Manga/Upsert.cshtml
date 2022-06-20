@@ -41,10 +41,12 @@
                 <div class="form-group mb-2">
                     <label>Genre</label><br />
                     <div>
-                        @foreach (var genre in Model.Genres)
+                        @foreach (var genre in Model.GenreBool)
                         {
-                            <label for=@genre.Id>@genre.Name</label>         @* add name here*@
-                            <input type="checkbox" id=@genre.Id value=@genre.Name name="GenresList" checked="isChecked"/>
+                            <label for=@genre.Key.Id>@genre.Key.Name</label>         @* add name here*@
+                            <input type="checkbox" id=@genre.Key.Id value=@genre.Key.Name name="GenresList" 
+                            @(genre.Value == true ? "checked='isChecked'" : string.Empty)
+                            />
                         }
                     </div>
                 </div>

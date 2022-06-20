@@ -58,21 +58,27 @@ namespace MangaWorksWeb.Controllers
                 return View(chapterList);
             }
             TempData["error"] = "Chapters Not Found";
-            return RedirectToAction("Upsert", new { id = mangaId});
+            return RedirectToAction("Upsert", new { id = mangaId });
         }
         public IActionResult Upsert(int? id)
         {
             if (id == null || id == 0)
             {
                 var genres = new List<Genre>();
+                var genreBool = new Dictionary<Genre, bool>();
                 foreach (var item in _unitOfWork.Genre.GetAll())
                 {
                     genres.Add(item);
+                }
+                foreach (var item in _unitOfWork.Genre.GetAll())
+                {
+                    genreBool.Add(item, false);
                 }
                 MangaVM mangaVM = new()
                 {
                     Manga = new(),
                     Genres = genres,
+                    GenreBool = genreBool,
                     AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
                     {
                         Text = a.Name,
@@ -82,16 +88,23 @@ namespace MangaWorksWeb.Controllers
                 return View(mangaVM);
             }
             else
-             {
+            {
                 var genres = new List<Genre>();
+                var listOfAllGenres = new List<string>();
+                var genreBool = new Dictionary<Genre, bool>();
                 foreach (var item in _unitOfWork.Genre.GetAll())
                 {
                     genres.Add(item);
+                }
+                foreach (var genre in genres)
+                {
+                    listOfAllGenres.Add(genre.Name);
                 }
                 MangaVM mangaVM = new()
                 {
                     Manga = new(),
                     Genres = genres,
+                    GenreBool = genreBool,
                     AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
                     {
                         Text = a.Name,
@@ -99,6 +112,34 @@ namespace MangaWorksWeb.Controllers
                     })
                 };
                 mangaVM.Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
+
+                var mangaGenres = mangaVM.Manga.MangaGenres;
+                List<string> mangaGenresList = mangaGenres.Split('*').ToList();
+
+                foreach (string genre in listOfAllGenres)
+                {
+                    if (mangaGenresList.Contains(genre))
+                    {
+                        foreach (var item in _unitOfWork.Genre.GetAll())
+                        {
+                            if (item.Name == genre)
+                            {
+                                genreBool.Add(item, true);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in _unitOfWork.Genre.GetAll())
+                        {
+                            if (item.Name == genre)
+                            {
+                                genreBool.Add(item, false);
+                            }
+                        }
+                    }
+                }
+                mangaVM.GenreBool = genreBool;
                 return View(mangaVM);
                 //update manga
             }
@@ -145,7 +186,7 @@ namespace MangaWorksWeb.Controllers
                     }
                     foreach (var genre in genres)
                     {
-                        if(mangaGenres == "")
+                        if (mangaGenres == "")
                         {
                             mangaGenres = String.Concat(mangaGenres, genre.Name);
                         }
@@ -165,7 +206,7 @@ namespace MangaWorksWeb.Controllers
                     TempData["success"] = "Manga updated successfully";
                 }
                 _unitOfWork.Save();
-                
+
                 return RedirectToAction("Index");
             }
             return View(mangaObj);
