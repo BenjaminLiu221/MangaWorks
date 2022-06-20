@@ -200,6 +200,7 @@ namespace MangaWorks.DataAccess.Migrations
                     Rating = table.Column<double>(type: "float", nullable: false),
                     Views = table.Column<int>(type: "int", nullable: false),
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MangaGenres = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

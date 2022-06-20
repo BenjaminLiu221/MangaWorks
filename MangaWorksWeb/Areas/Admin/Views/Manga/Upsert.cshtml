@@ -44,7 +44,7 @@
                         @foreach (var genre in Model.Genres)
                         {
                             <label for=@genre.Id>@genre.Name</label>         @* add name here*@
-                            <input type="checkbox" id=@genre.Id value=@genre.Name name="GenresList" />
+                            <input type="checkbox" id=@genre.Id value=@genre.Name name="GenresList" checked="isChecked"/>
                         }
                     </div>
                 </div>
@@ -88,8 +88,8 @@
                 <div class="col-12">
                     @if (Model.Manga.Id != 0)
                     {
-                        <button type="submit" class="btn btn-warning" style="width:150px">Update Manga</button>
-                        <a asp-controller="Manga" asp-action="Chapter" class="btn btn-primary" style="width:150px" asp-route-mangaId="@Model.Manga.Id">
+                        <button type="submit" class="btn btn-warning" style="width:175px">Update Manga</button>
+                        <a asp-controller="Manga" asp-action="Chapter" class="btn btn-primary" style="width:180px" asp-route-mangaId="@Model.Manga.Id">
                             View Chapters
                         </a>
                     }
@@ -98,7 +98,7 @@
                         <button type="submit" onclick="return ValidateInput()" class="btn btn-warning" style="width:150px">Create</button>
                     }
 
-                    <a asp-controller="Manga" asp-action="Index" class="btn btn-primary" style="width:150px">
+                    <a asp-controller="Manga" asp-action="Index" class="btn btn-primary" style="width:175px">
                         Back to List
                     </a>
                 </div>

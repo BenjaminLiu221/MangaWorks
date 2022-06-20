@@ -10,6 +10,7 @@ namespace MangaWorks.Models
 {
     public class Manga
     {
+        [Key]
         public int Id { get; set; }
         [Required]
         public string Title { get; set; }
@@ -23,6 +24,8 @@ namespace MangaWorks.Models
         public int Views { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
+        [ValidateNever]
+        public string MangaGenres { get; set; }
         public ICollection<Genre>? Genres { get; set; }
         [Required]
         [Display(Name = "Author")]

@@ -82,8 +82,7 @@ namespace MangaWorksWeb.Controllers
                 return View(mangaVM);
             }
             else
-            {
-
+             {
                 var genres = new List<Genre>();
                 foreach (var item in _unitOfWork.Genre.GetAll())
                 {
@@ -137,13 +136,26 @@ namespace MangaWorksWeb.Controllers
                 if (mangaObj.Manga.Id == 0)
                 {
                     var genres = new List<Genre>();
+                    string mangaGenres = "";
                     {
                         foreach (var item in mangaObj.GenresList)
                         {
                             genres.Add(_unitOfWork.Genre.GetAll().Where(a => a.Name == item).First());
                         }
                     }
+                    foreach (var genre in genres)
+                    {
+                        if(mangaGenres == "")
+                        {
+                            mangaGenres = String.Concat(mangaGenres, genre.Name);
+                        }
+                        else
+                        {
+                            mangaGenres = String.Concat(mangaGenres, "*", genre.Name);
+                        }
+                    }
                     mangaObj.Manga.Genres = genres;
+                    mangaObj.Manga.MangaGenres = mangaGenres;
                     _unitOfWork.Manga.Add(mangaObj.Manga);
                     TempData["success"] = "Manga created successfully";
                 }
