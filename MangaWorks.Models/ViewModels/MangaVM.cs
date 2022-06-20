@@ -12,8 +12,6 @@ namespace MangaWorks.Models.ViewModels
     {
         public Manga Manga { get; set; }
         [ValidateNever]
-        public List<Genre>? Genres { get; set; }
-        [ValidateNever]
         public Dictionary<Genre, bool> GenreBool{ get; set; }
         [ValidateNever]
         public List<string> GenresList { get; set; }

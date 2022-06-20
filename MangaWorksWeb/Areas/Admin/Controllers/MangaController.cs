@@ -64,12 +64,7 @@ namespace MangaWorksWeb.Controllers
         {
             if (id == null || id == 0)
             {
-                var genres = new List<Genre>();
                 var genreBool = new Dictionary<Genre, bool>();
-                foreach (var item in _unitOfWork.Genre.GetAll())
-                {
-                    genres.Add(item);
-                }
                 foreach (var item in _unitOfWork.Genre.GetAll())
                 {
                     genreBool.Add(item, false);
@@ -77,7 +72,6 @@ namespace MangaWorksWeb.Controllers
                 MangaVM mangaVM = new()
                 {
                     Manga = new(),
-                    Genres = genres,
                     GenreBool = genreBool,
                     AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
                     {
@@ -89,21 +83,15 @@ namespace MangaWorksWeb.Controllers
             }
             else
             {
-                var genres = new List<Genre>();
                 var listOfAllGenres = new List<string>();
                 var genreBool = new Dictionary<Genre, bool>();
                 foreach (var item in _unitOfWork.Genre.GetAll())
                 {
-                    genres.Add(item);
-                }
-                foreach (var genre in genres)
-                {
-                    listOfAllGenres.Add(genre.Name);
+                    listOfAllGenres.Add(item.Name);
                 }
                 MangaVM mangaVM = new()
                 {
                     Manga = new(),
-                    Genres = genres,
                     GenreBool = genreBool,
                     AuthorList = _unitOfWork.Author.GetAll().Select(a => new SelectListItem
                     {
@@ -178,11 +166,9 @@ namespace MangaWorksWeb.Controllers
                 {
                     var genres = new List<Genre>();
                     string mangaGenres = "";
+                    foreach (var item in mangaObj.GenresList)
                     {
-                        foreach (var item in mangaObj.GenresList)
-                        {
-                            genres.Add(_unitOfWork.Genre.GetAll().Where(a => a.Name == item).First());
-                        }
+                        genres.Add(_unitOfWork.Genre.GetAll().Where(a => a.Name == item).First());
                     }
                     foreach (var genre in genres)
                     {
@@ -202,6 +188,19 @@ namespace MangaWorksWeb.Controllers
                 }
                 else
                 {
+                    string mangaGenres = "";
+                    foreach (var genre in mangaObj.GenresList)
+                    {
+                        if (mangaGenres == "")
+                        {
+                            mangaGenres = String.Concat(mangaGenres, genre);
+                        }
+                        else
+                        {
+                            mangaGenres = String.Concat(mangaGenres, "*", genre);
+                        }
+                    }
+                    mangaObj.Manga.MangaGenres = mangaGenres;
                     _unitOfWork.Manga.Update(mangaObj.Manga);
                     TempData["success"] = "Manga updated successfully";
                 }
