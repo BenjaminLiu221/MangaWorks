@@ -21,9 +21,19 @@ namespace MangaWorksWeb.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Manga> mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
+            //IEnumerable<Manga> mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
+            //return View(mangaList);
 
-            return View(mangaList);
+            MangaIndexGenreIndex mangaIndexGenreIndexVM = new()
+            {
+                MangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList(),
+                GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
+                {
+                    Text = a.Name,
+                    Value = a.Id.ToString()
+                }
+            )};
+            return View(mangaIndexGenreIndexVM);
         }
 
         public IActionResult Details(int id)

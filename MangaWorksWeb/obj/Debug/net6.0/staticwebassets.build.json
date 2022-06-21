@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "lO3tuz8tac/Vlyf+n2HO7MwbFI+iHYa66amwKAtCCzc=",
+  "Hash": "Ji3p4sc4L7DD4TKXMKiN18A80iwYI/u0PeZHibYeCGg=",
   "Source": "MangaWorksWeb",
   "BasePath": "_content/MangaWorksWeb",
   "Mode": "Default",
@@ -1171,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\mangas\\30ca2b9b-84e5-4dc9-8350-8b24fc56bf96.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\77611704-c37a-4a80-a610-ae01fe967312.jpg",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "images/mangas/77611704-c37a-4a80-a610-ae01fe967312.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\mangas\\77611704-c37a-4a80-a610-ae01fe967312.jpg"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\images\\mangas\\a9b6a4b2-4d54-4746-885a-c5f9c20784b6.jpg",
