@@ -47,8 +47,28 @@ namespace MangaWorksWeb.Controllers
                     Value = a.Id.ToString()
                 })
             };
-        
             return View(mangaDetailsObj);
+        }
+
+        public IActionResult MangaByGenres(int id)
+        {
+            var genreObj = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
+            List<Manga> mangaListByGenre = new();
+            foreach (var manga in mangaList)
+            {
+                List<string> mangaGenres = manga.MangaGenres.Split('*').ToList();
+                if(mangaGenres.Contains(genreObj.Name))
+                {
+                    mangaListByGenre.Add(manga);
+                }
+            }
+
+            MangaByGenre mangaByGenre = new()
+            {
+                MangaList = mangaListByGenre
+            };
+            return View(mangaByGenre);
         }
 
         public IActionResult Page(int id)
