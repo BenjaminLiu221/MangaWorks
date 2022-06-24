@@ -27,7 +27,7 @@
                                         <p class="card-text" style="font-style:italic">@mangaChapterList.Key.Author.Name</p>
                                         @foreach (var chapter in mangaChapterList.Value)
                                         {
-                                            <a asp-action="ViewPage" class="text-primary" style="text-align:left" asp-route-id="@chapter.Id">
+                                            <a asp-action="Page" class="text-primary" style="text-align:left" asp-route-id="@chapter.Id">
                                                 <h5 style="font-weight:bold">Chapter @chapter.ChapterNumber</h5>
                                             </a>
                                         }
