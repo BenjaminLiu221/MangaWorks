@@ -10,7 +10,7 @@ namespace MangaWorks.Models
 {
     public class MangaIndexGenreIndex
     {
-        public List<Manga> MangaList { get; set; }
+        public Dictionary<Manga, List<Chapter>> MangaIndex { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> GenreList { get; set; }
     }

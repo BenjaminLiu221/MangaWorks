@@ -6,23 +6,34 @@
             <div class="col-8">
                 <div class="row pb-3 pt-3" style="width:850px"
                     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
-                    @foreach (var mangaObj in Model.MangaList)
+
+                    @{
+                        var mangaIndexDict = Model.MangaIndex;
+                    }
+                    @foreach (var mangaChapterList in mangaIndexDict)
                     {
                         <div class="col-lg-2 col-md-2" style="/*border:1px solid #008cba;*/ height:200px; width:425px; padding:0px">
                             <div class="row p-2">
                                 <div class="col-12 p-2" style="/*border:1px solid #008cba;*/ border-radius:1px; height:180px; width:130px; padding:0px">
                                     <div class="card" style="height:100%; border-style:double; padding:0px">
-                                        <img src="@mangaObj.ImageUrl" class="card-img-top" style="object-fit:cover; height:inherit" />
+                                        <img src="@mangaChapterList.Key.ImageUrl" class="card-img-top" style="object-fit:cover; height:inherit" />
                                     </div>
                                 </div>
                                 <div class="col-12 p-2" style="/*border:1px solid #008cba;*/ border-radius:1px; height:contain; width:69.8%">
                                     <div class="container pt-1" style="border:solid; height:100%; max-width: 20rem; padding:2px">
-                                        <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
-                                            <h5 style="font-weight:bold"> @mangaObj.Title</h5>
+                                        <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
+                                            <h5 style="font-weight:bold">@mangaChapterList.Key.Title</h5>
                                         </a>
-                                        <p class="card-text" style="font-style:italic">@mangaObj.Author.Name</p>
+                                        <p class="card-text" style="font-style:italic">@mangaChapterList.Key.Author.Name</p>
+                                        @foreach (var chapter in mangaChapterList.Value)
+                                        {
+                                            <a asp-action="ViewPage" class="text-primary" style="text-align:left" asp-route-id="@chapter.Id">
+                                                <h5 style="font-weight:bold">Chapter @chapter.ChapterNumber</h5>
+                                            </a>
+                                        }
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     }

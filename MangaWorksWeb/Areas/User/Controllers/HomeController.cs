@@ -24,9 +24,30 @@ namespace MangaWorksWeb.Controllers
             //IEnumerable<Manga> mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
             //return View(mangaList);
 
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
+            var mangaIndexDict = new Dictionary<Manga, List<Chapter>>();
+
+            foreach (var manga in mangaList)
+            {
+                var allChaptersOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).ToList();
+                var chapterList = new List<Chapter>();
+                if (allChaptersOfManga.Count() > 0)
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        chapterList.Add(allChaptersOfManga[i]);
+                    }
+                    mangaIndexDict.Add(manga, chapterList);
+                }
+                else
+                {
+                    mangaIndexDict.Add(manga, chapterList);
+                }
+            }
+
             MangaIndexGenreIndex mangaIndexGenreIndexVM = new()
             {
-                MangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList(),
+                MangaIndex = mangaIndexDict,
                 GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
                 {
                     Text = a.Name,
