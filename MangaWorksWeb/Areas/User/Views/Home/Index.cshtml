@@ -1,12 +1,11 @@
 ﻿@model MangaIndexGenreIndex
 
-<div class="row pl-3" style="border:solid; margin-top:20px">
+<div class="row pl-3" style="border:solid; margin-top:20px; background-color:gray">
     <h3>
         Read Manga Online - Latest Updates
     </h3>
 </div>
-<div class="border">
-<div class="row pl-3 pb-3" style="margin-top:0px"
+<div class="row pl-3 pb-3" style="border:solid;margin-top:0px; background-color:gray"
     <div class="col-10">
         <div class="row">
             <div class="col-8">
@@ -25,7 +24,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 p-2" style="/*border:1px solid #008cba;*/ border-radius:1px; height:contain; width:69.8%">
-                                    <div class="container pt-1" style="border:solid; height:100%; max-width: 20rem; padding:2px">
+                                    <div class="container pt-1" style="/*border:solid;*/ height:100%; max-width: 20rem; padding:2px">
                                         <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
                                             <h5 style="font-weight:bold">@mangaChapterList.Key.Title</h5>
                                         </a>
@@ -46,7 +45,7 @@
             </div>
             <div class="col-4 pb-3 pt-3">
                 <div class="row pb-3 pt-3" style="width:330px">
-                    <div class="card-header" style="width:inherit; font-weight:bold">Mangas By Genre</div>
+                    <div class="card-header" style="width:inherit; font-weight:bold; background-color:darkgray">Mangas By Genre</div>
                     <div class="card" style="width:inherit">
                         <div class="row p-1" style="width:inherit">
                             <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
@@ -65,5 +64,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>
