@@ -8,7 +8,7 @@
                     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
                     @foreach (var mangaObj in Model.MangaList)
                     {
-                        <div class="col-lg-2 col-md-2" style="height:250px; width:50%; padding-left:12px">
+                        <div class="col-lg-2 col-md-2" style="height:250px; width:50%; padding-left:12px; color:black">
                             <div class="row p-2" style="width:600px;background:gray">
                                 <div class="col-12 p-2" style="height:220px; width:27%; padding-left:12px">
                                     <div class="card" style="height:100%; border-style:double; padding:0px">
@@ -16,10 +16,23 @@
                                     </div>
                                 </div>
                                 <div class="col-12 pt-3" style="height:contain; width:69.8%">
-                                        <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
-                                            <h5 style="font-weight:bold"> @mangaObj.Title</h5>
-                                        </a>
-                                        <p class="card-text" style="font-style:italic">@mangaObj.Author.Name</p>
+                                    <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
+                                        <h5 style="font-weight:bold"> @mangaObj.Title</h5>
+                                    </a>
+                                    <i class="bi bi-eye-fill" style="font-size:small">@mangaObj.Views</i>&nbsp;
+                                    <i class="bi bi-person-fill" style="font-size:small">@mangaObj.Author.Name</i>&nbsp;
+                                    <i class="bi bi-calendar3" style="font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>
+                                    @if(mangaObj.Description.Length > 200)
+                                    {
+                                        @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
+                                    }
+                                    else
+                                    {
+                                        <p>@Html.Raw(mangaObj.Description)</p>
+                                    }
+                                    <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
+                                        <h5 style="font-weight:normal">-------------Read More-------------</h5>
+                                    </a>
                                 </div>
                             </div>
                         </div>
