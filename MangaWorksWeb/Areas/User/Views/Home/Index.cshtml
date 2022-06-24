@@ -1,12 +1,17 @@
 ﻿@model MangaIndexGenreIndex
 
-<div class="row pl-3 pb-3 pt-3"
+<div class="row pl-3" style="border:solid; margin-top:20px">
+    <h3>
+        Read Manga Online - Latest Updates
+    </h3>
+</div>
+<div class="border">
+<div class="row pl-3 pb-3" style="margin-top:0px"
     <div class="col-10">
         <div class="row">
             <div class="col-8">
-                <div class="row pb-3 pt-3" style="width:850px"
+                <div class="row pb-1 pt-1" style="width:850px"
                     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
-
                     @{
                         var mangaIndexDict = Model.MangaIndex;
                     }
@@ -60,4 +65,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

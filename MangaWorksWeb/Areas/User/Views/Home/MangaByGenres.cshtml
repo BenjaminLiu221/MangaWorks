@@ -19,20 +19,22 @@
                                     <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
                                         <h5 style="font-weight:bold"> @mangaObj.Title</h5>
                                     </a>
-                                    <i class="bi bi-eye-fill" style="font-size:small">@mangaObj.Views</i>&nbsp;
-                                    <i class="bi bi-person-fill" style="font-size:small">@mangaObj.Author.Name</i>&nbsp;
-                                    <i class="bi bi-calendar3" style="font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>
-                                    @if(mangaObj.Description.Length > 200)
-                                    {
-                                        @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
-                                    }
-                                    else
-                                    {
-                                        <p>@Html.Raw(mangaObj.Description)</p>
-                                    }
-                                    <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
-                                        <h5 style="font-weight:normal">-------------Read More-------------</h5>
-                                    </a>
+                                    <i class="bi bi-eye-fill" style="font-size:small">@mangaObj.Views.ToString("N0")</i>&nbsp;
+                                    <i class="bi bi-calendar3" style="font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>&nbsp;
+                                    <i class="bi bi-person-fill" style="font-size:small">@mangaObj.Author.Name</i>
+                                    <div class="row">
+                                        @if(mangaObj.Description.Length > 200)
+                                        {
+                                            @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
+                                        }
+                                        else
+                                        {
+                                            <p>@Html.Raw(mangaObj.Description)</p>
+                                        }
+                                        <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
+                                            <h5 style="font-weight:normal">-------------Read More-------------</h5>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
