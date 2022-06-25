@@ -21,6 +21,7 @@ namespace MangaWorks.Models
         [Range(1,5)]
         public double Rating { get; set; }
         public int Views { get; set; }
+        public int NumberOfRatings { get; set; }
         [ValidateNever]
         public string ImageUrl { get; set; }
         [ValidateNever]

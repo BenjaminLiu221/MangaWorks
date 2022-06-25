@@ -30,6 +30,7 @@ namespace MangaWorks.DataAccess.Repository
                 objFromDb.MangaGenres = obj.MangaGenres;
                 objFromDb.Rating = obj.Rating;
                 objFromDb.Views = obj.Views;
+                objFromDb.NumberOfRatings = obj.NumberOfRatings;
                 objFromDb.AuthorId = obj.AuthorId;
                 if (obj.ImageUrl != null)
                 {

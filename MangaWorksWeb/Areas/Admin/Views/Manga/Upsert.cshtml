@@ -63,9 +63,9 @@
                     <span asp-validation-for="Manga.Status" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-6">
-                    <label asp-for="Manga.Updated"></label>
-                    <input asp-for="Manga.Updated" class="form-control" />
-                    <span asp-validation-for="Manga.Updated" class="text-danger"></span>
+                    <label asp-for="Manga.NumberOfRatings">Votes</label>
+                    <input asp-for="Manga.NumberOfRatings" class="form-control" />
+                    <span asp-validation-for="Manga.NumberOfRatings" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-6">
                     <label asp-for="Manga.Rating"></label>
@@ -73,15 +73,19 @@
                     <span asp-validation-for="Manga.Rating" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-6">
-                    <label asp-for="Manga.ImageUrl"></label>
-                    <input type="file" id="uploadBox" name="file" class="form-control" />
+                    <label asp-for="Manga.Updated"></label>
+                    <input asp-for="Manga.Updated" class="form-control" />
+                    <span asp-validation-for="Manga.Updated" class="text-danger"></span>
                 </div>
                 <div class="mb-3 col-6">
                     <label asp-for="Manga.Views"></label>
                     <input asp-for="Manga.Views" class="form-control" />
                     <span asp-validation-for="Manga.Views" class="text-danger"></span>
                 </div>
-
+                <div class="mb-3 col-6">
+                    <label asp-for="Manga.ImageUrl"></label>
+                    <input type="file" id="uploadBox" name="file" class="form-control" />
+                </div>
                 <div class="col-12">
                     @if (Model.Manga.Id != 0)
                     {

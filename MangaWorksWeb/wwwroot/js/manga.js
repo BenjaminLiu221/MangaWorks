@@ -13,10 +13,10 @@ function loadDataTable() {
         //pass columns after receiving ajax data
         "columns": [
             { "data": "title", "width": "15%" },
-            { "data": "description", "width": "15%" },
             { "data": "author.name", "width": "15%" },
             { "data": "status", "width": "15%" },
             { "data": "rating", "width": "15%" },
+            { "data": "numberOfRatings", "width": "15%" },
             { "data": "views", "width": "15%" },
             { "data": "updated", "width": "15%" },
             {
