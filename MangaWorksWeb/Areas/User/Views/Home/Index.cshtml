@@ -44,10 +44,10 @@
                 </div>
             </div>
             <div class="col-4 pb-3 pt-3">
-                <div class="row pb-3 pt-3" style="width:440px">
-                    <div class="card-header" style="width:inherit; font-weight:bold; background-color:darkgray">New Manga</div>
-                    <div class="card" style="height:100%; width:100%; background-color:white">
-                        <div class="row" style="height:100%; width:100%; padding:0px">
+                <div class="row pb-0 pt-3" style="width:440px">
+                    <div class="card text-white bg-dark mb-3" style="height:100%; width:100%">
+                    <div class="card-header" style="width:inherit; font-weight:bold">New Manga</div>
+                        <div class="row" style="height:100%; width:100%; padding-left:8px; background-color:whitesmoke">
                         @foreach (var mangaObj in Model.NewManga)
                             {
                                 <div class="card" style="height:100%; width:20%; border-style:double; padding:0px">
@@ -60,10 +60,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="row pb-1 pt-0" style="width:440px">
+                    <div class="d-grid gap-2">
+                        <a asp-controller="NewestManga" asp-action="Index" class="btn btn-dark" style="text-align:center">More</a>
+                    </div>
+                </div>
                 <div class="row pb-3 pt-3" style="width:440px">
-                    <div class="card-header" style="width:inherit; font-weight:bold; background-color:darkgray">Manga By Genre</div>
-                    <div class="card" style="width:inherit">
-                        <div class="row p-1" style="width:inherit">
+                    <div class="card text-white bg-dark mb-3" style="width:inherit">
+                    <div class="card-header" style="width:inherit; font-weight:bold">Manga By Genre</div>
+                        <div class="row p-1" style="width:inherit; background-color:whitesmoke">
                             <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
                             @foreach (var mangaObj in Model.GenreList)
                             {
