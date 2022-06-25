@@ -1,5 +1,27 @@
 ﻿@model MangaIndexGenreIndex
 
+@{
+    var mangaIndexDict = Model.MangaIndex;
+}
+
+
+<div class="autoplay">
+        @{
+            int mangaCarouselCount = 0;
+        }
+        @foreach (var mangaChapterList in mangaIndexDict)
+        {
+            if (mangaCarouselCount < 20)
+            {
+                <div class="card">
+                    <img src="@mangaChapterList.Key.ImageUrl"/>
+                </div>
+                mangaCarouselCount++;
+            }
+        }
+</div> 
+
+
 <div class="row pl-3" style="border:solid; margin-top:20px; background-color:gray">
     <h3>
         Read Manga Online - Latest Updates
@@ -11,9 +33,6 @@
             <div class="col-8">
                 <div class="row pb-1 pt-1" style="width:850px"
                     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
-                    @{
-                        var mangaIndexDict = Model.MangaIndex;
-                    }
                     @foreach (var mangaChapterList in mangaIndexDict)
                     {
                         <div class="col-lg-2 col-md-2" style="/*border:1px solid #008cba;*/ height:200px; width:425px; padding:0px">
@@ -83,8 +102,8 @@
                     </div>
                 </div>
                 <div class="row pb-1 pt-0" style="width:440px">
-                    <div class="d-grid gap-2">
-                        <a asp-controller="NewestManga" asp-action="Index" class="btn btn-dark" style="text-align:center">More</a>
+                    <div class="d-grid gap-2" style="padding:0">
+                        <a asp-controller="NewestManga" asp-action="Index" class="btn btn-dark" style="text-align:center">>>More<<</a>
                     </div>
                 </div>
                 <div class="row pb-3 pt-3" style="width:440px">
@@ -108,3 +127,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+<script src="~/js/carousel.js"></script>
+}

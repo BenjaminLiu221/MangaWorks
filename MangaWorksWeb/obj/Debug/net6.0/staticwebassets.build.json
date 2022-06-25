@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MaGfrS9hromsXW6MRuRQoHEzq7B9zuyicGdf5U0DqgQ=",
+  "Hash": "ECfJZmj6g6ayMIV55HEdo79cYKCyVT+Lmy0stVjmO94=",
   "Source": "MangaWorksWeb",
   "BasePath": "_content/MangaWorksWeb",
   "Mode": "Default",
@@ -1613,6 +1613,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\pages\\ffbd00ee-4037-4216-863e-7d0a49d1f58b.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\js\\carousel.js",
+      "SourceId": "MangaWorksWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\",
+      "BasePath": "_content/MangaWorksWeb",
+      "RelativePath": "js/carousel.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\carousel.js"
     },
     {
       "Identity": "C:\\Users\\benja\\Documents\\Projects\\MangaWorks\\MangaWorksWeb\\wwwroot\\js\\chapter.js",
