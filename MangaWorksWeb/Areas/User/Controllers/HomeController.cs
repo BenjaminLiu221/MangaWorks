@@ -28,6 +28,19 @@ namespace MangaWorksWeb.Controllers
             var mangaIndexDict = new Dictionary<Manga, List<Chapter>>();
             var newMangaList = new List<Manga>();
             int newMangaListCount = 0;
+            var mostPopularMangaList = new List<Manga>();
+            var mangaListByVotesDesc = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
+            int mostPopularMangaListCount = 0;
+            //var mostPopularMangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").Where(a => a.NumberOfRatings == 0).OrderByDescending(a => a.NumberOfRatings).ToList();
+
+            foreach (var manga in mangaListByVotesDesc)
+            {
+                if (mostPopularMangaListCount < 10)
+                {
+                    mostPopularMangaList.Add(manga);
+                    mostPopularMangaListCount++;
+                }
+            }
 
             foreach (var manga in mangaList)
             {
@@ -61,6 +74,7 @@ namespace MangaWorksWeb.Controllers
             {
                 MangaIndex = mangaIndexDict,
                 NewManga = newMangaList,
+                MostPopularManga = mostPopularMangaList,
                 GenreList = _unitOfWork.Genre.GetAll().OrderBy(a => a.Name).Select(a => new SelectListItem
                 {
                     Text = a.Name,

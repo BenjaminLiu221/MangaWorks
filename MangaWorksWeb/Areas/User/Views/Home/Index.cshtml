@@ -53,6 +53,19 @@
                 </div>
             </div>
             <div class="col-4 pb-3 pt-3">
+                <div class="row pb-1 pt-3" style="width:440px">
+                    <div class="card text-white bg-dark mb-3" style="height:100%; width:100%">
+                        <div class="card-header" style="width:inherit; font-weight:bold">Most Popular Manga</div>
+                            <div class="row p-1" style="width:inherit">
+                                @foreach (var mangaObj in Model.MostPopularManga)
+                                {
+                                    <a asp-action="Details" class="text-primary" style="text-align:left; padding-top:0px; padding-bottom:0px; padding-left:10px" asp-route-id="@mangaObj.Id">
+                                        <p style="color:white; font-weight:bold"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@mangaObj.Title</i></p>
+                                    </a>
+                                }
+                            </div>
+                    </div>
+                </div>
                 <div class="row pb-0 pt-3" style="width:440px">
                     <div class="card text-white bg-dark mb-3" style="height:100%; width:100%">
                     <div class="card-header" style="width:inherit; font-weight:bold">New Manga</div>
@@ -81,10 +94,10 @@
                             <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
                             @foreach (var mangaObj in Model.GenreList)
                             {
-                                <div class="col-lg-3 col-md-3" style="width:130px">
+                                <div class="col-lg-3 col-md-3" style="width:140px">
                                     <a asp-action="MangaByGenres" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Value">
                                         @*<h3 style="font-weight:bold"> @mangaObj.Text</h3>*@
-                                        <p class="card-text" style="font-weight:bold;width:inherit">@mangaObj.Text</p>
+                                        <p class="card-text" style="font-size:small; font-weight:bold; width:inherit">@mangaObj.Text</p>
                                     </a>
                                 </div>
                             }

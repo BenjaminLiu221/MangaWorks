@@ -14,5 +14,6 @@ namespace MangaWorks.Models
         [ValidateNever]
         public IEnumerable<SelectListItem> GenreList { get; set; }
         public List<Manga> NewManga { get; set; }
+        public List<Manga> MostPopularManga { get; set; }
     }
 }
