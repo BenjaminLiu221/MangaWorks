@@ -61,7 +61,7 @@ namespace MangaWorksWeb.Controllers
             {
                 MangaIndex = mangaIndexDict,
                 NewManga = newMangaList,
-                GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
+                GenreList = _unitOfWork.Genre.GetAll().OrderBy(a => a.Name).Select(a => new SelectListItem
                 {
                     Text = a.Name,
                     Value = a.Id.ToString()
