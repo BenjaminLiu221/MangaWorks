@@ -28,13 +28,22 @@
                                         <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
                                             <h5 style="font-weight:bold">@mangaChapterList.Key.Title</h5>
                                         </a>
-                                        <p class="card-text" style="font-style:italic">@mangaChapterList.Key.Author.Name</p>
+                                        <p class="card-text" style="font-style:italic; margin-bottom:0px">@mangaChapterList.Key.Author.Name</p>
+                                        <table class>
                                         @foreach (var chapter in mangaChapterList.Value)
                                         {
-                                            <a asp-action="Page" class="text-primary" style="text-align:left" asp-route-id="@chapter.Id">
-                                                <h5 style="font-weight:bold">Chapter @chapter.ChapterNumber</h5>
-                                            </a>
+                                            <tr>
+                                                <td class="table-label">
+                                                    <a asp-action="Page" class="text-primary" style="text-align:left" asp-route-id="@chapter.Id">
+                                                        <p style="font-weight:bold">Chapter @chapter.ChapterNumber</p>
+                                                    </a>
+                                                </td>
+                                                <td class="table-value" style="padding-left:75px">
+                                                    <p style="font-weight:bold">@chapter.Updated.Date.ToString("MM/dd/yyyy")</p>
+                                                </td>
+                                            </tr>
                                         }
+                                        </table>
                                     </div>
                                 </div>
                                 
@@ -47,7 +56,7 @@
                 <div class="row pb-0 pt-3" style="width:440px">
                     <div class="card text-white bg-dark mb-3" style="height:100%; width:100%">
                     <div class="card-header" style="width:inherit; font-weight:bold">New Manga</div>
-                        <div class="row" style="height:100%; width:100%; padding-left:8px; background-color:whitesmoke">
+                        <div class="row" style="height:100%; width:100%; padding-left:8px; background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity))">
                         @foreach (var mangaObj in Model.NewManga)
                             {
                                 <div class="card" style="height:100%; width:20%; border-style:double; padding:0px">
