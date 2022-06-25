@@ -102,7 +102,7 @@ namespace MangaWorksWeb.Controllers
                 mangaVM.Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id);
 
                 var mangaGenres = mangaVM.Manga.MangaGenres;
-                List<string> mangaGenresList = mangaGenres.Split('*').ToList();
+                List<string> mangaGenresList = mangaGenres.Split(' ').ToList();
 
                 foreach (string genre in listOfAllGenres)
                 {
@@ -179,7 +179,7 @@ namespace MangaWorksWeb.Controllers
                         }
                         else
                         {
-                            mangaGenres = String.Concat(mangaGenres, "*", genre.Name);
+                            mangaGenres = String.Concat(mangaGenres, " ", genre.Name);
                         }
                     }
                     mangaObj.Manga.Genres = genres;
@@ -198,7 +198,7 @@ namespace MangaWorksWeb.Controllers
                         }
                         else
                         {
-                            mangaGenres = String.Concat(mangaGenres, "*", genre);
+                            mangaGenres = String.Concat(mangaGenres, " ", genre);
                         }
                     }
                     mangaObj.Manga.MangaGenres = mangaGenres;

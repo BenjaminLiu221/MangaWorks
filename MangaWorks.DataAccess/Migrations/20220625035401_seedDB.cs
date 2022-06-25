@@ -195,7 +195,6 @@ namespace MangaWorks.DataAccess.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Chapters = table.Column<int>(type: "int", nullable: false),
                     Updated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Rating = table.Column<double>(type: "float", nullable: false),
                     Views = table.Column<int>(type: "int", nullable: false),
@@ -221,6 +220,7 @@ namespace MangaWorks.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ChapterNumber = table.Column<int>(type: "int", nullable: false),
+                    Updated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MangaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

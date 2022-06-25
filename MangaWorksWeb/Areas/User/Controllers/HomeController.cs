@@ -26,28 +26,41 @@ namespace MangaWorksWeb.Controllers
 
             var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
             var mangaIndexDict = new Dictionary<Manga, List<Chapter>>();
+            var newMangaList = new List<Manga>();
+            int newMangaListCount = 0;
 
             foreach (var manga in mangaList)
             {
                 var allChaptersOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).ToList();
                 var chapterList = new List<Chapter>();
-                if (allChaptersOfManga.Count() > 0)
+                if (allChaptersOfManga.Count() == 0)
                 {
-                    for (int i = 0; i < 3; i++)
+                    mangaIndexDict.Add(manga, chapterList);
+                }
+                else
+                {
+                    for (int i = 0; i < allChaptersOfManga.Count(); i++)
                     {
                         chapterList.Add(allChaptersOfManga[i]);
                     }
                     mangaIndexDict.Add(manga, chapterList);
                 }
-                else
+            }
+
+            foreach (var manga in mangaList)
+            {
+                if (newMangaListCount < 10)
                 {
-                    mangaIndexDict.Add(manga, chapterList);
+                    var allFirstChaptersOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id && a.ChapterNumber == 1).OrderByDescending(a => a.Updated).ToList();
+                    newMangaList.Add(manga);
+                    newMangaListCount++;
                 }
             }
 
             MangaIndexGenreIndex mangaIndexGenreIndexVM = new()
             {
                 MangaIndex = mangaIndexDict,
+                NewManga = newMangaList,
                 GenreList = _unitOfWork.Genre.GetAll().Select(a => new SelectListItem
                 {
                     Text = a.Name,
@@ -78,7 +91,7 @@ namespace MangaWorksWeb.Controllers
             List<Manga> mangaListByGenre = new();
             foreach (var manga in mangaList)
             {
-                List<string> mangaGenres = manga.MangaGenres.Split('*').ToList();
+                List<string> mangaGenres = manga.MangaGenres.Split(' ').ToList();
                 if(mangaGenres.Contains(genreObj.Name))
                 {
                     mangaListByGenre.Add(manga);

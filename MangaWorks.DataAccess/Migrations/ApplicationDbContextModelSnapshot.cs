@@ -69,6 +69,9 @@ namespace MangaWorks.DataAccess.Migrations
                     b.Property<int>("MangaId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MangaId");
@@ -102,9 +105,6 @@ namespace MangaWorks.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Chapters")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")

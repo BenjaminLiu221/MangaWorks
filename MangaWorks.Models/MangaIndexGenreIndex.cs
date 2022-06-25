@@ -13,5 +13,6 @@ namespace MangaWorks.Models
         public Dictionary<Manga, List<Chapter>> MangaIndex { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> GenreList { get; set; }
+        public List<Manga> NewManga { get; set; }
     }
 }

@@ -15,22 +15,24 @@
                     <h2 class="text-primary">@(Model.Chapter.Id!=0?"Update": "Create") Chapter</h2>
                     <hr />
                 </div>
-
                 <div class="row" style="padding-right:0">
                     <div class="col-8 ">
-
                         <div class="mb-3 col-2">
                             <label asp-for="Chapter.ChapterNumber"></label>
                             <input asp-for="Chapter.ChapterNumber" class="form-control" />
                             <span asp-validation-for="Chapter.ChapterNumber" class="text-danger"></span>
                         </div>
-
                         <div class="mb-3 col-12">
                             <label asp-for="Chapter.MangaId"></label>
                             <select asp-for="Chapter.MangaId" asp-items="@Model.MangaList" class="form-select">
                                 <option disabled selected>--Select Manga--</option>
                             </select>
                             <span asp-validation-for="Chapter.MangaId" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label asp-for="Chapter.Updated"></label>
+                            <input asp-for="Chapter.Updated" class="form-control" />
+                            <span asp-validation-for="Chapter.Updated" class="text-danger"></span>
                         </div>
                     </div>
                 </div>

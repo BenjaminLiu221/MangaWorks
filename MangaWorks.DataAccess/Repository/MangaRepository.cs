@@ -26,7 +26,6 @@ namespace MangaWorks.DataAccess.Repository
                 objFromDb.Title = obj.Title;
                 objFromDb.Description = obj.Description;
                 objFromDb.Status = obj.Status;
-                objFromDb.Chapters = obj.Chapters;
                 objFromDb.Updated = obj.Updated;
                 objFromDb.MangaGenres = obj.MangaGenres;
                 objFromDb.Rating = obj.Rating;

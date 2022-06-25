@@ -17,7 +17,6 @@ namespace MangaWorks.Models
         [Required]
         public string Description { get; set; }
         public string Status { get; set; }
-        public int Chapters { get; set; }
         public DateTime Updated { get; set; }
         [Range(1,5)]
         public double Rating { get; set; }

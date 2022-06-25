@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MangaWorks.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220621001328_seedMangaIndexGenreIndexVM")]
-    partial class seedMangaIndexGenreIndexVM
+    [Migration("20220625035401_seedDB")]
+    partial class seedDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,6 +71,9 @@ namespace MangaWorks.DataAccess.Migrations
                     b.Property<int>("MangaId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("MangaId");
@@ -104,9 +107,6 @@ namespace MangaWorks.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("AuthorId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Chapters")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
