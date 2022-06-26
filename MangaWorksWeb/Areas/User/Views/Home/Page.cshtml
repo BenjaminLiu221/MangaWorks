@@ -5,15 +5,6 @@
 
 @{
     var pageObj = Model.FirstOrDefault();
-
-    <div class="container p-3">
-        <div class="row pt-4">
-            <div class="col-12" style="border:1px solid">
-                <h2 class="text-primary">Read Manga Online >></h2>
-            </div>
-        </div>
-    </div>
-    @*<br /><br />*@
 }
 
 <input asp-for="@pageObj.ChapterId" hidden />
@@ -21,8 +12,22 @@
 <table class="table table-primary table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th style="font-size:large; background-color:rgba(var(--bs-dark-rgb)">
-                Read Manga Online
+            <th style="padding-top:10px; padding-bottom:0px; background-color:rgba(var(--bs-dark-rgb)">
+                <div class="flex-container"@* style="width:20%"*@>
+                    <div>
+                        <a asp-action="Index" class="text-primary">
+                            <h4 style="color:white; font-size:small">Read Manga Online</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 style="color:white; font-size:small">>></h4>
+                    </div>
+                    <div>
+                        <a asp-action="Index" class="text-primary">
+                            <h4 style="color:white; font-size:small">Read Manga Online</h4>
+                        </a>
+                    </div>
+                </div>
             </th>
         </tr>
     </thead>

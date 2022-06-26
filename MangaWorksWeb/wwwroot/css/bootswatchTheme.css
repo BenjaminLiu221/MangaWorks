@@ -12452,3 +12452,7 @@ th {
 /*[dir='rtl'] .slick-next:before {
     content: '<';
 }*/
+
+.flex-container {
+    display: flex;
+}
