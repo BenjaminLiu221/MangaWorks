@@ -22,6 +22,14 @@
                             <h4 style="color:white; font-size:small">@Model.MangaTitle</h4>
                         </a>
                     </div>
+                    <div>
+                        <h4 style="color:white; font-size:small">>></h4>
+                    </div>
+                    <div>
+                        <a asp-action="PageManga" class="text-primary" asp-route-id="@Model.ChapterId">
+                            <h4 style="color:white; font-size:small">Chapter @Model.ChapterNumber</h4>
+                        </a>
+                    </div>
                 </div>
             </th>
         </tr>

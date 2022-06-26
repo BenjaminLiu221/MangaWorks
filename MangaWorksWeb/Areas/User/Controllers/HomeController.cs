@@ -139,7 +139,7 @@ namespace MangaWorksWeb.Controllers
             return View(mangaByGenre);
         }
 
-        public IActionResult Page(int id)
+        public IActionResult PageManga(int id)
         {
             var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id).ToList();
             //return View(pageList);
@@ -153,6 +153,7 @@ namespace MangaWorksWeb.Controllers
                 PageList = pageList,
                 MangaId = mangaObj.Id,
                 MangaTitle = mangaObj.Title,
+                ChapterId = firstChapter.Id,
                 ChapterNumber = firstChapter.ChapterNumber
 
             };
