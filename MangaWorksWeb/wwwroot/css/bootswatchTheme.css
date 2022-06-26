@@ -12376,6 +12376,12 @@ th {
     background: transparent;
 }
 
+
+/*.slick-arrow {
+    text-indent: -9999px !important;
+    color: transparent;
+}*/
+
     .slick-prev:hover,
     .slick-prev:focus,
     .slick-next:hover,
@@ -12401,43 +12407,48 @@ th {
     .slick-next:before {
         font-family: 'slick';
         font-size: 50px;
+        /*font-weight: bolder;*/
+        padding: 5px;
         line-height: 1;
         opacity: .75;
-        color: blue;
+        color: white;
+        background: gray;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
+/* adjust position of left arrow */
 .slick-prev {
-    left: -25px;
+    /*left: -10px;*/
+    z-index: 1;
 }
 
-[dir='rtl'] .slick-prev {
+/*[dir='rtl'] .slick-prev {
     right: -25px;
     left: auto;
-}
+}*/
 
 .slick-prev:before {
-    content: '←';
+    content: '<';
 }
 
-[dir='rtl'] .slick-prev:before {
-    content: '→';
-}
-
+/*[dir='rtl'] .slick-prev:before {
+    content: '>';
+}*/
+/* adjust position of right arrow */
 .slick-next {
-    right: -25px;
+    right: 30px;
+    position: absolute;
 }
 
-[dir='rtl'] .slick-next {
+/*[dir='rtl'] .slick-next {
     right: auto;
     left: -25px;
-}
+}*/
 
 .slick-next:before {
-    content: '→';
+    content: '>';
 }
 
-[dir='rtl'] .slick-next:before {
-    content: '←';
-}
+/*[dir='rtl'] .slick-next:before {
+    content: '<';
+}*/
