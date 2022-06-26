@@ -46,15 +46,20 @@ namespace MangaWorksWeb.Controllers
             {
                 var allChaptersOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).ToList();
                 var chapterList = new List<Chapter>();
+                int chapterListCount = 0;
                 if (allChaptersOfManga.Count() == 0)
                 {
                     mangaIndexDict.Add(manga, chapterList);
                 }
                 else
                 {
-                    for (int i = 0; i < allChaptersOfManga.Count(); i++)
+                    foreach (var chapter in allChaptersOfManga)
                     {
-                        chapterList.Add(allChaptersOfManga[i]);
+                        if (chapterListCount < 3)
+                        {
+                            chapterList.Add(chapter);
+                            chapterListCount++;
+                        }
                     }
                     mangaIndexDict.Add(manga, chapterList);
                 }

@@ -4,7 +4,7 @@
     var mangaIndexDict = Model.MangaIndex;
 }
 
-<div class="row pl-3 pt-3 pb-3" style="/*border:solid; margin-top:20px; */background-color:rgba(var(--bs-dark-rgb)">
+<div class="row pl-3 pt-3 pb-3" style="/*border:solid; margin-top:20px;*/ background-color:rgba(var(--bs-dark-rgb)">
 <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
 <div class="autoplay">
         @{
@@ -18,6 +18,7 @@
                     <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
                         <img src="@mangaChapterList.Key.ImageUrl"/>
                     </a>
+                    <p>MangaTitle</p>
                 </div>
                 mangaCarouselCount++;
             }
