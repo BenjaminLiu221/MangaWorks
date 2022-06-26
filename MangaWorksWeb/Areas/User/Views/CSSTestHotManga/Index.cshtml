@@ -1,7 +1,30 @@
 ﻿@model HotManga
 
-<div class="flex-container" style="background-color:rgba(var(--bs-dark-rgb)">
-    <h4>Conducting a test on flex-container to see if making the screen smaller does anything!</h4>
-    <h4>Conducting a test on flex-container to see if making the screen smaller does anything!!</h4>
-    <h4>Conducting a test on flex-container to see if making the screen smaller does anything!!!</h4>
+<div class="grid-container-2" style="padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+    @{
+        int mangaObjCount = 0;
+    }
+    @foreach (var mangaObj in Model.MangaList)
+    {
+        if (mangaObjCount < 3)
+        {
+            <div class="card-img" style="padding:5px; background-color:gray">
+                <img src="@mangaObj.ImageUrl" style="height:10vw; width:7vw; object-fit:contain; float:left">
+                <a asp-controller="Home" asp-action="Details" class="text-primary" style="text-align:left; float:left; padding-left:5px" asp-route-id="@mangaObj.Id">
+                    <p style="font-weight:bold"> 
+                        @if (mangaObj.Title.Length > 450)
+                        {
+                            @Html.Raw(mangaObj.Title.Substring(0, 450) + "...");
+                        }
+                        else
+                        {
+                            @Html.Raw(mangaObj.Title)
+                        }
+                    </p>
+                </a>
+            </div>
+        mangaObjCount++;
+        }
+    }
 </div>
+

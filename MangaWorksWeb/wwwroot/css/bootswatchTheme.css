@@ -12456,3 +12456,19 @@ th {
 .flex-container {
     display: flex;
 }
+
+.grid-container {
+    display: grid;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background-color: red;
+}
+
+.item {
+    background: rgba(var(--bs-dark-rgb);
+    margin: 1em;
+}
