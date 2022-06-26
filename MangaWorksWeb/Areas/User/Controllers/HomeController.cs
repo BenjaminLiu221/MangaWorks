@@ -25,6 +25,8 @@ namespace MangaWorksWeb.Controllers
             //return View(mangaList);
 
             var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
+            var lastChapterList = new List<Chapter>();
+            var latestMangaList = new List<Manga>();
             var mangaIndexDict = new Dictionary<Manga, List<Chapter>>();
             var newMangaList = new List<Manga>();
             int newMangaListCount = 0;
@@ -43,6 +45,19 @@ namespace MangaWorksWeb.Controllers
             }
 
             foreach (var manga in mangaList)
+            {
+                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).FirstOrDefault();
+                lastChapterList.Add(lastChapterOfManga);
+            }
+
+            List<Chapter> orderedLastChapterList = lastChapterList.OrderByDescending(a => a.Updated).ToList();
+
+            foreach (var chapter in orderedLastChapterList)
+            {
+                latestMangaList.Add(_unitOfWork.Manga.GetFirstOrDefault(a => a.Id == chapter.MangaId, includeProperties: "Author"));
+            }
+
+            foreach (var manga in latestMangaList)
             {
                 var allChaptersOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).ToList();
                 var chapterList = new List<Chapter>();

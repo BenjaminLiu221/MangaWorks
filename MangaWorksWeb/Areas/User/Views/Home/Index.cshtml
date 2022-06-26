@@ -4,27 +4,29 @@
     var mangaIndexDict = Model.MangaIndex;
 }
 
-<div class="row pl-3 pt-3 pb-3" style="/*border:solid; margin-top:20px;*/ background-color:rgba(var(--bs-dark-rgb)">
-<link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
-<div class="autoplay">
-        @{
-            int mangaCarouselCount = 0;
-        }
-        @foreach (var mangaChapterList in mangaIndexDict)
-        {
-            if (mangaCarouselCount < 20)
-            {
-                <div class="card">
-                    <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
-                        <img src="@mangaChapterList.Key.ImageUrl"/>
-                    </a>
-                    <p>MangaTitle</p>
-                </div>
-                mangaCarouselCount++;
-            }
-        }
-</div> 
-
+<div class="row pl-3 pb-3" style="/*border:solid; margin-top:20px;*/ background-color:rgba(var(--bs-dark-rgb)">
+    <div class="card text-white bg-dark">
+    <div class="card-header" style="width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
+        <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+        <div class="autoplay">
+                @{
+                    int mangaCarouselCount = 0;
+                }
+                @foreach (var mangaChapterList in mangaIndexDict)
+                {
+                    if (mangaCarouselCount < 20)
+                    {
+                        <div class="card">
+                            <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
+                                <img src="@mangaChapterList.Key.ImageUrl"/>
+                            </a>
+                            <p>MangaTitle</p>
+                        </div>
+                        mangaCarouselCount++;
+                    }
+                }
+        </div> 
+    </div>
 </div>
 
 
@@ -81,14 +83,14 @@
                 <div class="row pb-1 pt-3" style="width:440px">
                     <div class="card text-white bg-dark mb-3" style="height:100%; width:100%">
                         <div class="card-header" style="width:inherit; font-weight:bold">Most Popular Manga</div>
-                            <div class="row p-1" style="width:inherit">
-                                @foreach (var mangaObj in Model.MostPopularManga)
-                                {
-                                    <a asp-action="Details" class="text-primary" style="text-align:left; padding-top:0px; padding-bottom:0px; padding-left:10px" asp-route-id="@mangaObj.Id">
-                                        <p style="color:white; font-weight:bold"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@mangaObj.Title</i></p>
-                                    </a>
-                                }
-                            </div>
+                        <div class="row p-1" style="width:inherit">
+                            @foreach (var mangaObj in Model.MostPopularManga)
+                            {
+                                <a asp-action="Details" class="text-primary" style="text-align:left; padding-top:0px; padding-bottom:0px; padding-left:10px" asp-route-id="@mangaObj.Id">
+                                    <p style="color:white; font-weight:bold"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@mangaObj.Title</i></p>
+                                </a>
+                            }
+                        </div>
                     </div>
                 </div>
                 <div class="row pb-0 pt-3" style="width:440px">
