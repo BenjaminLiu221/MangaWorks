@@ -143,21 +143,35 @@ namespace MangaWorksWeb.Controllers
         {
             var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id).ToList();
             //return View(pageList);
-
-            var firstPageChapterId = pageList.FirstOrDefault().ChapterId;
-            var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == firstPageChapterId);
-            var mangaObj = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == firstChapter.MangaId);
-
-            PageManga pageManga = new()
+            if (pageList.Count() == 0)
             {
-                PageList = pageList,
-                MangaId = mangaObj.Id,
-                MangaTitle = mangaObj.Title,
-                ChapterId = firstChapter.Id,
-                ChapterNumber = firstChapter.ChapterNumber
+                var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == id);
+                var mangaObj = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == firstChapter.MangaId);
+                PageManga pageManga = new()
+                {
+                    MangaId = mangaObj.Id,
+                    MangaTitle = mangaObj.Title,
+                    ChapterId = firstChapter.Id,
+                    ChapterNumber = firstChapter.ChapterNumber
+                };
+                return View(pageManga);
+            }
+            else
+            {
+                var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == id);
+                var mangaObj = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == firstChapter.MangaId);
 
-            };
-            return View(pageManga);
+                PageManga pageManga = new()
+                {
+                    PageList = pageList,
+                    MangaId = mangaObj.Id,
+                    MangaTitle = mangaObj.Title,
+                    ChapterId = firstChapter.Id,
+                    ChapterNumber = firstChapter.ChapterNumber
+
+                };
+                return View(pageManga);
+            }
         }
 
         public IActionResult Privacy()
