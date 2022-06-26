@@ -141,8 +141,22 @@ namespace MangaWorksWeb.Controllers
 
         public IActionResult Page(int id)
         {
-            IEnumerable<Page> pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id);
-            return View(pageList);
+            var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id).ToList();
+            //return View(pageList);
+
+            var firstPageChapterId = pageList.FirstOrDefault().ChapterId;
+            var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == firstPageChapterId);
+            var mangaObj = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == firstChapter.MangaId);
+
+            PageManga pageManga = new()
+            {
+                PageList = pageList,
+                MangaId = mangaObj.Id,
+                MangaTitle = mangaObj.Title,
+                ChapterNumber = firstChapter.ChapterNumber
+
+            };
+            return View(pageManga);
         }
 
         public IActionResult Privacy()
