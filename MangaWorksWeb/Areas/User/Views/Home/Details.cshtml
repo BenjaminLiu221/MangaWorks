@@ -1,116 +1,92 @@
 ﻿@model MangaDetails
 
-<form method="post">
-    <body>
-        <div class="toast-body">
-            <div class="container container-main">
-                <div class="container-main-left pt-2">
-                    <div class="panel-breadcrumb">
-                        <a asp-action="Index" class="text-primary">
-                            <h4>Read Manga Online</h4>
-                        </a>
+<div style="display:flex; width:100%; background:darkgray">
+    <div style="width:70%">
+        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb)">
+            <a asp-controller="Home" asp-action="Index">
+                <p style="margin:0; background:gray">Read Manga Online</p>
+            </a>
+            <p style="margin:0; background:gray">&nbsp;>>&nbsp;</p>
+            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Manga.Id">
+                <p style="margin:0; background:gray">@Model.Manga.Title</p>
+            </a>
+        </div>
+        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+            <div style="display:flex; width:100%">
+                <div class="card-img" style="width:13vw; padding:0; background-color:gray">
+                    <img src="@Model.Manga.ImageUrl" style="width:12vw; object-fit:contain; float:left">
+                </div>
+                <div style="padding:10px; width:100%; background:gray">
+                    <div>
+                        <p style="font-size:large; margin:0">@Model.Manga.Title</p>
                     </div>
-                    <div class="panel-story-info pt-3" style="float:left; max-width:70%; background-color:whitesmoke">
-                        <div class="story-info-left" style="float:inherit; width:225px; margin-right:20px">
-                            <span class="info-image">
-                                <img src="@Model.Manga.ImageUrl"
-                                     style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; height:inherit" />
-                            </span>
-
-                        </div>
-                        <div class="story-info-right" style="float:inherit; width:calc(100% -245px)">
-                            <h4 style="font-weight:bold">@Model.Manga.Title</h4>
-                            <table class="variations-tableInfo">
-                                <tr>
-                                    <td class="table-label">
-                                        <p><i class="bi bi-person-fill">Author(s) :</i></p>
-                                    </td>
-                                    <td class="table-value">
-                                        <p style="font-weight:bold">@Model.Manga.Author.Name</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-label">
-                                        <p><i class="bi bi-activity">Status :</i></p>
-                                    </td>
-                                    <td class="table-value">
-                                        <p style="font-weight:bold">@Model.Manga.Status</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-label">
-                                        <p><i class="bi bi-book">Genres :</i></p>
-                                    </td>
-                                    <td class="table-value">
-                                        <p style="font-weight:bold">@Model.Manga.MangaGenres</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-label">
-                                        <p><i class="bi bi-alarm">Updated :</i></p>
-                                    </td>
-                                    <td class="table-value">
-                                        <p style="font-weight:bold">@Model.Manga.Updated</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-label">
-                                        <p><i class="bi bi-eyeglasses">View :</i></p>
-                                    </td>
-                                    <td class="table-value">
-                                        <p style="font-weight:bold">@Model.Manga.Views</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="table-label">
-                                        <p><i class="bi bi-star">Rating :</i></p>
-                                    </td>
-                                    <td class="table-value">
-                                        <p style="font-weight:bold">@Model.Manga.Rating</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="panel-story-info-description" style="font-size:15px; float:inherit; width:100%; max-height:150px">
-                            <h4 style="font-weight:bold">Description :</h4>
-                            <p>@Html.Raw(Model.Manga.Description)</p>
-
-                            <div class="tableFixHead">
-                                <table class="table table-primary" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th style="background:gray">
-                                                Chapter Name
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @{
-                                            var sortedChapterList = (from chapter in Model.ChapterList
-                                                                     orderby Int32.Parse(chapter.Text) descending
-                                                                     select chapter).ToList();
-                                        }
-                                        @foreach (var obj in sortedChapterList)
-                                        {
-                                            <tr>
-                                                <td width="50%">
-                                                    <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-id="@(obj.Value==null?0:@obj.Value)">
-                                                        Chapter @obj.Text
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        }
-                                    </tbody>
-                                </table>
-                            </div>
-                            <br>
-                        </div>
-                        <div class="panel-story-chapter-list">
-                        </div>
+                    <div style="display:flex">
+                        <p style="margin:0; min-width:100px"><i class="bi bi-book">Author(s) :</i></p>
+                        <p style="margin:0">@Model.Manga.Author.Name</p>
+                    </div>
+                    <div style="display:flex">
+                        <p style="margin:0; min-width:100px"><i class="bi bi-book">Genres :</i></p>
+                        <p style="margin:0">@Model.Manga.MangaGenres</p>
+                    </div>
+                    <div style="display:flex">
+                        <p style="margin:0; min-width:100px"><i class="bi bi-alarm">Updated :</i></p>
+                        <p style="margin:0">@Model.Manga.Updated</p>
+                    </div>
+                    <div style="display:flex">
+                        <p style="margin:0; min-width:100px"><i class="bi bi-eyeglasses">View :</i></p>
+                        <p style="margin:0">@Model.Manga.Views</p>
+                    </div>
+                    <div style="display:flex">
+                        <p style="margin:0; min-width:100px"><i class="bi bi-star">Rating :</i></p>
+                        <p style="margin:0">@Model.Manga.Rating</p>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
 
-</form>
+        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+            <div style="width:100%; background:gray">
+                <p style="padding-bottom:0; font-size:large; font-weight:bold">Description :</p>
+                <p>@Html.Raw(Model.Manga.Description)</p>
+            </div>
+        </div>
+
+        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+            <div class="tableFixHead" style="width:100%">
+                <table class="table table-primary" style="width:100%">
+                    <thead>
+                        <tr>
+                            <td style="padding:5px; background:gray">
+                                @Html.Raw("Chapter Name")
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var sortedChapterList = (from chapter in Model.ChapterList
+                                                        orderby Int32.Parse(chapter.Text) descending
+                                                        select chapter).ToList();
+                        }
+                        @foreach (var obj in sortedChapterList)
+                        {
+                            <tr>
+                                <td style="padding:5px; width:50%">
+                                    <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-id="@(obj.Value==null?0:@obj.Value)">
+                                        <i class="bi bi-chevron-double-right">Chapter @obj.Text</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div style="color:black; font-weight:bold; width:30%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+        <div style="width:100%; background:gray">
+            <p style="padding-bottom:0; font-size:large; font-weight:bold">Most Popular Manga Placeholder</p>
+            <p>@Html.Raw(Model.Manga.Description)</p>
+        </div>
+    </div>
+</div>
