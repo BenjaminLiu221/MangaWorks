@@ -1,0 +1,33 @@
+﻿@model MangaDetails
+
+
+<div class="flex-container" style="color:black; :66%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+    <div class="card-img" style="width:13vw; padding:5px; background-color:gray">
+        <img src="@Model.Manga.ImageUrl" style="padding-left:5px; width:12vw; object-fit:contain; float:left">
+    </div>
+    <div style="width:55%; background:darkgray">
+        <div>
+            <p style="border:solid; padding-left:5px; margin:0">@Model.Manga.Title</p>
+        </div>
+        <div style="display:flex">
+            <p style="border:solid; padding-left:5px; margin:0; width:min-width:100px"><i class="bi bi-book">Author(s) :</i></p>
+            <p style="border:solid; margin:0">@Model.Manga.Author.Name</p>
+        </div>
+        <div style="display:flex">
+            <p style="border:solid; padding-left:5px; margin:0; min-width:100px"><i class="bi bi-book">Genres :</i></p>
+            <p style="border:solid; margin:0">@Model.Manga.MangaGenres</p>
+        </div>
+        <div style="display:flex">
+            <p style="border:solid; padding-left:5px; margin:0; min-width:100px"><i class="bi bi-alarm">Updated :</i></p>
+            <p style="border:solid; margin:0">@Model.Manga.Updated</p>
+        </div>
+        <div style="display:flex">
+            <p style="border:solid; padding-left:5px; margin:0; min-width:100px"><i class="bi bi-eyeglasses">View :</i></p>
+            <p style="border:solid; margin:0">@Model.Manga.Views</p>
+        </div>
+        <div style="display:flex">
+            <p style="border:solid; padding-left:5px; margin:0; min-width:100px"><i class="bi bi-star">Rating :</i></p>
+            <p style="border:solid; margin:0">@Model.Manga.Rating</p>
+        </div>
+    </div>
+</div>

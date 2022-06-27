@@ -338,6 +338,13 @@ label {
     display: inline-block;
 }
 
+value {
+    display: inline-block;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+
 button {
     border-radius: 0;
 }
@@ -12455,6 +12462,7 @@ th {
 
 .flex-container {
     display: flex;
+    flex-direction: row;
 }
 
 .grid-container {
@@ -12471,4 +12479,9 @@ th {
 .item {
     background: rgba(var(--bs-dark-rgb);
     margin: 1em;
+}
+
+* {
+    margin: 0 !important;
+    padding: 0 !important;
 }

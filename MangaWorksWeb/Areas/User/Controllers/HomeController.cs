@@ -118,6 +118,20 @@ namespace MangaWorksWeb.Controllers
             return View(mangaDetailsObj);
         }
 
+        public IActionResult TestDetails(int id)
+        {
+            MangaDetails mangaDetailsObj = new()
+            {
+                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
+                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
+                {
+                    Text = a.ChapterNumber.ToString(),
+                    Value = a.Id.ToString()
+                })
+            };
+            return View(mangaDetailsObj);
+        }
+
         public IActionResult MangaByGenres(int id)
         {
             var genreObj = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
