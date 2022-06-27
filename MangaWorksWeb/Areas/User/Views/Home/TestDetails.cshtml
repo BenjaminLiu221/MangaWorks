@@ -47,9 +47,9 @@
                 <table class="table table-primary" style="width:100%">
                     <thead>
                         <tr>
-                            <th style="background:gray">
-                                Chapter Name
-                            </th>
+                            <td style="padding:5px; background:gray">
+                                @Html.Raw("Chapter Name")
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,9 +61,9 @@
                         @foreach (var obj in sortedChapterList)
                         {
                             <tr>
-                                <td width="50%">
+                                <td style="padding:5px; width:50%">
                                     <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-id="@(obj.Value==null?0:@obj.Value)">
-                                        Chapter @obj.Text
+                                        <i class="bi bi-chevron-double-right">Chapter @obj.Text</i>
                                     </a>
                                 </td>
                             </tr>
@@ -76,7 +76,7 @@
 
     <div style="color:black; font-weight:bold; width:30%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
         <div style="width:100%; background:gray">
-            <p style="padding-bottom:0; font-size:large; font-weight:bold">Description :</p>
+            <p style="padding-bottom:0; font-size:large; font-weight:bold">Most Popular Manga Placeholder</p>
             <p>@Html.Raw(Model.Manga.Description)</p>
         </div>
     </div>
