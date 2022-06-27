@@ -6,7 +6,7 @@
     }
     @foreach (var mangaObj in Model.MangaList)
     {
-        if (mangaObjCount < 3)
+        if (mangaObjCount < 24)
         {
             <div class="card-img" style="padding:5px; background-color:gray">
                 <img src="@mangaObj.ImageUrl" style="height:10vw; width:7vw; object-fit:contain; float:left">
@@ -32,15 +32,14 @@
                          @if(mangaObj.Description.Length > 200)
                          {
                              @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
+                             <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                                 <h5 style="font-weight:normal; text-align:center">-----------Read More-----------</h5>
+                             </a>
                          }
                          else
                          {
                              <p>@Html.Raw(mangaObj.Description)</p>
                          }
-                         <br></br>
-                         <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
-                             <h5 style="font-weight:normal; text-align:center">-----------Read More-----------</h5>
-                         </a>
                     </div>
                 </div>
             </div>
@@ -48,4 +47,3 @@
         }
     }
 </div>
-

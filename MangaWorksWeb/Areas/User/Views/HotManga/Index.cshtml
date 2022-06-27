@@ -1,46 +1,54 @@
 ﻿@model HotManga
 
-<div class="row">
-    <div class="col-10">
-        <div class="row">
-            <div class="col-10">
-                <div class="row pt-3 pb-1 pl-3" style="width:1250px">
-                    <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
-                    @foreach (var mangaObj in Model.MangaList)
-                    {
-                        <div class="col-lg-2 col-md-2" style="height:250px; width:50%; padding-left:12px; color:black">
-                            <div class="row p-2" style="width:600px;background:gray">
-                                <div class="col-12 p-2" style="height:220px; width:27%; padding-left:12px">
-                                    <div class="card" style="height:100%; border-style:double; padding:0px">
-                                        <img src="@mangaObj.ImageUrl" class="card-img-top" style="object-fit:cover; height:inherit" />
-                                    </div>
-                                </div>
-                                <div class="col-12 pt-3" style="height:contain; width:69.8%">
-                                    <a asp-controller="Home" asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
-                                        <h5 style="font-weight:bold"> @mangaObj.Title</h5>
-                                    </a>
-                                    <i class="bi bi-eye-fill" style="font-size:small">@mangaObj.Views.ToString("N0")</i>&nbsp;
-                                    <i class="bi bi-calendar3" style="font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>&nbsp;
-                                    <i class="bi bi-person-fill" style="font-size:small">@mangaObj.Author.Name</i>
-                                    <div class="row">
-                                        @if(mangaObj.Description.Length > 200)
-                                        {
-                                            @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
-                                        }
-                                        else
-                                        {
-                                            <p>@Html.Raw(mangaObj.Description)</p>
-                                        }
-                                        <a asp-controller="Home" asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
-                                            <h5 style="font-weight:normal">-------------Read More-------------</h5>
-                                        </a>
-                                    </div>
-                                </div>
+<div class="grid-container-2" style="padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+    @{
+        int mangaObjCount = 0;
+    }
+    @foreach (var mangaObj in Model.MangaList)
+    {
+        if (mangaObjCount < 24)
+        {
+            <div class="card-img" style="padding:5px; background-color:gray">
+                <img src="@mangaObj.ImageUrl" style="height:10vw; width:7vw; object-fit:contain; float:left">
+                <div class="grid-container">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                        <p style="font-weight:bold; text-align:left; padding-left:5px; margin-bottom:0"> 
+                            @if (mangaObj.Title.Length > 450)
+                            {
+                                @Html.Raw(mangaObj.Title.Substring(0, 450) + "...");
+                            }
+                            else
+                            {
+                                @Html.Raw(mangaObj.Title)
+                            }
+                        </p>
+                    </a>
+                    <div style="padding-left:10px">
+                        <i class="bi bi-eye-fill" style="font-size:small">@mangaObj.Views.ToString("N0")</i>&nbsp;
+                        <i class="bi bi-calendar3" style="font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>&nbsp;
+                        <i class="bi bi-person-fill" style="font-size:small">@mangaObj.Author.Name</i> 
+                    </div>
+                    <div style="padding-left:10px">
+                         @if(mangaObj.Description.Length > 200)
+                         {
+                             @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
+                             <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                                 <h5 style="font-weight:normal; text-align:center">-----------Read More-----------</h5>
+                             </a>
+                         }
+                         else
+                         {
+                            <p>@Html.Raw(mangaObj.Description)</p>
+                            <div class="bottom-0">
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                                    <h5 style="font-weight:normal; text-align:center">-----------Read More-----------</h5>
+                                </a>
                             </div>
-                        </div>
-                    }
+                         }
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        mangaObjCount++;
+        }
+    }
 </div>
