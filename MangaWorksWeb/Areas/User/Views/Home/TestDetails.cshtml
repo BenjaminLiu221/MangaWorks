@@ -2,11 +2,11 @@
 
 <div style="display:flex; width:100%; background:darkgray">
     <div style="width:70%">
-        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb)">
             <a asp-controller="Home" asp-action="Index">
                 <p style="margin:0; background:gray">Read Manga Online</p>
             </a>
-            <p style="background:gray">&nbsp;>>&nbsp;</p>
+            <p style="margin:0; background:gray">&nbsp;>>&nbsp;</p>
             <a asp-controller="Home" asp-action="TestDetails" asp-route-id="@Model.Manga.Id">
                 <p style="margin:0; background:gray">@Model.Manga.Title</p>
             </a>
