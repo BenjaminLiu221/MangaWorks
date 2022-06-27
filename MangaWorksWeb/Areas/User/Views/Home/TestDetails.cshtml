@@ -33,9 +33,41 @@
         </div>
     </div>
 </div>
+
 <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
     <div style="width:70%; background:gray">
         <p style="padding-bottom:0; font-size:large; font-weight:bold">Description :</p>
         <p>@Html.Raw(Model.Manga.Description)</p>
+    </div>
+</div>
+
+<div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+    <div class="tableFixHead" style="width:70%">
+        <table class="table table-primary" style="width:100%">
+            <thead>
+                <tr>
+                    <th style="background:gray">
+                        Chapter Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var sortedChapterList = (from chapter in Model.ChapterList
+                                                orderby Int32.Parse(chapter.Text) descending
+                                                select chapter).ToList();
+                }
+                @foreach (var obj in sortedChapterList)
+                {
+                    <tr>
+                        <td width="50%">
+                            <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-id="@(obj.Value==null?0:@obj.Value)">
+                                Chapter @obj.Text
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </div>
