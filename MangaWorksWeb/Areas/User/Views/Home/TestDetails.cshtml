@@ -2,12 +2,21 @@
 
 <div style="display:flex; width:100%; background:darkgray">
     <div style="width:70%">
+        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+            <a asp-controller="Home" asp-action="Index">
+                <p style="margin:0; background:gray">Read Manga Online</p>
+            </a>
+            <p style="background:gray">&nbsp;>>&nbsp;</p>
+            <a asp-controller="Home" asp-action="TestDetails" asp-route-id="@Model.Manga.Id">
+                <p style="margin:0; background:gray">@Model.Manga.Title</p>
+            </a>
+        </div>
         <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
             <div style="display:flex; width:100%">
                 <div class="card-img" style="width:13vw; padding:0; background-color:gray">
                     <img src="@Model.Manga.ImageUrl" style="width:12vw; object-fit:contain; float:left">
                 </div>
-                <div style="padding:10px; width:100%; background:darkgray">
+                <div style="padding:10px; width:100%; background:gray">
                     <div>
                         <p style="font-size:large; margin:0">@Model.Manga.Title</p>
                     </div>
