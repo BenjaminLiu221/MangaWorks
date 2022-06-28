@@ -12475,6 +12475,13 @@ th {
     gap: 10px;
 }
 
+.grid-container-2-index {
+    display: grid;
+    grid-template-columns: 1fr 8fr;
+    grid-auto-flow: row;
+    gap: 10px;
+}
+
 .grid-container-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

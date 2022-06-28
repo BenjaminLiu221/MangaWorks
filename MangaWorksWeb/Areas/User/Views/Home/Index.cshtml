@@ -22,6 +22,51 @@
     </div>
 </div>
 
+<div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
+    <div style="padding:10px; width:67%">
+        <div class="grid-container-2">
+            @{
+                int mangaObjCount = 0;
+            }
+            @foreach (var mangaObj in @Model.MangaIndex)
+            {
+                if (mangaObjCount < 24)
+                {
+                    <div class="grid-container-2-index" style="background-color:gray">
+                        <img src="@mangaObj.Key.ImageUrl" style="height:8vw; width:6vw; object-fit:fill">
+                        <div>
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Key.Id">
+                                <p style="font-weight:bold; text-align:left; padding:0; margin:0"> 
+                                    @if (mangaObj.Key.Title.Length > 30)
+                                    {
+                                        @Html.Raw(mangaObj.Key.Title.Substring(0, 30) + "...");
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(mangaObj.Key.Title)
+                                    }
+                                </p>
+                            </a>
+                            
+                            <div>
+                                <p style="padding:0; margin:0">@mangaObj.Key.Author.Name</p>
+                            </div>
+                            <div class="grid-container-2 gap-0">
+                                @foreach (var chapter in mangaObj.Value)
+                                {
+                                    <p style="padding:0; margin:0">Chapter @chapter.ChapterNumber</p>
+                                    <p style="padding:0; margin:0; text-align:right">@chapter.Updated.Date.ToString("MM/dd/yyyy")</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                mangaObjCount++;
+                }
+            }
+        </div>
+    </div>
+</div>
+
 <div class="row pl-3" style="border:solid; margin-top:20px; background-color:gray">
     <h3>
         Read Manga Online - Latest Updates
