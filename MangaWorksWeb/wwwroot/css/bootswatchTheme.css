@@ -12490,3 +12490,11 @@ th {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+.overlay {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
