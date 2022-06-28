@@ -1,9 +1,9 @@
 ﻿@model MangaDetails
 
-<div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
+<div style="color:white; width:100%; background-color:rgba(var(--bs-dark-rgb))">
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
     <div style="padding:10px; color:white; width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
-    <div class="autoplay" style="padding:10px; padding-top:0; margin-bottom:5px">
+    <div class="autoplay" style="padding-top:0; margin-bottom:5px">
         @{
             int mangaCarouselCount = 0;
         }
@@ -18,23 +18,23 @@
     </div>
 </div>
 
-<div style="display:flex; width:100%; background:darkgray">
-    <div style="width:67%">
-        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb))">
+<div style="display:flex; width:100%; background:gray">
+    <div style="width:67%; margin-right:5px">
+        <div style="display:flex; color:white; font-weight:bold; width:100%; padding:0; background-color:rgb(54, 69, 79)">
             <a asp-controller="Home" asp-action="Index">
-                <p style="margin:0; background:gray">Read Manga Online</p>
+                <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">Read Manga Online</p>
             </a>
-            <p style="margin:0; background:gray">&nbsp;>>&nbsp;</p>
+            <p style="padding-top:10px; padding-bottom:10px; margin:0; background:rgb(54, 69, 79); color:white">>></p>
             <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Manga.Id">
-                <p style="margin:0; background:gray">@Model.Manga.Title</p>
+                <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">@Model.Manga.Title</p>
             </a>
         </div>
-        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb))">
-            <div style="display:flex; width:100%">
-                <div class="card-img" style="width:13vw; padding:0; background-color:gray">
+        <div style="color:white; font-weight:bold; width:100%; padding:0; background-color:rgba(var(--bs-dark-rgb))">
+            <div style="display:flex; width:100%; padding-left:10px">
+                <div class="card-img" style="width:13vw; padding:0; background-color:rgba(var(--bs-dark-rgb))">
                     <img src="@Model.Manga.ImageUrl" style="width:12vw; object-fit:contain; float:left">
                 </div>
-                <div style="padding:10px; width:100%; background:gray">
+                <div style="padding:10px; width:100%; background:rgba(var(--bs-dark-rgb))">
                     <div>
                         <p style="font-size:large; margin:0">@Model.Manga.Title</p>
                     </div>
@@ -62,25 +62,25 @@
             </div>
         </div>
 
-        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb))">
-            <div style="width:100%; background:gray">
-                <p style="padding-bottom:0; padding-left:5px; font-size:large; font-weight:bold">Description :</p>
-                <p style="padding-left:5px">@Html.Raw(Model.Manga.Description)</p>
+        <div style="color:white; font-weight:bold; width:100%; background-color:rgba(var(--bs-dark-rgb))">
+            <div style="width:100%; background:rgba(var(--bs-dark-rgb))">
+                <p style="padding-bottom:0; padding-left:10px; font-size:large; font-weight:bold">Description :</p>
+                <p style="padding-left:10px; margin-bottom:0">@Html.Raw(Model.Manga.Description)</p>
             </div>
         </div>
 
-        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb))">
+        <div style="color:white; font-weight:bold; width:100%; margin-top:10px; padding:0; background-color:gray">
             <div class="tableFixHead" style="width:100%">
                 <table class="table table-primary" style="width:100%">
                     <thead>
                         <tr>
-                            <td style="padding:5px; background:gray">
+                            <td style="color:white; padding:5px; background:rgb(54, 69, 79)">
                                 @Html.Raw("Chapter Name")
                             </td>
-                            <td style="padding:5px; background:gray">
+                            <td style="color:white; padding:5px; background:rgb(54, 69, 79)">
                                 @Html.Raw("View")
                             </td>
-                            <td style="padding:5px; background:gray">
+                            <td style="color:white; padding:5px; background:rgb(54, 69, 79)">
                                 @Html.Raw("Uploaded")
                             </td>
                         </tr>
@@ -108,25 +108,25 @@
         </div>
     </div>
 
-    <div style="width:33%; padding:10px; padding-top:42px; background-color:rgba(var(--bs-dark-rgb))">
-        <div style="width:100%; background:gray">
-            <p style="color:black; font-weight:bold; padding-bottom:0; padding-left:10px; margin:2px; font-size:large; font-weight:bold">Most Popular Manga</p>
+    <div style="width:33%; padding:0; padding-left:5px; margin:0; background-color:gray">
+        <div style="width:100%; background:rgba(var(--bs-dark-rgb))">
+            <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">MOST POPULAR MANGA</p>
                 @foreach (var obj in @Model.MostPopularManga)
                 {
                     var title = @obj.Title.Length > 35 ? @obj.Title.Substring(0,35) + "..." : @obj.Title;
                     <a asp-action="Details" class="text-primary" asp-route-id="@obj.Id">
-                        <p style="color:black; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
+                        <p style="color:white; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
                     </a>
                 }
         </div>
 
-        <div style="width:100%; margin-top:10px; background:gray">
-            <p style="color:black; font-weight:bold; padding-bottom:0; padding-left:10px; margin:2px; font-size:large; font-weight:bold">Mangas By Genre</p>
+        <div style="width:100%; margin-top:10px; background:rgba(var(--bs-dark-rgb))">
+            <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">MANGAS BY GENRE</p>
                 <div class="grid-container-3" style="padding-left:10px">
                     @foreach (var obj in @Model.GenreList)
                     {
                         <a asp-action="MangaByGenres" class="text-primary" asp-route-id="@obj.Value">
-                            <p style="margin:0">@obj.Text</p>
+                            <p style="color:white; margin:0">@obj.Text</p>
                         </a>
                     }
                 </div>

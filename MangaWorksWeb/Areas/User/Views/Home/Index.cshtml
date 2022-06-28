@@ -39,7 +39,7 @@
                         <img src="@mangaObj.Key.ImageUrl" style="height:8vw; width:6vw; object-fit:fill">
                         <div>
                             <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Key.Id">
-                                <p style="color:white; font-weight:bold; text-align:left; padding:0; margin:0"> 
+                                <p style="color:white; font-size:larger; font-weight:bold; text-align:left; padding:0; margin:0"> 
                                     @if (mangaObj.Key.Title.Length > 30)
                                     {
                                         @Html.Raw(mangaObj.Key.Title.Substring(0, 30) + "...");
