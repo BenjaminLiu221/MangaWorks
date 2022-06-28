@@ -22,8 +22,11 @@
     </div>
 </div>
 
-<div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
+<div style="display:flex; width:100%; background-color:rgba(var(--bs-dark-rgb))">
     <div style="padding:10px; width:67%">
+        <div>
+            <p style="color:white">READ MANGA ONLINE - LATEST UPDATES</p>
+        </div>
         <div class="grid-container-2">
             @{
                 int mangaObjCount = 0;
@@ -65,6 +68,31 @@
                 mangaObjCount++;
                 }
             }
+        </div>
+    </div>
+    
+    <div style="width:33%; padding:10px; padding-top:9px; background-color:rgba(var(--bs-dark-rgb))">
+        <div style="width:100%; background:gray">
+            <p style="color:black; font-weight:bold; padding-bottom:0; padding-left:10px; margin:2px; font-size:large; font-weight:bold">Most Popular Manga</p>
+                @foreach (var obj in @Model.MostPopularManga)
+                {
+                    var title = @obj.Title.Length > 35 ? @obj.Title.Substring(0,35) + "..." : @obj.Title;
+                    <a asp-action="Details" class="text-primary" asp-route-id="@obj.Id">
+                        <p style="color:black; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
+                    </a>
+                }
+        </div>
+
+        <div style="width:100%; margin-top:10px; background:gray">
+            <p style="color:black; font-weight:bold; padding-bottom:0; padding-left:10px; margin:2px; font-size:large; font-weight:bold">Mangas By Genre</p>
+                <div class="grid-container-3" style="padding-left:10px">
+                    @foreach (var obj in @Model.GenreList)
+                    {
+                        <a asp-action="MangaByGenres" class="text-primary" asp-route-id="@obj.Value">
+                            <p style="margin:0">@obj.Text</p>
+                        </a>
+                    }
+                </div>
         </div>
     </div>
 </div>
