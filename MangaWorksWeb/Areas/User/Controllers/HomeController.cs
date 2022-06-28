@@ -93,18 +93,40 @@ namespace MangaWorksWeb.Controllers
                 }
             }
 
-            MangaIndexGenreIndex mangaIndexGenreIndexVM = new()
+            //TopWeekManga
+            var hotMangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
+            var topWeekMangaList = new List<Manga>();
+            var topWeekLastChapterList = new List<Chapter>();
+
+            foreach (var manga in hotMangaList)
+            {
+                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).FirstOrDefault();
+                if (lastChapterOfManga != null)
+                {
+                    topWeekLastChapterList.Add(lastChapterOfManga);
+                }
+            }
+
+            List<Chapter> topWeekOrderedLastChapterList = topWeekLastChapterList.OrderByDescending(a => a.Updated).ToList();
+
+            foreach (var chapter in topWeekOrderedLastChapterList)
+            {
+                topWeekMangaList.Add(_unitOfWork.Manga.GetFirstOrDefault(a => a.Id == chapter.MangaId, includeProperties: "Author"));
+            }
+
+            HomeIndex homeIndexVM = new()
             {
                 MangaIndex = mangaIndexDict,
                 NewManga = newMangaList,
                 MostPopularManga = mostPopularMangaList,
+                TopWeekManga = topWeekMangaList,
                 GenreList = _unitOfWork.Genre.GetAll().OrderBy(a => a.Name).Select(a => new SelectListItem
                 {
                     Text = a.Name,
                     Value = a.Id.ToString()
                 }
             )};
-            return View(mangaIndexGenreIndexVM);
+            return View(homeIndexVM);
         }
 
         public IActionResult Details(int id)

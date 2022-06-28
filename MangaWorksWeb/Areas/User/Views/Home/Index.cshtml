@@ -1,34 +1,26 @@
-﻿@model MangaIndexGenreIndex
+﻿@model HomeIndex
 
 @{
     var mangaIndexDict = Model.MangaIndex;
 }
 
-<div class="row pl-3 pb-3" style="/*border:solid; margin-top:20px;*/ background-color:rgba(var(--bs-dark-rgb))">
-    <div class="card text-white bg-dark">
-    <div class="card-header" style="width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
-        <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
-        <div class="autoplay">
-                @{
-                    int mangaCarouselCount = 0;
-                }
-                @foreach (var mangaChapterList in mangaIndexDict)
-                {
-                    if (mangaCarouselCount < 20)
-                    {
-                        <div class="card">
-                            <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaChapterList.Key.Id">
-                                <img src="@mangaChapterList.Key.ImageUrl"/>
-                            </a>
-                            <p>MangaTitle</p>
-                        </div>
-                        mangaCarouselCount++;
-                    }
-                }
-        </div> 
+<div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+    <div style="padding:10px; color:white; width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
+    <div class="autoplay" style="padding:10px; padding-top:0; margin-bottom:5px">
+        @{
+            int mangaCarouselCount = 0;
+        }
+        @foreach (var mangaObj in @Model.TopWeekManga)
+        {
+            if(mangaCarouselCount < 20)
+            {
+                <img src="@mangaObj.ImageUrl" style="object-fit:cover">
+                mangaCarouselCount++;
+            }
+        }
     </div>
 </div>
-
 
 <div class="row pl-3" style="border:solid; margin-top:20px; background-color:gray">
     <h3>

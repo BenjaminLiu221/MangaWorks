@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 
 namespace MangaWorks.Models
 {
-    public class MangaIndexGenreIndex
+    public class HomeIndex
     {
         public Dictionary<Manga, List<Chapter>> MangaIndex { get; set; }
         [ValidateNever]
         public IEnumerable<SelectListItem> GenreList { get; set; }
         public List<Manga> NewManga { get; set; }
         public List<Manga> MostPopularManga { get; set; }
+        public List<Manga> TopWeekManga { get; set; }
     }
 }
