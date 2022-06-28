@@ -24,6 +24,7 @@ namespace MangaWorks.DataAccess.Repository
             if (objFromDb != null)
             {
                 objFromDb.ChapterNumber = obj.ChapterNumber;
+                objFromDb.Views = obj.Views;
                 objFromDb.Updated = obj.Updated;
                 objFromDb.MangaId = obj.MangaId;
             }

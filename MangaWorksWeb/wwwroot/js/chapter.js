@@ -6,6 +6,7 @@
         "columns": [
             { "data": "manga.title", "width": "15%" },
             { "data": "chapterNumber", "width": "15%" },
+            { "data": "views", "width": "15%" },
             { "data": "updated", "width": "15%" },
             {
                 "data": "id",

@@ -109,11 +109,30 @@ namespace MangaWorksWeb.Controllers
 
         public IActionResult Details(int id)
         {
+            var mostPopularMangaList = new List<Manga>();
+            var mangaListByVotesDesc = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
+            int mostPopularMangaListCount = 0;
+
+            foreach (var manga in mangaListByVotesDesc)
+            {
+                if (mostPopularMangaListCount < 10)
+                {
+                    mostPopularMangaList.Add(manga);
+                    mostPopularMangaListCount++;
+                }
+            }
+
             MangaDetails mangaDetailsObj = new()
             {
                 Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
-                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).OrderByDescending(a => a.ChapterNumber).ToList()
-            };
+                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).OrderByDescending(a => a.ChapterNumber).ToList(),
+                MostPopularManga = mostPopularMangaList,
+                GenreList = _unitOfWork.Genre.GetAll().OrderBy(a => a.Name).Select(a => new SelectListItem
+                {
+                    Text = a.Name,
+                    Value = a.Id.ToString()
+                }
+            )};
             return View(mangaDetailsObj);
         }
 

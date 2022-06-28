@@ -29,6 +29,11 @@
                             </select>
                             <span asp-validation-for="Chapter.MangaId" class="text-danger"></span>
                         </div>
+                        <div class="mb-3 col-2">
+                            <label asp-for="Chapter.Views"></label>
+                            <input asp-for="Chapter.Views" class="form-control" />
+                            <span asp-validation-for="Chapter.Views" class="text-danger"></span>
+                        </div>
                         <div class="mb-3 col-6">
                             <label asp-for="Chapter.Updated"></label>
                             <input asp-for="Chapter.Updated" class="form-control" />
