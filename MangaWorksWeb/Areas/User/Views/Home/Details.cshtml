@@ -101,5 +101,18 @@
                     </a>
                 }
         </div>
+
+        <div style="width:100%; margin-top:10px; background:gray">
+            <p style="color:black; font-weight:bold; padding-bottom:0; margin:2px; font-size:large; font-weight:bold">Mangas By Genre</p>
+                <div class="grid-container-3">
+                    @foreach (var obj in @Model.GenreList)
+                    {
+                        <a asp-action="MangaByGenres" class="text-primary" asp-route-id="@obj.Value">
+                            <p style="margin:0">@obj.Text</p>
+                        </a>
+                    }
+                </div>
+        </div>
     </div>
+
 </div>
