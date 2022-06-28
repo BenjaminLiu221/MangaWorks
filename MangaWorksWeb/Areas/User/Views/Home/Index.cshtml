@@ -49,13 +49,15 @@
                             </a>
                             
                             <div>
-                                <p style="padding:0; margin:0">@mangaObj.Key.Author.Name</p>
+                                <p style="font-style:italic ;padding:0; margin:0">@mangaObj.Key.Author.Name</p>
                             </div>
                             <div class="grid-container-2 gap-0">
                                 @foreach (var chapter in mangaObj.Value)
                                 {
-                                    <p style="padding:0; margin:0">Chapter @chapter.ChapterNumber</p>
-                                    <p style="padding:0; margin:0; text-align:right">@chapter.Updated.Date.ToString("MM/dd/yyyy")</p>
+                                    <a asp-controller="Home" asp-action="PageManga" asp-route-id="@chapter.Id">
+                                        <p style="color:black; padding:0; margin:0">Chapter @chapter.ChapterNumber</p>
+                                    </a>
+                                    <p style="color:black; padding:0; margin:0; text-align:right">@chapter.Updated.Date.ToString("MM/dd/yyyy")</p>
                                 }
                             </div>
                         </div>
