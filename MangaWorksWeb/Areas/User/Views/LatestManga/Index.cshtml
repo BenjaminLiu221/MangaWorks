@@ -1,8 +1,9 @@
 ﻿@model LatestManga
 
-<div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
+<div style="color:white; width:100%; background-color:rgba(var(--bs-dark-rgb))">
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
     <div style="padding:10px; color:white; width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
-    <div class="autoplay" style="padding:10px; padding-top:0; margin-bottom:5px">
+    <div class="autoplay" style="padding-top:0; margin-bottom:5px">
         @{
             int mangaCarouselCount = 0;
         }
@@ -17,13 +18,13 @@
     </div>
 </div>
 
-<div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb)">
+<div style="display:flex; color:white; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgb(54, 69, 79)">
     <a asp-controller="Home" asp-action="Index">
-        <p style="margin:0; background:gray">Read Manga Online</p>
+        <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">READ MANGA ONLINE</p>
     </a>
 </div>
 
-<div class="grid-container-2" style="padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+<div class="grid-container-2" style="padding:0; background-color:gray">
     @{
         int mangaObjCount = 0;
     }
@@ -31,11 +32,11 @@
     {
         if (mangaObjCount < 24)
         {
-            <div class="card-img" style="padding:5px; background-color:gray">
-                <img src="@mangaObj.ImageUrl" style="height:10vw; width:7vw; object-fit:contain; float:left">
+            <div class="card-img" style="padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+                <img src="@mangaObj.ImageUrl" style="height:10vw; width:7vw; object-fit:fill; float:left">
                 <div class="grid-container">
                     <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
-                        <p style="font-weight:bold; text-align:left; padding-left:5px; margin-bottom:0"> 
+                        <p style="color:white; font-size:larger; font-weight:bold; text-align:left; padding-left:5px; margin-bottom:0"> 
                             @if (mangaObj.Title.Length > 450)
                             {
                                 @Html.Raw(mangaObj.Title.Substring(0, 450) + "...");
@@ -47,16 +48,16 @@
                         </p>
                     </a>
                     <div style="padding-left:10px">
-                        <i class="bi bi-eye-fill" style="font-size:small">@mangaObj.Views.ToString("N0")</i>&nbsp;
-                        <i class="bi bi-calendar3" style="font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>&nbsp;
-                        <i class="bi bi-person-fill" style="font-size:small">@mangaObj.Author.Name</i> 
+                        <i class="bi bi-eye-fill" style="color:white; font-size:small">@mangaObj.Views.ToString("N0")</i>&nbsp;
+                        <i class="bi bi-calendar3" style="color:white; font-size:small">@mangaObj.Updated.Date.ToString("MM/dd/yyyy")</i>&nbsp;
+                        <i class="bi bi-person-fill" style="color:white; font-size:small">@mangaObj.Author.Name</i> 
                     </div>
-                    <div style="padding-left:10px">
+                    <div style="color:white; padding-left:10px">
                          @if(mangaObj.Description.Length > 200)
                          {
                              @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
                              <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
-                                 <h5 style="font-weight:normal; text-align:center">-----------Read More-----------</h5>
+                                 <h5 style="color:white; font-weight:normal; text-align:center">-----------Read More-----------</h5>
                              </a>
                          }
                          else
@@ -64,7 +65,7 @@
                             <p>@Html.Raw(mangaObj.Description)</p>
                             <div class="bottom-0">
                                 <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
-                                    <h5 style="font-weight:normal; text-align:center">-----------Read More-----------</h5>
+                                    <h5 style="color:white; font-weight:normal; text-align:center">-----------Read More-----------</h5>
                                 </a>
                             </div>
                          }
