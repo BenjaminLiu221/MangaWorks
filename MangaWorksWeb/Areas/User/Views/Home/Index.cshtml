@@ -71,7 +71,7 @@
         </div>
     </div>
     
-    <div style="width:33%; padding:10px; padding-top:9px; background-color:rgba(var(--bs-dark-rgb))">
+    <div style="width:33%; padding:10px; padding-top:47px; background-color:rgba(var(--bs-dark-rgb))">
         <div style="width:100%; background:gray">
             <p style="color:black; font-weight:bold; padding-bottom:0; padding-left:10px; margin:2px; font-size:large; font-weight:bold">Most Popular Manga</p>
                 @foreach (var obj in @Model.MostPopularManga)
@@ -81,6 +81,21 @@
                         <p style="color:black; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
                     </a>
                 }
+        </div>
+            
+        <div style="width:100%; margin-top:10px; background:gray">
+            <p style="color:black; font-weight:bold; padding-bottom:0; padding-left:10px; margin:2px; font-size:large; font-weight:bold">New Manga</p>
+            <div class="grid-container-5" style="margin-top:10px">
+            
+                @foreach (var mangaObj in Model.NewManga)
+                {
+                    <div>
+                        <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
+                            <img src="@mangaObj.ImageUrl" class="card-img-top" style="object-fit:fill; height:100%" />
+                        </a>
+                    </div>
+                }
+            </div>
         </div>
 
         <div style="width:100%; margin-top:10px; background:gray">

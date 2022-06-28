@@ -12488,6 +12488,11 @@ th {
     gap: 5px;
 }
 
+.grid-container-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
 .item {
     background: rgba(var(--bs-dark-rgb);
     margin: 1em;
