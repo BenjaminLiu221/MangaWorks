@@ -15,5 +15,6 @@ namespace MangaWorks.Models
         public List<Chapter> ChapterList { get; set; }
         public List<Manga> MostPopularManga { get; set; }
         public IEnumerable<SelectListItem> GenreList { get; set; }
+        public List<Manga> TopWeekManga { get; set; }
     }
 }

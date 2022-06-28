@@ -112,6 +112,8 @@ namespace MangaWorksWeb.Controllers
             var mostPopularMangaList = new List<Manga>();
             var mangaListByVotesDesc = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
             int mostPopularMangaListCount = 0;
+            var lastChapterList = new List<Chapter>();
+            var topWeekMangaList = new List<Manga>();
 
             foreach (var manga in mangaListByVotesDesc)
             {
@@ -122,11 +124,28 @@ namespace MangaWorksWeb.Controllers
                 }
             }
 
+            foreach (var manga in mangaListByVotesDesc)
+            {
+                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).FirstOrDefault();
+                if (lastChapterOfManga != null)
+                {
+                    lastChapterList.Add(lastChapterOfManga);
+                }
+            }
+
+            List<Chapter> orderedLastChapterList = lastChapterList.OrderByDescending(a => a.Updated).ToList();
+
+            foreach (var chapter in orderedLastChapterList)
+            {
+                topWeekMangaList.Add(_unitOfWork.Manga.GetFirstOrDefault(a => a.Id == chapter.MangaId, includeProperties: "Author"));
+            }
+
             MangaDetails mangaDetailsObj = new()
             {
                 Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
                 ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).OrderByDescending(a => a.ChapterNumber).ToList(),
                 MostPopularManga = mostPopularMangaList,
+                TopWeekManga = topWeekMangaList,
                 GenreList = _unitOfWork.Genre.GetAll().OrderBy(a => a.Name).Select(a => new SelectListItem
                 {
                     Text = a.Name,

@@ -4,7 +4,7 @@
     var mangaIndexDict = Model.MangaIndex;
 }
 
-<div class="row pl-3 pb-3" style="/*border:solid; margin-top:20px;*/ background-color:rgba(var(--bs-dark-rgb)">
+<div class="row pl-3 pb-3" style="/*border:solid; margin-top:20px;*/ background-color:rgba(var(--bs-dark-rgb))">
     <div class="card text-white bg-dark">
     <div class="card-header" style="width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
         <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
@@ -35,11 +35,11 @@
         Read Manga Online - Latest Updates
     </h3>
 </div>
-<div class="row pl-3 pb-3" style="border:solid;margin-top:0px; background-color:gray"
+<div class="row pl-3 pb-3" style="border:solid;margin-top:0px; background-color:gray">
     <div class="col-10">
         <div class="row">
             <div class="col-8">
-                <div class="row pb-1 pt-1" style="width:850px"
+                <div class="row pb-1 pt-1" style="width:850px">
                     <link rel="stylesheet" href="~/css/bootswatchTheme.css" />
                     @foreach (var mangaChapterList in mangaIndexDict)
                     {
@@ -56,7 +56,7 @@
                                             <h5 style="font-weight:bold">@mangaChapterList.Key.Title</h5>
                                         </a>
                                         <p class="card-text" style="font-style:italic; margin-bottom:0px">@mangaChapterList.Key.Author.Name</p>
-                                        <table class>
+                                        <table class="table-primary">
                                         @foreach (var chapter in mangaChapterList.Value)
                                         {
                                             <tr>
@@ -96,7 +96,7 @@
                 <div class="row pb-0 pt-3" style="width:440px">
                     <div class="card text-white bg-dark mb-3" style="height:100%; width:100%">
                     <div class="card-header" style="width:inherit; font-weight:bold">New Manga</div>
-                        <div class="row" style="height:100%; width:100%; padding-left:8px; background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity))">
+                        <div class="row" style="height:100%; width:100%; padding-left:8px; background-color: rgba(var(--bs-dark-rgb))">
                         @foreach (var mangaObj in Model.NewManga)
                             {
                                 <div class="card" style="height:100%; width:20%; border-style:double; padding:0px">
