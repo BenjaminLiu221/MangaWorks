@@ -183,9 +183,31 @@ namespace MangaWorksWeb.Controllers
                 }
             }
 
+            //TopWeekManga
+            var hotMangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
+            var topWeekMangaList = new List<Manga>();
+            var lastChapterList = new List<Chapter>();
+
+            foreach (var manga in hotMangaList)
+            {
+                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).FirstOrDefault();
+                if (lastChapterOfManga != null)
+                {
+                    lastChapterList.Add(lastChapterOfManga);
+                }
+            }
+
+            List<Chapter> orderedLastChapterList = lastChapterList.OrderByDescending(a => a.Updated).ToList();
+
+            foreach (var chapter in orderedLastChapterList)
+            {
+                topWeekMangaList.Add(_unitOfWork.Manga.GetFirstOrDefault(a => a.Id == chapter.MangaId, includeProperties: "Author"));
+            }
+
             MangaByGenre mangaByGenre = new()
             {
-                MangaList = mangaListByGenre
+                MangaList = mangaListByGenre,
+                TopWeekManga = topWeekMangaList,
             };
             return View(mangaByGenre);
         }

@@ -9,5 +9,6 @@ namespace MangaWorks.Models
     public class MangaByGenre
     {
         public List<Manga> MangaList { get; set; }
+        public List<Manga> TopWeekManga { get; set; }
     }
 }

@@ -21,7 +21,6 @@ namespace MangaWorksWeb.Controllers
             var lastChapterList = new List<Chapter>();
             var latestMangaList = new List<Manga>();
 
-            var mostPopularMangaList = new List<Manga>();
             var mangaListByVotesDesc = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
             var topWeekMangaList = new List<Manga>();
 

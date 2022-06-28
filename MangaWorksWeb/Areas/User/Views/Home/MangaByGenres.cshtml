@@ -1,5 +1,22 @@
 ﻿@model MangaByGenre
 
+<div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+    <div class="autoplay" style="padding:10px; margin-bottom:5px">
+        @{
+            int mangaCarouselCount = 0;
+        }
+        @foreach (var mangaObj in @Model.TopWeekManga)
+        {
+            if(mangaCarouselCount < 20)
+            {
+                <img src="@mangaObj.ImageUrl" style="object-fit:cover">
+                mangaCarouselCount++;
+            }
+        }
+    </div>
+</div>
+
 <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb)">
     <a asp-controller="Home" asp-action="Index">
         <p style="margin:0; background:gray">Read Manga Online</p>
@@ -58,3 +75,7 @@
         }
     }
 </div>
+
+@section Scripts{
+<script src="~/js/carousel.js"></script>
+}
