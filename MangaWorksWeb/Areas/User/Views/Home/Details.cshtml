@@ -2,7 +2,7 @@
 
 <div style="width:100%; background-color:rgba(var(--bs-dark-rgb))">
     <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
-    <div class="autoplay">
+    <div class="autoplay" style="padding:10px; margin-bottom:5px">
         @{
             int mangaCarouselCount = 0;
         }
@@ -10,9 +10,7 @@
         {
             if(mangaCarouselCount < 20)
             {
-                <div class="card">
-                    <img src="@mangaObj.ImageUrl"/>
-                </div>
+                <img src="@mangaObj.ImageUrl" style="object-fit:cover">
                 mangaCarouselCount++;
             }
         }
