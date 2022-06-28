@@ -12,6 +12,6 @@ namespace MangaWorks.Models
     {
         public Manga Manga { get; set; }
         [ValidateNever]
-        public IEnumerable<SelectListItem> ChapterList { get; set; }
+        public List<Chapter> ChapterList { get; set; }
     }
 }

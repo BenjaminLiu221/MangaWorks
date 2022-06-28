@@ -47,7 +47,10 @@ namespace MangaWorksWeb.Controllers
             foreach (var manga in mangaList)
             {
                 var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).FirstOrDefault();
-                lastChapterList.Add(lastChapterOfManga);
+                if (lastChapterOfManga != null)
+                {
+                    lastChapterList.Add(lastChapterOfManga);
+                }
             }
 
             List<Chapter> orderedLastChapterList = lastChapterList.OrderByDescending(a => a.Updated).ToList();
@@ -109,28 +112,24 @@ namespace MangaWorksWeb.Controllers
             MangaDetails mangaDetailsObj = new()
             {
                 Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
-                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
-                {
-                    Text = a.ChapterNumber.ToString(),
-                    Value = a.Id.ToString()
-                })
+                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).OrderByDescending(a => a.ChapterNumber).ToList()
             };
             return View(mangaDetailsObj);
         }
 
-        public IActionResult TestDetails(int id)
-        {
-            MangaDetails mangaDetailsObj = new()
-            {
-                Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
-                ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
-                {
-                    Text = a.ChapterNumber.ToString(),
-                    Value = a.Id.ToString()
-                })
-            };
-            return View(mangaDetailsObj);
-        }
+        //public IActionResult TestDetails(int id)
+        //{
+        //    MangaDetails mangaDetailsObj = new()
+        //    {
+        //        Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
+        //        ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
+        //        {
+        //            Text = a.ChapterNumber.ToString(),
+        //            Value = a.Id.ToString()
+        //        })
+        //    };
+        //    return View(mangaDetailsObj);
+        //}
 
         public IActionResult MangaByGenres(int id)
         {

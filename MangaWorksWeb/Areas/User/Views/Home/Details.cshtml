@@ -2,7 +2,7 @@
 
 <div style="display:flex; width:100%; background:darkgray">
     <div style="width:70%">
-        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb)">
+        <div style="display:flex; color:black; font-weight:bold; width:100%; padding:10px; padding-bottom:0; background-color:rgba(var(--bs-dark-rgb))">
             <a asp-controller="Home" asp-action="Index">
                 <p style="margin:0; background:gray">Read Manga Online</p>
             </a>
@@ -11,7 +11,7 @@
                 <p style="margin:0; background:gray">@Model.Manga.Title</p>
             </a>
         </div>
-        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb))">
             <div style="display:flex; width:100%">
                 <div class="card-img" style="width:13vw; padding:0; background-color:gray">
                     <img src="@Model.Manga.ImageUrl" style="width:12vw; object-fit:contain; float:left">
@@ -44,14 +44,14 @@
             </div>
         </div>
 
-        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb))">
             <div style="width:100%; background:gray">
                 <p style="padding-bottom:0; font-size:large; font-weight:bold">Description :</p>
                 <p>@Html.Raw(Model.Manga.Description)</p>
             </div>
         </div>
 
-        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb)">
+        <div style="color:black; font-weight:bold; width:100%; padding:10px; background-color:rgba(var(--bs-dark-rgb))">
             <div class="tableFixHead" style="width:100%">
                 <table class="table table-primary" style="width:100%">
                     <thead>
@@ -59,21 +59,28 @@
                             <td style="padding:5px; background:gray">
                                 @Html.Raw("Chapter Name")
                             </td>
+                            <td style="padding:5px; background:gray">
+                                @Html.Raw("View")
+                            </td>
+                            <td style="padding:5px; background:gray">
+                                @Html.Raw("Uploaded")
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
-                        @{
-                            var sortedChapterList = (from chapter in Model.ChapterList
-                                                        orderby Int32.Parse(chapter.Text) descending
-                                                        select chapter).ToList();
-                        }
-                        @foreach (var obj in sortedChapterList)
+                        @foreach (var obj in @Model.ChapterList)
                         {
                             <tr>
-                                <td style="padding:5px; width:50%">
-                                    <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-id="@(obj.Value==null?0:@obj.Value)">
-                                        <i class="bi bi-chevron-double-right">Chapter @obj.Text</i>
+                                <td style="padding:5px; width:70%">
+                                    <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-id="@(obj.Id.ToString() == null ? 0 : @obj.Id)">
+                                        <i class="bi bi-chevron-double-right">Chapter @obj.ChapterNumber</i>
                                     </a>
+                                </td>
+                                <td style="padding:5px; width:15%">
+                                    @obj.Views
+                                </td>
+                                <td style="padding:5px; width:15%">
+                                    @obj.Updated.Date.ToString("MM/dd/yyyy")
                                 </td>
                             </tr>
                         }
@@ -83,7 +90,7 @@
         </div>
     </div>
 
-    <div style="color:black; font-weight:bold; width:30%; padding:10px; padding-top:44px; background-color:rgba(var(--bs-dark-rgb)">
+    <div style="color:black; font-weight:bold; width:30%; padding:10px; padding-top:44px; background-color:rgba(var(--bs-dark-rgb))">
         <div style="width:100%; background:gray">
             <p style="padding-bottom:0; font-size:large; font-weight:bold">Most Popular Manga Placeholder</p>
             <p>@Html.Raw(Model.Manga.Description)</p>

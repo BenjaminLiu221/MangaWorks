@@ -16,6 +16,7 @@ namespace MangaWorks.Models
         [Range(1,10000)]
         public int ChapterNumber { get; set; }
         public DateTime Updated { get; set; }
+        public int Views { get; set; }
 
         [Required]
         [Display(Name = "Manga")]
