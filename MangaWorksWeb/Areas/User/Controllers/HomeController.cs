@@ -238,6 +238,30 @@ namespace MangaWorksWeb.Controllers
         {
             var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id).ToList();
             //return View(pageList);
+
+            //topWeekManga
+            var hotMangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
+
+            //TopWeekManga
+            var topWeekMangaList = new List<Manga>();
+            var lastChapterList = new List<Chapter>();
+
+            foreach (var manga in hotMangaList)
+            {
+                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderByDescending(a => a.ChapterNumber).FirstOrDefault();
+                if (lastChapterOfManga != null)
+                {
+                    lastChapterList.Add(lastChapterOfManga);
+                }
+            }
+
+            List<Chapter> orderedLastChapterList = lastChapterList.OrderByDescending(a => a.Updated).ToList();
+
+            foreach (var chapter in orderedLastChapterList)
+            {
+                topWeekMangaList.Add(_unitOfWork.Manga.GetFirstOrDefault(a => a.Id == chapter.MangaId, includeProperties: "Author"));
+            }
+
             if (pageList.Count() == 0)
             {
                 var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == id);
@@ -247,7 +271,8 @@ namespace MangaWorksWeb.Controllers
                     MangaId = mangaObj.Id,
                     MangaTitle = mangaObj.Title,
                     ChapterId = firstChapter.Id,
-                    ChapterNumber = firstChapter.ChapterNumber
+                    ChapterNumber = firstChapter.ChapterNumber,
+                    TopWeekManga = topWeekMangaList,
                 };
                 return View(pageManga);
             }
@@ -262,8 +287,8 @@ namespace MangaWorksWeb.Controllers
                     MangaId = mangaObj.Id,
                     MangaTitle = mangaObj.Title,
                     ChapterId = firstChapter.Id,
-                    ChapterNumber = firstChapter.ChapterNumber
-
+                    ChapterNumber = firstChapter.ChapterNumber,
+                    TopWeekManga = topWeekMangaList,
                 };
                 return View(pageManga);
             }

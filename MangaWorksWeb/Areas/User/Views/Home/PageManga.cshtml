@@ -1,8 +1,25 @@
 ﻿@model PageManga
 
-@{
-
-}
+<body style="background:gray"></body>
+<div style="color:white; width:100%; background-color:rgba(var(--bs-dark-rgb))">
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+    <div style="padding:10px; color:white; width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
+    <div class="autoplay" style="padding-top:0; margin-bottom:5px">
+        @{
+            int mangaCarouselCount = 0;
+        }
+        @foreach (var mangaObj in @Model.TopWeekManga)
+        {
+            if(mangaCarouselCount < 20)
+            {
+                <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                <img src="@mangaObj.ImageUrl" style="object-fit:cover">
+                </a>
+                mangaCarouselCount++;
+            }
+        }
+    </div>
+</div>
 
 <body style="background:gray"></body>
 <table class="table table-primary table-bordered" style="width:100%">
@@ -56,3 +73,7 @@
         }
     </tbody>
 </table>
+
+@section Scripts{
+<script src="~/js/carousel.js"></script>
+}

@@ -13,5 +13,6 @@ namespace MangaWorks.Models
         public string MangaTitle { get; set; }
         public int ChapterId { get; set; }
         public int ChapterNumber { get; set; }
+        public List<Manga> TopWeekManga { get; set; }
     }
 }
