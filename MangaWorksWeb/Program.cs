@@ -9,7 +9,7 @@ using MangaWorks.Utility;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<ApplicationDbContext>();;
+    .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultUI();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -19,6 +19,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
+builder.Services.AddAuthentication().AddFacebook(options =>
+{
+    options.AppId = "987500245294016";
+    options.AppSecret = "03c11ad2d61a5a7f2004a2c783d1f6c2";
+});
 
 var app = builder.Build();
 
@@ -34,7 +39,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
+app.UseAuthentication(); ;
 
 app.UseAuthorization();
 app.MapRazorPages();

@@ -36,6 +36,7 @@
         "dependencies": {
           "MangaWorks.DataAccess": "1.0.0",
           "MangaWorks.Utility": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.Facebook": "6.0.6",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.AspNetCore.Identity.UI": "6.0.5",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "6.0.5",
@@ -396,6 +397,17 @@
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0"
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/6.0.6": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "assemblyVersion": "6.0.6.0",
+            "fileVersion": "6.0.622.26805"
+          }
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/2.2.0": {
@@ -4969,6 +4981,13 @@
       "sha512": "sha512-XlVJzJ5wPOYW+Y0J6Q/LVTEyfS4ssLXmt60T0SPP+D8abVhBTl+cgw2gDHlyKYIkcJg7btMVh383NDkMVqD/fg==",
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/6.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xeppol1YiDRFS+vvotywhMjD/+lZaZLfWDCaeBaviSktGsmEz3QVxvC4IXDyZ20U2OSoWsnCudGNcvdrilYyVA==",
+      "path": "microsoft.aspnetcore.authentication.facebook/6.0.6",
+      "hashPath": "microsoft.aspnetcore.authentication.facebook.6.0.6.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/2.2.0": {
       "type": "package",
