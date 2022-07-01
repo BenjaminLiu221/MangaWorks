@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MangaWorks.Models\MangaWorks.Models.csproj" />
+    <ProjectReference Include="..\MangaWorks.Utility\MangaWorks.Utility.csproj" />
   </ItemGroup>
 
 </Project>

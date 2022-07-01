@@ -15,3 +15,5 @@ C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.DataAccess\obj\Debug\net
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.DataAccess\obj\Debug\net6.0\MangaWorks.DataAccess.pdb
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.DataAccess\obj\Debug\net6.0\MangaWorks.DataAccess.genruntimeconfig.cache
 C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.DataAccess\obj\Debug\net6.0\ref\MangaWorks.DataAccess.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.DataAccess\bin\Debug\net6.0\MangaWorks.Utility.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.DataAccess\bin\Debug\net6.0\MangaWorks.Utility.pdb

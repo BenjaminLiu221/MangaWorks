@@ -3191,6 +3191,7 @@
       "MangaWorks.DataAccess/1.0.0": {
         "dependencies": {
           "MangaWorks.Models": "1.0.0",
+          "MangaWorks.Utility": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.5",
