@@ -1,0 +1,12 @@
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\bin\Release\net6.0\MangaWorks.Models.deps.json
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\bin\Release\net6.0\MangaWorks.Models.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\bin\Release\net6.0\MangaWorks.Models.pdb
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.csproj.AssemblyReference.cache
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.AssemblyInfoInputs.cache
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.AssemblyInfo.cs
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.csproj.CoreCompileInputs.cache
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\refint\MangaWorks.Models.dll
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\MangaWorks.Models.pdb
+C:\Users\benja\Documents\Projects\MangaWorks\MangaWorks.Models\obj\Release\net6.0\ref\MangaWorks.Models.dll
