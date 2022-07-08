@@ -110,7 +110,7 @@
                 <div class="grid-container-3" style="padding-left:10px">
                     @foreach (var obj in @Model.GenreList)
                     {
-                        <a asp-action="MangaByGenres" class="text-primary" asp-route-id="@obj.Value">
+                        <a asp-action="Genre" class="text-primary" asp-route-id="@obj.Value">
                             <p style="color:white; margin:0">@obj.Text</p>
                         </a>
                     }

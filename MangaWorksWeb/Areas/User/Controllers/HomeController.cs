@@ -125,7 +125,7 @@ namespace MangaWorksWeb.Controllers
                     Text = a.Name,
                     Value = a.Id.ToString()
                 }
-            )};
+            ) };
             return View(homeIndexVM);
         }
 
@@ -174,11 +174,12 @@ namespace MangaWorksWeb.Controllers
                     Text = a.Name,
                     Value = a.Id.ToString()
                 }
-            )};
+            ) };
             return View(mangaDetailsObj);
         }
 
-        public IActionResult MangaByGenres(int id)
+        [Route("genre-{id}")]
+        public IActionResult Genre(int id)
         {
             var genreObj = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
             var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
