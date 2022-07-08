@@ -129,6 +129,7 @@ namespace MangaWorksWeb.Controllers
             return View(homeIndexVM);
         }
 
+        [Route("manga-{id}")]
         public IActionResult Manga(int id)
         {
             var mostPopularMangaList = new List<Manga>();
@@ -177,20 +178,6 @@ namespace MangaWorksWeb.Controllers
             return View(mangaDetailsObj);
         }
 
-        //public IActionResult TestDetails(int id)
-        //{
-        //    MangaDetails mangaDetailsObj = new()
-        //    {
-        //        Manga = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == id, includeProperties: "Author"),
-        //        ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == id).Select(a => new SelectListItem
-        //        {
-        //            Text = a.ChapterNumber.ToString(),
-        //            Value = a.Id.ToString()
-        //        })
-        //    };
-        //    return View(mangaDetailsObj);
-        //}
-
         public IActionResult MangaByGenres(int id)
         {
             var genreObj = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
@@ -234,9 +221,10 @@ namespace MangaWorksWeb.Controllers
             return View(mangaByGenre);
         }
 
-        public IActionResult PageManga(int id)
+        [Route("manga-{manga_Id}/chapter-{chapter_Id}")]
+        public IActionResult PageManga(int chapter_Id, int manga_Id)
         {
-            var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == id).ToList();
+            var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == chapter_Id).ToList();
             //return View(pageList);
 
             //topWeekManga
@@ -264,7 +252,7 @@ namespace MangaWorksWeb.Controllers
 
             if (pageList.Count() == 0)
             {
-                var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == id);
+                var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == chapter_Id);
                 var mangaObj = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == firstChapter.MangaId);
                 PageManga pageManga = new()
                 {
@@ -278,7 +266,7 @@ namespace MangaWorksWeb.Controllers
             }
             else
             {
-                var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == id);
+                var firstChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == chapter_Id);
                 var mangaObj = _unitOfWork.Manga.GetFirstOrDefault(a => a.Id == firstChapter.MangaId);
 
                 PageManga pageManga = new()
