@@ -222,7 +222,7 @@ namespace MangaWorksWeb.Controllers
             return View(mangaByGenre);
         }
 
-        [Route("manga-{manga_Id}/chapter-{chapter_Id}")]
+        [Route("manga-{manga_Id}/chapter_Id-{chapter_Id}")]
         public IActionResult PageManga(int chapter_Id, int manga_Id)
         {
             var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == chapter_Id).ToList();
