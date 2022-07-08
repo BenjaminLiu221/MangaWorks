@@ -12,7 +12,7 @@
         {
             if(mangaCarouselCount < 20)
             {
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
                 <img src="@mangaObj.ImageUrl" style="object-fit:cover">
                 </a>
                 mangaCarouselCount++;
@@ -38,7 +38,7 @@
             <div class="card-img" style="padding:10px; background-color:rgba(var(--bs-dark-rgb)">
                 <img src="@mangaObj.ImageUrl" style="height:10vw; width:7vw; object-fit:fill; float:left">
                 <div class="grid-container">
-                    <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                    <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
                         <p style="color:white; font-size:larger; font-weight:bold; text-align:left; padding-left:5px; margin-bottom:0"> 
                             @if (mangaObj.Title.Length > 450)
                             {
@@ -59,7 +59,7 @@
                          @if(mangaObj.Description.Length > 200)
                          {
                              @Html.Raw(mangaObj.Description.Substring(0,200) + "...")
-                             <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                             <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
                                  <h5 style="color:white; font-weight:normal; text-align:center">-----------Read More-----------</h5>
                              </a>
                          }
@@ -67,7 +67,7 @@
                          {
                             <p>@Html.Raw(mangaObj.Description)</p>
                             <div class="bottom-0">
-                                <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                                <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
                                     <h5 style="color:white; font-weight:normal; text-align:center">-----------Read More-----------</h5>
                                 </a>
                             </div>

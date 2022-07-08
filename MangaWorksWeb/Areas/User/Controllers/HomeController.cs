@@ -129,7 +129,7 @@ namespace MangaWorksWeb.Controllers
             return View(homeIndexVM);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult Manga(int id)
         {
             var mostPopularMangaList = new List<Manga>();
             var mangaListByVotesDesc = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();

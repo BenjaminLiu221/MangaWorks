@@ -16,7 +16,7 @@
         {
             if(mangaCarouselCount < 20)
             {
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Id">
+                <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
                 <img src="@mangaObj.ImageUrl" style="object-fit:cover">
                 </a>
                 mangaCarouselCount++;
@@ -41,7 +41,7 @@
                     <div class="grid-container-2-index" style="padding-bottom:10px; background-color:rgba(var(--bs-dark-rgb))">
                         <img src="@mangaObj.Key.ImageUrl" style="height:8vw; width:6vw; object-fit:fill">
                         <div>
-                            <a asp-controller="Home" asp-action="Details" asp-route-id="@mangaObj.Key.Id">
+                            <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Key.Id">
                                 <p style="color:white; font-size:larger; font-weight:bold; text-align:left; padding:0; margin:0"> 
                                     @if (mangaObj.Key.Title.Length > 30)
                                     {
@@ -80,7 +80,7 @@
                 @foreach (var obj in @Model.MostPopularManga)
                 {
                     var title = @obj.Title.Length > 35 ? @obj.Title.Substring(0,35) + "..." : @obj.Title;
-                    <a asp-action="Details" class="text-primary" asp-route-id="@obj.Id">
+                    <a asp-action="Manga" class="text-primary" asp-route-id="@obj.Id">
                         <p style="color:white; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
                     </a>
                 }
@@ -93,7 +93,7 @@
                 @foreach (var mangaObj in Model.NewManga)
                 {
                     <div>
-                        <a asp-action="Details" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
+                        <a asp-action="Manga" class="text-primary" style="text-align:left" asp-route-id="@mangaObj.Id">
                             <img src="@mangaObj.ImageUrl" class="card-img-top" style="object-fit:fill; height:100%" />
                         </a>
                     </div>
