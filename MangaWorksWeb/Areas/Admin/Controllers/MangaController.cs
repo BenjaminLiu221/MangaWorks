@@ -4,6 +4,7 @@ using MangaWorks.Models;
 using MangaWorks.Models.ViewModels;
 using MangaWorks.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -13,13 +14,15 @@ namespace MangaWorksWeb.Controllers
     [Authorize(Roles = SD.Role_Admin)]
     public class MangaController : Controller
     {
+        private readonly ApplicationDbContext _dbContext;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWebHostEnvironment _hostEnvironment;
 
-        public MangaController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment)
+        public MangaController(IUnitOfWork unitOfWork, IWebHostEnvironment hostEnvironment, ApplicationDbContext dbContext)
         {
             _unitOfWork = unitOfWork;
             _hostEnvironment = hostEnvironment;
+            _dbContext = dbContext;
         }
         public IActionResult Index()
         {
@@ -218,6 +221,58 @@ namespace MangaWorksWeb.Controllers
         {
             var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
             return Json(new { data = mangaList });
+        }
+
+        [HttpGet("[action]")]
+        [Route("api/{action}")]
+        public IActionResult Get(string? titleQuery, string? genre, int? authorId, string? status, double? minRating, int? minViews, DateTime? minDateTime)
+        {
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author");
+            var mangas = mangaList;
+            if (titleQuery != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.Title.StartsWith(titleQuery)
+                          select manga).ToList();
+            }
+            if (genre != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.MangaGenres.Contains(genre)
+                          select manga).ToList();
+            }
+            if (authorId != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.AuthorId.Equals(authorId)
+                          select manga).ToList();
+            }
+            
+            if (status != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.Status.Contains(status)
+                          select manga).ToList();
+            }
+            if (minRating != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.Rating >= minRating
+                          select manga).ToList();
+            }
+            if (minViews != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.Views >= minViews
+                          select manga).ToList();
+            }
+            if (minDateTime != null)
+            {
+                mangas = (from manga in mangas
+                          where manga.Updated >= minDateTime
+                          select manga).ToList();
+            }
+            return Ok(Json(new { data = mangas }));
         }
 
         //POST
