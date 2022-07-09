@@ -60,7 +60,7 @@
                             <div class="grid-container-2 gap-0">
                                 @foreach (var chapter in mangaObj.Value)
                                 {
-                                    <a asp-controller="Home" asp-action="PageManga" asp-route-chapter_Id = "@chapter.Id" asp-route-manga_Id="@chapter.MangaId">
+                                    <a asp-controller="Home" asp-action="PageManga" asp-route-chapterNumber = "@chapter.ChapterNumber" asp-route-chapter_Id = "@chapter.Id" asp-route-manga_Id="@chapter.MangaId">
                                         <p style="color:white; padding:0; margin:0">Chapter @chapter.ChapterNumber</p>
                                     </a>
                                     <p style="color:white; padding:0; padding-right:20px; margin:0; text-align:right">@chapter.Updated.Date.ToString("MM/dd/yyyy")</p>
