@@ -15,9 +15,13 @@ namespace MangaWorksWeb.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        //[Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
+        [Route("hotmanga/pageNumber-{pageNumber}")]
+        public IActionResult Index(int? pageNumber, int? pageSize)
         {
-            var hotMangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).ToList();
+            int currentPageNumber = pageNumber ?? 1;
+            int currentPageSize = pageSize ?? 20;
+            var hotMangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").OrderByDescending(a => a.NumberOfRatings).Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize).ToList();
 
             //TopWeekManga
             var topWeekMangaList = new List<Manga>();
