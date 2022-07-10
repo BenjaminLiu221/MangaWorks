@@ -25,27 +25,27 @@
 <table class="table table-primary table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th style="padding-top:10px; padding-bottom:0px; background-color:rgba(var(--bs-dark-rgb)">
-                <div class="flex-container"@* style="width:20%"*@>
+            <th style="padding-top:10px; padding-bottom:0px; background-color:rgb(54, 69, 79)">
+                <div class="flex-container">
                     <div>
-                        <a asp-action="Index" class="text-primary">
-                            <h4 style="color:white; font-size:small">Read Manga Online</h4>
+                        <a asp-action="Index">
+                            <p style="font-size:medium">Read Manga Online</p>
                         </a>
                     </div>
                     <div>
-                        <h4 style="color:white; font-size:small">>></h4>
+                        <p style="color:white; font-size:medium"> >> </p>
                     </div>
                     <div>
-                        <a asp-action="Manga" class="text-primary" asp-route-id="@Model.MangaId">
-                            <h4 style="color:white; font-size:small">@Model.MangaTitle</h4>
+                        <a asp-action="Manga" asp-route-id="@Model.MangaId">
+                            <p style="font-size:medium">@Model.MangaTitle</p>
                         </a>
                     </div>
                     <div>
-                        <h4 style="color:white; font-size:small">>></h4>
+                        <p style="color:white; font-size:medium">>></p>
                     </div>
                     <div>
-                        <a asp-action="PageManga" class="text-primary" asp-route-id="@Model.ChapterId">
-                            <h4 style="color:white; font-size:small">Chapter @Model.ChapterNumber</h4>
+                        <a asp-action="PageManga" asp-route-id="@Model.ChapterId">
+                            <p style="font-size:medium">Chapter @Model.ChapterNumber</p>
                         </a>
                     </div>
                 </div>
