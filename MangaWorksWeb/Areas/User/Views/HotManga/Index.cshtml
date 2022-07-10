@@ -10,7 +10,7 @@
         }
         @foreach (var mangaObj in @Model.TopWeekManga)
         {
-            if(mangaCarouselCount < 10)
+            if(mangaCarouselCount < 20)
             {
                 <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
                 <img src="@mangaObj.ImageUrl" style="object-fit:cover">

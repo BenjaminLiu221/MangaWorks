@@ -29,7 +29,7 @@ namespace MangaWorksWeb.Controllers
 
             foreach (var manga in mangaList)
             {
-                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderBy(a => a.ChapterNumber).LastOrDefault();
+                var lastChapterOfManga = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga.Id).OrderBy(a => a.ChapterNumber).FirstOrDefault();
                 if (lastChapterOfManga != null)
                 {
                     lastChapterList.Add(lastChapterOfManga);
