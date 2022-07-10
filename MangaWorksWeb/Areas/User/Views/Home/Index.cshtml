@@ -42,7 +42,7 @@
                         <img src="@mangaObj.Key.ImageUrl" style="height:8vw; width:6vw; object-fit:fill">
                         <div>
                             <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Key.Id">
-                                <p style="color:white; font-size:larger; font-weight:bold; text-align:left; padding:0; margin:0"> 
+                                <p style="font-size:larger; font-weight:bold; text-align:left; padding:0; margin:0"> 
                                     @if (mangaObj.Key.Title.Length > 30)
                                     {
                                         @Html.Raw(mangaObj.Key.Title.Substring(0, 30) + "...");
@@ -61,7 +61,7 @@
                                 @foreach (var chapter in mangaObj.Value)
                                 {
                                     <a asp-controller="Home" asp-action="PageManga" asp-route-chapterNumber = "@chapter.ChapterNumber" asp-route-chapter_Id="@chapter.Id" asp-route-manga_Id="@chapter.MangaId">
-                                        <p style="color:white; padding:0; margin:0">Chapter @chapter.ChapterNumber</p>
+                                        <p style="padding:0; margin:0">Chapter @chapter.ChapterNumber</p>
                                     </a>
                                     <p style="color:white; padding:0; padding-right:20px; margin:0; text-align:right">@chapter.Updated.Date.ToString("MM/dd/yyyy")</p>
                                 }
@@ -80,8 +80,8 @@
                 @foreach (var obj in @Model.MostPopularManga)
                 {
                     var title = @obj.Title.Length > 35 ? @obj.Title.Substring(0,35) + "..." : @obj.Title;
-                    <a asp-action="Manga" class="text-primary" asp-route-id="@obj.Id">
-                        <p style="color:white; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
+                    <a asp-action="Manga" asp-route-id="@obj.Id">
+                        <p style="font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
                     </a>
                 }
         </div>
@@ -110,8 +110,8 @@
                 <div class="grid-container-3" style="padding-left:10px">
                     @foreach (var obj in @Model.GenreList)
                     {
-                        <a asp-action="Genre" class="text-primary" asp-route-pageNumber=1 asp-route-id="@obj.Value">
-                            <p style="color:white; margin:0">@obj.Text</p>
+                        <a asp-action="Genre" asp-route-pageNumber=1 asp-route-id="@obj.Value">
+                            <p style="margin:0">@obj.Text</p>
                         </a>
                     }
                 </div>
