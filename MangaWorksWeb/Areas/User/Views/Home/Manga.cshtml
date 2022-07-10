@@ -25,11 +25,11 @@
         <div style="width:67%; margin-right:5px">
             <div style="display:flex; color:white; font-weight:bold; width:100%; padding:0; background-color:rgb(54, 69, 79)">
                 <a asp-controller="Home" asp-action="Index">
-                    <p style="padding:10px; margin:0; background:rgb(54, 69, 79)">Read Manga Online</p>
+                    <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">Read Manga Online</p>
                 </a>
                 <p style="padding-top:10px; padding-bottom:10px; margin:0; background:rgb(54, 69, 79); color:white">>></p>
                 <a asp-controller="Home" asp-action="Manga" asp-route-id="@Model.Manga.Id">
-                    <p style="padding:10px; margin:0; background:rgb(54, 69, 79)">@Model.Manga.Title</p>
+                    <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">@Model.Manga.Title</p>
                 </a>
             </div>
             <div style="color:white; font-weight:bold; width:100%; padding:0; background-color:rgba(var(--bs-dark-rgb))">
@@ -92,15 +92,15 @@
                             @foreach (var obj in @Model.ChapterList)
                             {
                                 <tr>
-                                    <td style="padding:5px; width:70%; background:rgba(var(--bs-dark-rgb))">
+                                    <td style="padding:5px; width:70%)">
                                         <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-chapterNumber="@(obj.Id.ToString() == null ? 0 : @obj.ChapterNumber)" asp-route-chapter_Id="@(obj.Id.ToString() == null ? 0 : @obj.Id)" asp-route-manga_Id="@(obj.Id.ToString() == null ? 0 : @obj.MangaId)">
                                             <i class="bi bi-chevron-double-right">Chapter @obj.ChapterNumber</i>
                                         </a>
                                     </td>
-                                    <td style="color:white; padding:5px; width:15%; background:rgba(var(--bs-dark-rgb))">
+                                    <td style="padding:5px; width:15%">
                                         @obj.Views
                                     </td>
-                                    <td style="color:white; padding:5px; width:15%; background:rgba(var(--bs-dark-rgb))">
+                                    <td style="padding:5px; width:15%">
                                         @obj.Updated.Date.ToString("MM/dd/yyyy")
                                     </td>
                                 </tr>
@@ -117,8 +117,8 @@
                     @foreach (var obj in @Model.MostPopularManga)
                     {
                         var title = @obj.Title.Length > 35 ? @obj.Title.Substring(0,35) + "..." : @obj.Title;
-                        <a asp-action="Manga" asp-route-id="@obj.Id">
-                            <p style="font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
+                        <a asp-action="Manga" class="text-primary" asp-route-id="@obj.Id">
+                            <p style="color:white; font-weight:bold; margin:0; padding-left:5px"><i class="bi bi-arrow-right-circle">&nbsp;&nbsp;@title</i></p>
                         </a>
                     }
             </div>
@@ -128,8 +128,8 @@
                     <div class="grid-container-3" style="padding-left:10px">
                         @foreach (var obj in @Model.GenreList)
                         {
-                            <a asp-action="Genre" asp-route-pageNumber=1 asp-route-id="@obj.Value">
-                                <p style="margin:0">@obj.Text</p>
+                            <a asp-action="Genre" class="text-primary" asp-route-pageNumber=1 asp-route-id="@obj.Value">
+                                <p style="color:white; margin:0">@obj.Text</p>
                             </a>
                         }
                     </div>

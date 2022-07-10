@@ -28,24 +28,24 @@
             <th style="padding-top:10px; padding-bottom:0px; background-color:rgb(54, 69, 79)">
                 <div class="flex-container">
                     <div>
-                        <a asp-action="Index">
-                            <p style="font-size:medium">Read Manga Online</p>
+                        <a asp-action="Index" class="text-primary">
+                            <h4 style="color:white; font-size:small">Read Manga Online</h4>
                         </a>
                     </div>
                     <div>
-                        <p style="color:white; font-size:medium"> >> </p>
+                        <h4 style="color:white; font-size:small"> >> </h4>
                     </div>
                     <div>
                         <a asp-action="Manga" asp-route-id="@Model.MangaId">
-                            <p style="font-size:medium">@Model.MangaTitle</p>
+                            <h4 style="color:white; font-size:small">@Model.MangaTitle</h4>
                         </a>
                     </div>
                     <div>
-                        <p style="color:white; font-size:medium">>></p>
+                        <h4 style="color:white; font-size:small">>></h4>
                     </div>
                     <div>
                         <a asp-action="PageManga" asp-route-id="@Model.ChapterId">
-                            <p style="font-size:medium">Chapter @Model.ChapterNumber</p>
+                            <h4 style="color:white; font-size:small">Chapter @Model.ChapterNumber</h4>
                         </a>
                     </div>
                 </div>
