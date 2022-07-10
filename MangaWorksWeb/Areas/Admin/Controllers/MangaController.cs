@@ -232,7 +232,7 @@ namespace MangaWorksWeb.Controllers
             if (titleQuery != null)
             {
                 mangas = (from manga in mangas
-                          where manga.Title.StartsWith(titleQuery)
+                          where manga.Title.ToLower().StartsWith(titleQuery.ToLower())
                           select manga).ToList();
             }
             if (genre != null)
