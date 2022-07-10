@@ -28,7 +28,7 @@
                     <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">Read Manga Online</p>
                 </a>
                 <p style="padding-top:10px; padding-bottom:10px; margin:0; background:rgb(54, 69, 79); color:white">>></p>
-                <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Manga.Id">
+                <a asp-controller="Home" asp-action="Manga" asp-route-id="@Model.Manga.Id">
                     <p style="padding:10px; margin:0; background:rgb(54, 69, 79); color:white">@Model.Manga.Title</p>
                 </a>
             </div>
@@ -93,7 +93,7 @@
                             {
                                 <tr>
                                     <td style="padding:5px; width:70%">
-                                        <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-chapter_Id="@(obj.Id.ToString() == null ? 0 : @obj.Id)" asp-route-manga_Id="@(obj.Id.ToString() == null ? 0 : @obj.MangaId)">
+                                        <a asp-controller="Home" asp-action="PageManga" style="width:195px" asp-route-chapterNumber="@(obj.Id.ToString() == null ? 0 : @obj.ChapterNumber)" asp-route-chapter_Id="@(obj.Id.ToString() == null ? 0 : @obj.Id)" asp-route-manga_Id="@(obj.Id.ToString() == null ? 0 : @obj.MangaId)">
                                             <i class="bi bi-chevron-double-right">Chapter @obj.ChapterNumber</i>
                                         </a>
                                     </td>
@@ -128,7 +128,7 @@
                     <div class="grid-container-3" style="padding-left:10px">
                         @foreach (var obj in @Model.GenreList)
                         {
-                            <a asp-action="Genre" class="text-primary" asp-route-id="@obj.Value">
+                            <a asp-action="Genre" class="text-primary" asp-route-pageNumber=1 asp-route-id="@obj.Value">
                                 <p style="color:white; margin:0">@obj.Text</p>
                             </a>
                         }

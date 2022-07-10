@@ -178,9 +178,11 @@ namespace MangaWorksWeb.Controllers
             return View(mangaDetailsObj);
         }
 
-        [Route("genre-{id}")]
-        public IActionResult Genre(int id)
+        [Route("genre-{id}/pageNumber-{pageNumber}")]
+        public IActionResult Genre(int id, int? pageNumber, int? pageSize)
         {
+            int currentPageNumber = pageNumber ?? 1;
+            int currentPageSize = pageSize ?? 20;
             var genreObj = _unitOfWork.Genre.GetFirstOrDefault(a => a.Id == id);
             var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
             List<Manga> mangaListByGenre = new();
@@ -216,7 +218,7 @@ namespace MangaWorksWeb.Controllers
 
             MangaByGenre mangaByGenre = new()
             {
-                MangaList = mangaListByGenre,
+                MangaList = mangaListByGenre.Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize).ToList(),
                 TopWeekManga = topWeekMangaList,
             };
             return View(mangaByGenre);

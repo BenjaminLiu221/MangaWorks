@@ -15,9 +15,12 @@ namespace MangaWorksWeb.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        [Route("newest/pageNumber-{pageNumber}")]
+        public IActionResult Index(int? pageNumber, int? pageSize)
         {
-            var allFirstChaptersOfMangaByNewestUpdated = _unitOfWork.Chapter.GetAll().Where(a => a.ChapterNumber == 1).OrderByDescending(a => a.Updated).ToList();
+            int currentPageNumber = pageNumber ?? 1;
+            int currentPageSize = pageSize ?? 20;
+            var allFirstChaptersOfMangaByNewestUpdated = _unitOfWork.Chapter.GetAll().Where(a => a.ChapterNumber == 1).OrderByDescending(a => a.Updated).Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize).ToList();
             List<Manga> newestMangaList = new List<Manga>();
 
             foreach (var chapter in allFirstChaptersOfMangaByNewestUpdated)

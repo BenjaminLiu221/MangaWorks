@@ -15,9 +15,12 @@ namespace MangaWorksWeb.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        [Route("latestmanga/pageNumber-{pageNumber}")]
+        public IActionResult Index(int? pageNumber, int? pageSize)
         {
-            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").ToList();
+            int currentPageNumber = pageNumber ?? 1;
+            int currentPageSize = pageSize ?? 20;
+            var mangaList = _unitOfWork.Manga.GetAll(includeProperties: "Author").Skip((currentPageNumber - 1) * currentPageSize).Take(currentPageSize).ToList();
             var lastChapterList = new List<Chapter>();
             var latestMangaList = new List<Manga>();
 

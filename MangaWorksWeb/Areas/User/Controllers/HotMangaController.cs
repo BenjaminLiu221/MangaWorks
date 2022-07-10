@@ -15,7 +15,6 @@ namespace MangaWorksWeb.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        //[Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
         [Route("hotmanga/pageNumber-{pageNumber}")]
         public IActionResult Index(int? pageNumber, int? pageSize)
         {

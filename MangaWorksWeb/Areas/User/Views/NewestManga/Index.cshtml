@@ -80,6 +80,83 @@
     }
 </div>
 
+<div>
+    @{
+        var reqUrl = Context.Request.RouteValues["pageNumber"];
+        int pageNumber = Convert.ToInt32(reqUrl);
+        int previousPageNumber = pageNumber - 1;
+        int nextPageNumber = pageNumber + 1;
+    }
+  <ul class="pagination">
+    @{
+        if(pageNumber == 1)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" style="background-color:rgb(54, 69, 79)">&laquo;</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" style="background-color:rgb(54, 69, 79); color:white" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=@previousPageNumber>&laquo;</a>
+            </li>
+        }
+    }
+    @{
+        if(pageNumber == 1)
+        {
+            <li class="page-item active">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=1>1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" style="background-color:rgb(54, 69, 79); color:white" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=2>2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" style="background-color:rgb(54, 69, 79); color:white" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=3>3</a>
+            </li>
+        }
+        else if (pageNumber == 2)
+        {
+            <li class="page-item">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=1>1</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=2>2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=3>3</a>
+            </li>
+        }
+        else if (pageNumber == 3)
+        {
+            <li class="page-item">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=1>1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=2>2</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=3>3</a>
+            </li>
+        }
+    }
+    @{
+        if(pageNumber == 3)
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" style="background-color:rgb(54, 69, 79)">&raquo;</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item">
+                <a class="page-link" style="background-color:rgb(54, 69, 79); color:white" asp-controller="HotManga" asp-action="Index" asp-route-pageNumber=@nextPageNumber>&raquo;</a>
+            </li>                
+        }
+    }
+  </ul>
+</div>
+
 @section Scripts{
 <script src="~/js/carousel.js"></script>
 }
