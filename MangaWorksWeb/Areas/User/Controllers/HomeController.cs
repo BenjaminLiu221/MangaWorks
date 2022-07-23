@@ -227,6 +227,9 @@ namespace MangaWorksWeb.Controllers
         [Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
         public IActionResult PageManga(int chapter_Id, int chapterNumber, int manga_Id)
         {
+            //can't have two methods sharing same endpoint
+            //need to rewrite PageManga method to be more dynamic with chapter movement
+
             var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == chapter_Id).ToList();
             //return View(pageList);
 

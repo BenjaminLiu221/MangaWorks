@@ -1,0 +1,92 @@
+﻿@model PageManga
+
+<body style="background:gray"></body>
+<div style="color:white; width:100%; background-color:rgba(var(--bs-dark-rgb))">
+    <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+    <div style="padding:10px; color:white; width:inherit; font-weight:bold"><i class="bi bi-hand-thumbs-up"> TOP WEEK</i></div>
+    <div class="autoplay" style="padding-top:0; margin-bottom:5px">
+        @{
+            int mangaCarouselCount = 0;
+        }
+        @foreach (var mangaObj in @Model.TopWeekManga)
+        {
+            if(mangaCarouselCount < 20)
+            {
+                <a asp-controller="Home" asp-action="Manga" asp-route-id="@mangaObj.Id">
+                <img src="@mangaObj.ImageUrl" style="object-fit:cover">
+                </a>
+                mangaCarouselCount++;
+            }
+        }
+    </div>
+</div>
+
+<body style="background:gray"></body>
+<table class="table table-primary table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th style="padding-top:10px; padding-bottom:0px; background-color:rgb(54, 69, 79)">
+                <div class="flex-container">
+                    <div>
+                        <a asp-action="Index" class="text-primary">
+                            <h4 style="color:white; font-size:small">Read Manga Online</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 style="color:white; font-size:small"> >> </h4>
+                    </div>
+                    <div>
+                        <a asp-action="Manga" asp-route-id="@Model.MangaId">
+                            <h4 style="color:white; font-size:small">@Model.MangaTitle</h4>
+                        </a>
+                    </div>
+                    <div>
+                        <h4 style="color:white; font-size:small">>></h4>
+                    </div>
+                    <div>
+                        <a asp-action="PageManga" asp-route-id="@Model.ChapterId">
+                            <h4 style="color:white; font-size:small">Chapter @Model.ChapterNumber</h4>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex-container">
+                    @if (Model.ChapterNumber == 1)
+                    {
+                        <a asp-action="NextChapter" asp-route-chapter_Id="@Model.ChapterId" asp-route-chapterNumber="@Model.ChapterNumber" asp-route-manga_Id="@Model.MangaId" class="btn btn-primary" style="width:175px">Next Chapter</a>
+                    }
+                    else
+                    {
+                    }
+                </div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.PageList == null)
+        {
+            <tr>
+                <td></td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var obj in Model.PageList)
+            {
+                <tr>
+                    <td width="10%" height="10%" style="padding-top:inherit;padding-bottom:0;text-align:center">
+                        <img src="@obj.ImageUrl"
+                                 style="border-radius:5px; border:1px solid #bbb9b9; object-fit:cover; width:75%; height:10%" />
+                    </td>
+                </tr>
+            }
+        }
+        
+        @*Add previous chapter button if there is a previous chapter*@
+        @*Add next chapter button if there is a next chapter*@
+
+    </tbody>
+</table>
+
+@section Scripts{
+<script src="~/js/carousel.js"></script>
+}
