@@ -49,6 +49,14 @@
                         </a>
                     </div>
                 </div>
+                <div class="flex-container">
+                    @if(Model.ChapterNumber == 1)
+                    {
+                        <div>
+                            <a asp-action="NextChapter" asp-route-chapter_Id="@Model.ChapterId" class="btn btn-primary" style="width:175px">Next Chapter</a>
+                        </div>
+                    }
+                </div>
             </th>
         </tr>
     </thead>
