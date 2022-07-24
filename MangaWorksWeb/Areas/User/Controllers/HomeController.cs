@@ -227,6 +227,9 @@ namespace MangaWorksWeb.Controllers
         [Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
         public IActionResult PageManga(int chapter_Id, int chapterNumber, int manga_Id)
         {
+            //previousChapter
+            var previousChapter = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga_Id).Where(b => b.ChapterNumber < chapterNumber).OrderBy(c => c.ChapterNumber).FirstOrDefault();
+
             //nextChapter
             var nextChapter = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga_Id).Where(b => b.ChapterNumber > chapterNumber).OrderBy(c => c.ChapterNumber).FirstOrDefault();
 
@@ -278,6 +281,7 @@ namespace MangaWorksWeb.Controllers
                 PageManga pageManga = new()
                 {
                     PageList = pageList,
+                    PreviousChapter = previousChapter,
                     NextChapter = nextChapter,
                     MangaId = mangaObj.Id,
                     MangaTitle = mangaObj.Title,

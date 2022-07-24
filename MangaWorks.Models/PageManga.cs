@@ -10,6 +10,7 @@ namespace MangaWorks.Models
     {
         public List<Page> PageList { get; set; }
         public Chapter NextChapter { get; set; }
+        public Chapter PreviousChapter { get; set; }
         public int MangaId { get; set; }
         public string MangaTitle { get; set; }
         public int ChapterId { get; set; }
