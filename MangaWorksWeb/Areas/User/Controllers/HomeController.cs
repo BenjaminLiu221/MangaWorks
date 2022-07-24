@@ -224,22 +224,11 @@ namespace MangaWorksWeb.Controllers
             return View(mangaByGenre);
         }
 
-        public void NextChapter(int chapter_Id)
-        {
-            //https://localhost:44346/User/Home/NextChapter?chapter_Id=1
-            var currentChapter = _unitOfWork.Chapter.GetFirstOrDefault(a => a.Id == chapter_Id);
-            var nextChapter = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == currentChapter.MangaId).Where(a => a.ChapterNumber > currentChapter.ChapterNumber).OrderBy(b => b.ChapterNumber).FirstOrDefault();
-            var nextChapterId = nextChapter.Id;
-            var nextChapterNumber = nextChapter.ChapterNumber;
-            var nextChapterMangaId = nextChapter.MangaId;
-            PageManga(nextChapterId, nextChapterNumber, nextChapterMangaId);
-        }
-
         [Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
         public IActionResult PageManga(int chapter_Id, int chapterNumber, int manga_Id)
         {
-            //can't have two methods sharing same endpoint
-            //need to rewrite PageManga method to be more dynamic with chapter movement
+            //nextChapter
+            var nextChapter = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga_Id).Where(b => b.ChapterNumber > chapterNumber).OrderBy(c => c.ChapterNumber).FirstOrDefault();
 
             var pageList = _unitOfWork.Page.GetDataFromDbSetUsingFk(a => a.ChapterId == chapter_Id).ToList();
             //return View(pageList);
@@ -289,6 +278,7 @@ namespace MangaWorksWeb.Controllers
                 PageManga pageManga = new()
                 {
                     PageList = pageList,
+                    NextChapter = nextChapter,
                     MangaId = mangaObj.Id,
                     MangaTitle = mangaObj.Title,
                     ChapterId = firstChapter.Id,
