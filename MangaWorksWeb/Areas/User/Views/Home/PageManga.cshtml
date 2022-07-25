@@ -53,7 +53,7 @@
                     @if(Model.PreviousChapter != null)
                     {
                         <div>
-                            <a asp-action="PageManga" asp-route-chapter_Id="@Model.NextChapter.Id" asp-route-chapterNumber="@Model.NextChapter.ChapterNumber" asp-route-manga_Id="@Model.NextChapter.MangaId" class="btn btn-primary" style="width:175px">Prev Chapter</a>
+                            <a asp-action="PageManga" asp-route-chapter_Id="@Model.PreviousChapter.Id" asp-route-chapterNumber="@Model.PreviousChapter.ChapterNumber" asp-route-manga_Id="@Model.PreviousChapter.MangaId" class="btn btn-primary" style="width:175px">Prev Chapter</a>
                         </div>
                     }
                     @if(Model.NextChapter != null)
