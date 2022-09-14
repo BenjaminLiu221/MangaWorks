@@ -263,6 +263,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXE1hbmdhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/User/Views/Home/NextChapter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXE5leHRDaGFwdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/benja/Documents/Projects/MangaWorks/MangaWorksWeb/Areas/User/Views/Home/PageManga.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXFBhZ2VNYW5nYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

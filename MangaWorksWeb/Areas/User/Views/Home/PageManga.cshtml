@@ -50,6 +50,10 @@
                     </div>
                 </div>
                 <div class="flex-container">
+                    <form method="get" asp-action="PageManga" asp-route-chapter_Id="@Model.ChapterId">
+                        <select asp-for="@Model.ChapterId" asp-items="@Model.ChapterList" class="form-select" onchange="this.form.submit()">
+                        </select>
+                    </form>
                     @if(Model.PreviousChapter != null)
                     {
                         <div>

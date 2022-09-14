@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,5 +17,6 @@ namespace MangaWorks.Models
         public int ChapterId { get; set; }
         public int ChapterNumber { get; set; }
         public List<Manga> TopWeekManga { get; set; }
+        public IEnumerable<SelectListItem> ChapterList { get; set; }
     }
 }

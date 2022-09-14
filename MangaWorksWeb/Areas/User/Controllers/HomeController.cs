@@ -224,7 +224,8 @@ namespace MangaWorksWeb.Controllers
             return View(mangaByGenre);
         }
 
-        [Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
+        [HttpGet]
+        //[Route("manga-{manga_Id}/chapter-{chapterNumber}/{chapter_Id}")]
         public IActionResult PageManga(int chapter_Id, int chapterNumber, int manga_Id)
         {
             //previousChapter
@@ -288,6 +289,11 @@ namespace MangaWorksWeb.Controllers
                     ChapterId = firstChapter.Id,
                     ChapterNumber = firstChapter.ChapterNumber,
                     TopWeekManga = topWeekMangaList,
+                    ChapterList = _unitOfWork.Chapter.GetAll().Where(a => a.MangaId == manga_Id).Select(a => new SelectListItem
+                    {
+                        Text = a.ChapterNumber.ToString(),
+                        Value = a.Id.ToString()
+                    })
                 };
                 return View(pageManga);
             }
