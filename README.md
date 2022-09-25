@@ -4,9 +4,11 @@
 
 This is a Manga Website with content management system built on Entity Framework Core 6.0 using MVC.
 
-## Getting Started
+## Prerequisites
+- Beginner to Intermediate level understanding in ASP.NET Core mvc and C#.
 - Visual Studio 2022
-   - IDE to house projects and integrate different frameworks and libraries
+   - .NET 5 Framework
 - Bootstrap v5
-- Microsoft Azure
-   - Website Deployment
+- Microsoft Azure Account
+   - Subscription Key
+- BootsWatch
